@@ -1,0 +1,840 @@
+\documentclass[fleqn, titlepage, 12pt]{report}
+\author{Atanas Ormanov}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[bulgarian,english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\geometry{margin=0.8in}
+
+\newcommand*\rightbijectionarrow{\mathrel{\ooalign{$\twoheadrightarrow$\cr\hidewidth\hbox{$\rightarrowtail\mkern 1mu$}\cr}}}
+
+\title{Записки по Теория на Множествата \\
+\large При проф. Тинко Тинчев}
+
+\begin{document}
+\parindent 0pt
+\maketitle
+
+\begin{center}
+  \underline{\huge\normalfont Лекция 1}
+\end{center}
+\bigbreak
+
+Book recomendation:\\
+Introduction to Set Theory (3d Edition) by Karel Hrbackeck \& Toomas Yech
+\bigbreak
+
+Съпоставка м-ду Актуална безкрайност и Потенциална безкрайност:\\
+На пръв поглед ако $B \subseteq A$ и $B \neq A$, то B има по-малко елементи, но при безкрайни мн-ва не е задължително.
+\bigbreak
+
+\fbox{def} Принцип за неограничената абстракция:\\
+Нека $\mathcal{A} (x)$ е едноместно свойство на обекта $x$. Тогава има множество A, такова че
+$x \in A \Leftrightarrow \mathcal{A} (x)$
+\bigbreak
+
+Парадокс на Ръсел: \\
+Нека $\mathcal{R}$ е св-во такова че $\mathcal{R} (x) \Leftrightarrow x \notin x$ за произволно $x$
+\bigbreak
+
+От принципа за неограничената абстракция (*) - има множество R, \\
+такова че $x \in R \Leftrightarrow \mathcal{R} (x)$ за произволно x \\
+... $R \in R \Leftrightarrow R \notin R$
+\bigbreak
+
+Езикът на теория на множествата се състои от:
+\begin{itemize}
+\item Двуместни свойства: =, $\in$ \\
+(равенство в смисъла на Лайбниц означава неотличимост)
+\item Булеви връзки: $\lor, \land, \lnot, \Rightarrow, \Leftrightarrow$
+\item Квантори: $\forall{x}\phi, \exists{x}\phi$
+\end{itemize}
+ZF - аксиоми на Цермело Френкел \\
+ZFC - ZF заедно с аксиомата за избора
+\bigbreak
+
+\fbox{def} Теоритико множествени свойства: \\
+В света (универсума) има само множества (това са обектите с които ще работим)
+\bigbreak
+
+ТМ свойствата разделяме на: \\
+1) Логически аксиоми
+\begin{itemize}
+  \item $\forall{x}\forall{y}(x = y \Rightarrow y = x)$
+  \item $\forall x \forall y (x = y \Rightarrow y = x)$
+  \item $\forall{x}\forall{y}\forall{z}(x = y \land y = z \Rightarrow x = z)$
+  \item $\forall{x}\forall{y}\forall{z}(x \in y \land y = z \Rightarrow x \in z)$
+  \item $\forall{x}\forall{y}\forall{z}(x = y \land y \in z \Rightarrow x \in z)$
+\end{itemize}
+1-3 са аксиомите за еквивалентност на равенството\\
+4-5 са аксиомите за конгруентност
+\bigbreak
+
+2) Аксиоми на ZF:
+\begin{enumerate}
+  \item $\exists{x}(x = x)$  - Има поне един обект в света
+  \item $\forall{x}\forall{y}(\forall{z}(z \in x \Leftrightarrow z \in y) \Rightarrow x = y))$
+- Обемност / екстенсионалност. Ако 2 множества имат едни и същи елементи, то те са равни.
+  \item $\exists{x}(x = x)$ - принцип за ограничената абстракция / схема \\
+    за отделянето.
+\end{enumerate}
+\underline{Док 2.2:} $\forall{y}\forall{z}(y = z \Rightarrow \forall{x}(x \in y \Leftrightarrow x \in z))$ \\
+Нека предположим че $y = z$, нека x е произволно множество. Използваме логическа аксиома 4 за да докажем.
+\bigbreak
+
+\underline{Док 2.3:} Нека $\phi (x, u_1, u_2, ... , u_n)$ e ТМ. св-во, нека $u_1, ..., u_n$ са произволно мн-ва.
+Всеки път, когато А е множество, съществува множество, чийто елементи са точно онези елементи на А, за които е в сила
+$\phi (x, u_1, u_2, ..., u_n)$. \\
+$\forall{u_1 u_2 ... u_n}\forall{A}\exists{B}\forall{x}(x \in B \Leftrightarrow x \in A \land \phi (x, u_1, u_2, ..., u_n))$ - св-во на x.
+\bigbreak
+
+\fbox{Тв} При фиксирани $A, u_1, ..., u_n$ - множества и теоритико множествено свойство $\phi$,\\
+съществуват единствено множество B, за което
+$\forall{x}(x \in B \Leftrightarrow x \in A \land \phi (x, \overline{u}))$, където $\overline{u}$ са параметри.
+\bigbreak
+
+\underline{Док:} Нека $B_1$ и $B_2$ са такива мн-ва, че:
+$\forall{x}(x \in B_1 \Leftrightarrow x \in A \land \phi (x, \overline{u}))$
+$\forall{x}(x \in B_2 \Leftrightarrow x \in A \land \phi (x, \overline{u}))$
+Искаме да док че $B_1 = B_2$. Нека $y \in B_1$ е произволен. Тогава $y \in A \land \phi (y, \overline{u})$.
+Следователно $y \in B_2$. Така $\forall{x}(x \in B_1 \Leftrightarrow x \in B_2)$. От аксиомата за обемност $B_1 = B_2$.
+\bigbreak
+
+\fbox{Тв} Съществува празно множество
+\bigbreak
+
+\underline{Док:} Ще докажем че $\exists{A}\forall{x}(x \notin A)$ \\
+Нека B е множество (От. аксиомата 0). Нека $\phi (x) \leftrightharpoons \lnot (x = x)$. Нека M е единственото множество, такова че
+$\forall{x}(x \in M \Leftrightarrow x \in B \land \phi (x))$. Ще док. че $\forall{x}(x \notin M)$.
+Допускаме че $x \in M$ е произволно. Тогава $x \in B \land \phi (x)$. Така $\phi (x)$, т.е. $x \neq x$,
+противоречи с 1-вата лог. аксиома. Следователно $x \notin M$. Понеже x е произволно то $\forall{x}(x \notin M)$.
+\bigbreak
+
+\fbox{Опр} За множество А, параметри $\overline{u}$ и св-во $\phi$, съществува единствено такова B, което бележим така:
+$B = \{x\ |\ x \in A \land \phi (x, \overline{u})\}$
+\bigbreak
+
+\fbox{Тв} Съществува единствено празно множество.
+\bigbreak
+
+\underline{Док:} Нека $M_1$ и $M_2$ са празни, т.е. $\forall{x}(x \notin M_1)$ и $\forall{x}(x \notin M_2)$
+Нека t е произволно множество, тогава $t \notin M_1$ и $t \notin M_2$. Но t беше произволно,
+значи $t \in M_1 \Leftrightarrow t \in M_2$ и от аксиомата за обемност $M_1 = M_2$
+Празното множество бележим с $\emptyset$
+\bigbreak
+
+Означение: $A \subseteq B \leftrightharpoons \forall{x}(x \in A \Rightarrow x \in B)$
+\bigbreak
+
+\fbox{Тв} За всяко множество А, е изп. че $\emptyset \subseteq A$
+\bigbreak
+
+\fbox{Тв} Не същ. множество, което съдържа всички мн-ва: $\lnot \exists{A}\forall{x}(x \in A)$
+\bigbreak
+
+\underline{Док:} Допускаме противното. Нека B е такова че $\forall{x}(x \in B)$\\
+Нека $R = \{x\ |\ x \in R \land x \notin x\}$. Използваме аксиомата схема за отделяне с A = B и
+$\phi (x) \leftrightharpoons x \notin x$.
+Отделяме онези x, за които $x \notin x$. Така R е множество. Тогава $R \in B$.
+Получаваме че $R \in R \Leftrightarrow R \in B \land R \notin R \Leftrightarrow R \notin R$ - противоречие с допускането.
+Тоест няма такива мн-ва.
+\bigbreak Future reading:
+
+\begin{itemize}
+  \item actual infinity vs potential infinity
+  \item Banach–Tarski paradox (occurs after the patch of Russel's paradox)
+  \item Cantor's definition of real numbers
+\end{itemize}
+\bigbreak
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 2}
+\end{center}
+\bigbreak
+
+\fbox{Тв} За всеки две множества $A$ и $B$, съществува единствено множество C,\\
+такова че $ \forall{x}(x \in C \Leftrightarrow x \in A \land x \in B)$.
+\bigbreak
+
+\underline{Док за съществуване:} Нека $\phi(x,u) \leftrightharpoons x \in u$.
+Според аксиомната схема за отделяне в-ху множеството $A$ и $\phi$ за $u = B$,
+същ. множество $ C = \{x\ |\ x \in A \land \phi(x,B)\} = \{x\ |\ x \in A \land x \in B\}$. Значи за всяко $x$,
+$x \in C \Leftrightarrow x \in A \land x \in B$
+\bigbreak
+
+\underline{Док за единственост:} Нека $C_1$ и $C_2$ са такива мн-ва, че
+$x \in C_i \Leftrightarrow x \in A \land x \in B, i = 1, 2$. \\
+Тогава за всяко x,
+$x \in C_1 \Leftrightarrow x \in A \land x \in B \Leftrightarrow x \in C_2$ и по аксиомата за обемност $C_1 = C_2$.\\
+Това множество означаваме с $A \cap B$.
+\bigbreak
+
+\fbox{Тв} За всеки две множества A и B, съществува единствено множество C,\\
+такова че $ \forall{x}(x \in C \Leftrightarrow x \in A \land x \notin B)$
+\bigbreak
+
+$\phi(x,u) \leftrightharpoons x \notin u$, т.е. отделяме от А всички ел. x, за които $\phi(x,B)$\\
+$x \in C \Leftrightarrow x \in A \land x \notin B, i = 1, 2$\\
+$x \in C_1 \Leftrightarrow x \in C_2, \forall{x}$\\
+$C_1 = C_2$\\
+Това единствено множество бележим $A \setminus B$ и наричаме разлика на A и B.
+\bigbreak
+
+Можем да правим "голямо" сечение
+\bigbreak
+
+\fbox{Тв} Нека $A \neq \emptyset$. Тогава съществува единствено множество $B$,\\
+което съдържа точно множествата, които са елементи на всеки един елемент на A.\\
+$ \forall{x}(x \in B \Leftrightarrow \forall{y}(y \in A \Rightarrow x \in y))$
+\bigbreak
+
+\underline{Док за същ.:} Нека $y_0 \in A$, защото А е непразно. Нека
+$\phi(x,u) \leftrightharpoons \forall{y}(y \in u \Rightarrow x \in y)$.
+От аксиомната схема за отделянето, има множество\\
+$B' = \{x \in y_0 \land \phi(x,A\} = \{x\ |\ x\in y_0 \land \forall{y}(y \in A \Rightarrow x \in y\}$
+
+Ще док че $\forall{x}(x \in B' \Leftrightarrow \forall{y}(y \in A \Rightarrow x \in y))$
+Нека $x \in B'$. Тогава $x \in y_0 \land \forall{y}(y \in A \Rightarrow x \in y)$,
+в частност $ \forall{y}(y \in A \Rightarrow x \in y)$.\\
+Обратното, нека x е т.ч. $ \forall{y}(y \in A  \Rightarrow x \in y)$.\\
+Но $y_0 \in A$, следователно $x \in y_0$. Така $x \in y_0 \land \forall{y}(y \in A \Rightarrow x \in y)$
+от където $x \in B'$
+\bigbreak
+
+\underline{Док единств.:} Нека $B_1$ и $B_2$ са такива мн-ва че ... $ x \in B_i \Leftrightarrow \forall{y}(y \in A \Rightarrow x \in y)$ за $i = 1,2$\\
+Така за всяко х, $ x\ in B_1 \Leftrightarrow \forall{y}(y \in A \Rightarrow x \in y) \Leftrightarrow x \in B_2$
+Т.е. има единствено такова множество, бележим го $\cap A$ или $\cap_{x \in A}x$
+\bigbreak
+
+Приемаме че $\cap\emptyset \leftrightharpoons \emptyset$
+\bigbreak
+
+\fbox{Аксиома за чифта} За всеки 2 мн-ва a и b, съществува множество A, измежду чиито ел. са a и b.\\
+$ \forall{a} \forall{b} \exists{A} (a \in A \land b \in A)$
+\bigbreak
+
+\fbox{Тв} За всеки 2 мн-ва a и b същ. единствено множество B, т.ч. $ \forall{x}(x \in B \Leftrightarrow x = a \lor x = b)$
+\bigbreak
+
+\underline{Док ед.:} Нека $B_1$ и $B_1$ са мн-ва, т.ч. $ \forall{x}(x \in B_i \Leftrightarrow x = a \lor x = b)$\\
+Тогава за всяко х, $x \in B_1 \Leftrightarrow x = a \lor x = b \Leftrightarrow x \in B_2)$
+След. $B_1 = B_2$
+\bigbreak
+
+\underline{Док същ.:} Нека А е такова множество че $a \in A$ и $ b \in A$. Нека $ \phi(x, u_1, u_2) \leftrightharpoons x = u_1 \lor x = u_2))$\\
+По аксиомата схема за отд., същ. множество $B = \{ x\ |\ x \in A \land \phi(x,a,b)\}$.\\
+Ще док. че $ \forall{x}(x \in B \Leftrightarrow x = a \lor x = b)$. Нека x е произв. и нека $x \in B$.
+Тогава $x \in A \land \phi(x,a,b)$, в частност $ \phi(x,a,b)$ т.е. $x = a \lor x = b$.\\
+Нека сега $x = b \lor x = b$. Така $ \phi(x,a,b)$. Понеже $a \in A$ и $b \in A$, то $x \in A$. Следователно $x \in B$\\
+Това единствено множество ще означаваме $\{a,b\}$ и ще нар. чифт на A и B.
+\bigbreak
+
+Заб: Ако $a = b$, то $ \{a,a\} = \{a\}$ наричаме синглетон на a.
+\bigbreak
+
+Определимо е в езика на ТМ дали $x$ е синглетон.\\
+$x$ е синглетон
+$ \Leftrightarrow \exists{a}(x = \{a\}) \Leftrightarrow \exists{a} \forall{y}(y \in x \Leftrightarrow  y = a)$.\\
+Тогава можем да използваме "синглетон" като свойство във ф-ла. Сега ясно се вижда че сме разширили езика защото следните
+са различни $ \emptyset, \{\emptyset\}, \{ \{\emptyset\}\}$ и т.н. (така получаваме безкрайна редица)
+\bigbreak
+
+\fbox{Св} $\{ a, b\} = \{ b, a\}$. Ясно се вижда че $ \forall{x} (x \in \{ a,b\} \Leftrightarrow x \in \{ b, a\})$
+\bigbreak
+
+\fbox{def} $<a,b> = <a_1,b_1> \Leftrightarrow a = a_1 \land b = b_1$
+\bigbreak
+
+\fbox{Опр} Наредена двойка на мн-вата x и y наричаме множеството $ \{ \{ x\}, \{ x, y\}\}$ и ще означаваме с $<x,y>$.
+\bigbreak
+
+Заб: Ако използваме x вместо $ \{ x\}$ ще можем да правим цикли на принадлежност - $A \in B \in  C$. другия път ще
+въведем "правило" което ще забрани такива неща.
+\bigbreak
+
+\fbox{Тв} За всяко $x1, y1, x2, y2$ е в сила, че $<x1,y1> = <x2,y2> \Leftrightarrow x1 = x2 \land y1 = y2$
+\bigbreak
+
+\underline{Док:} $ (\Leftarrow) x1 = x2 \land  y1 = y2$,
+показваме че $ \{ x1\} = \{ x2\} \land \{ x1, y1\} = \{ x2,y2\}$\\
+$ \{ \{ x1\}, \{ x1, y1\}\} = \{ \{ x2\}, \{ x2, y2\}\}$ и от там $<x1,y1> = <x2,y2>$
+\bigbreak
+
+$(\Rightarrow)$ Нека $<x1,y1> = <x2,y2>$
+\begin{enumerate}
+  \item $x1 = y1$, тогава $<x1,y1> = \{ \{ x1\}, \{ x1,x2\}\} = \{ \{ x1\}, \{ x1\}\} = \{ \{ x1\}\} = <x2,y2> = 
+    \{ \{ x2\}, \{ x2,y2\}\}$. Следователно $ \{ x1\} = \{ x2\} = \{ x2, y2\}$. Така: $x1 = x2$ и $x2 = y2$.
+    Тогава $x1 = x2 = y2 = y1$
+  \item $x1 \neq y1$. Тогава $ \{ x1\} \neq \{ x1, y1\}$. Тогава $ \{ x2\} \neq \{ x2, y2\}$. Тогава $y2 \neq x2$, защото
+    иначе чифта и синглетона щяха да съвпадат. От тук $ \{ x1\} \neq  \{ x2, y2\}$. Но $ \{ x1\} \in <x2,y2>$, и така
+    $ \{ x1\} = \{ x2\}$. След. $ \{ x1, y1\} \neq \{ x2\}$, от където $\{ x1, y1\} = \{ x2, y2\}$.
+    От $ \{ x1\} = \{ x2\}$, следва че $x1 = x2$. Тогава $ \{ x1, y1\} = \{ x2, y1\} = \{ x2, y2\}$.
+    Понеже $y1 \neq x1 = x2$, то $y1 = y2$
+\end{enumerate}
+\bigbreak
+
+\fbox{Аксиома за обединение} За всяко множество A съществува множество B, т.ч. всеки елемент на елемент на A е елемент на B.\\
+$ \forall{x} \forall{y} (x \in y \land y \in A \Rightarrow x \in B)$
+\bigbreak
+
+\fbox{Тв} За всяко множество А съществува единствено множество B,\\
+т.ч. $ \forall{x} (x \in B \Leftrightarrow \exists{y} (y \in A \land x \in y))$
+\bigbreak
+
+\underline{Док за ед:}
+$i = 1, 2. \forall{x} (x \in B_i \Leftrightarrow \exists{y} (y \in A \land x \in y))$ за всяко x,\\
+$x \in B_1 \Leftrightarrow \exists{y} (y \in A \land x in y)\Leftrightarrow x \in B_2$, т.е. $B_1 = B_2$
+\bigbreak
+
+\underline{Док за същ.} Нека C е такова множество, че
+$ \forall{x} \forall{y} (y \in A \land x \in y \Rightarrow x \in C)$.\\
+Нека $B = \{x\ |\ x \in  C \land \exists{y} (y \in A \land x \in y)\}$\\
+Сега ако $x \in B \implies x \in C \land \exists{y} (y \in A \land x \in y) \implies \exists{y} (y \in A \land x \in y)$\\
+Нека $ \exists{y} (y \in A \land x \in y)$. Нека $y_0$ е свидетел за това $(y_0 \in A \land x \in y_0)$.\\
+Понеже $y_0 \in A \land x \in y_0$, то $x \in C$. Следователно $x \in B$
+\bigbreak
+
+Значи съществува такова множество и то е единствено. Ще го бележим с $\cup A$.
+\bigbreak
+
+Заб: Означение означава че ще го използваме във формула като съкращение(syntax sugar).
+\bigbreak
+
+Не може да се дефинира операция за допълнение. Тоест:\\
+\fbox{Тв} За нито едно множество $A$ не съществува множество
+$\overline A$, т.ч. $ \forall{x} (x \in \overline{A} \Leftrightarrow x \notin A)$
+\bigbreak
+
+\underline{Док:} Допускаме противното - нека $A$ и $\overline{A}$ са такива мн-ва, такова че за всяко x
+$x \in \overline{A} \Leftrightarrow x \notin A$.\\
+Нека $V = \cup \{ A, \overline{A}\}$ - от аксиомата за чифта и обединението. Нека x е произволно. Ако $x \in A$, то
+$ \exists{y} (y \in \{ A, \overline{A}\} \land  x \in y)$ от където $x in V$. Ако пък $x \notin A$, то $x \in \overline{A}$
+и отново $ \exists{y} (y \in \{ A, \overline{A}\} \land x \in y)$, т.е.
+$x \in V$. След $ \forall{x} (x \in V)$, противоречие!
+\bigbreak
+
+$ \overline{0} = \emptyset $\\
+$ \overline{1} = \{ \overline{0}\}$\\
+$ \overline{2} = \overline{1} \cup \{ \overline{1}\} = \{ \overline{0}, \overline{1}\}$\\
+...\\
+$ \overline{n + 1} = \overline{n} \cup \{ \overline{n}\}$ (n + 1 елемента)
+\bigbreak
+
+\fbox{Аксиома за степенното множество} За всяко множество A съществува множество B,\\
+измежду чиито елементи са всички подмножества на А.\\
+$ \forall{A} \exists{B} \forall{x} (x \subseteq A \Rightarrow x \in B)$
+\bigbreak
+
+\fbox{Тв} За всяко множество A същ. единствено множество B, т.ч.
+$ \forall{x} (x \in B \Leftrightarrow x \subseteq A)$
+\bigbreak
+
+\underline{Док за същ.:} Некеа C е т.ч. $ \forall{x} (x \subseteq A \Rightarrow x \in C)$.\\
+Нека $ B = \{x\ |\  x \in C \land x \subseteq A\}$. Нека $x \in B$. След $ x \in C \land x \subseteq A$, от където
+$x \subseteq A$. След. $x \in C$ , от където $x \in C \land x \subseteq A$, т.е. $x \in B$\\
+Заб: $x \in C \land x \subseteq A \Leftrightarrow x \subseteq A$, защото $ x \subseteq A \Rightarrow x \in C$
+\bigbreak
+
+\underline{Док за единственост:} Взимаме $B_1, B_2$ и $ \forall{x} (x \in B_i \Leftrightarrow x \subseteq A)$\\
+$ x \in B_1 \Leftrightarrow x \subseteq A \Leftrightarrow x \in B_2$, т.е. $B_1 = B_2$.\\
+Такова множество B съществува и е единствено и ще означаваме с $ \mathcal{P}(A) = \{x\ |\ x \subseteq A\}$
+\bigbreak
+
+\underline{Какво можем да изведем от тук?}
+\begin{itemize}
+  \item $ \emptyset \in \mathcal{P}(A) $ за всяко A
+  \item $ A \in \mathcal{P}(A)$, за всяко A
+  \item $ A \in \mathcal{P}(A)$, за всяко A
+  \item $ A \subseteq B \implies \mathcal{P}(A) \subseteq \mathcal{P}(B) $ - монотонност
+  \item Можем ли да твърдим монотонността в обратната посока? Да!
+  \item Възможно ли е $ \mathcal{P}(A) \subseteq A$? Не! (дори и за празното).
+    Това е същото като $ \mathcal{P}(A) \in  \mathcal{P}(A)$, но това все още не можем да докажем.
+\end{itemize}
+\bigbreak
+
+Но можем да докажем следното:\\
+\fbox{Тв} Не същ. множество A, т.ч. $ \mathcal{P}(A) \subseteq A$
+\bigbreak
+
+\underline{Док:} Допускаме противното и нека A е такова множество, че $ \mathcal{P}(A) \subseteq A$.\\
+Нека $ \mathcal{R}_A = \{x\ |\ x \in A \land x \notin x\}$.
+Според аксиомата схема за отделяне $ \mathcal{R}_A$ е множество.
+Освен това, $ \mathcal{R}_A \subseteq A$. След $ \mathcal{R}_A \in \mathcal{P}(A) $ и по допускане
+$ \mathcal{P}(A) \subseteq A$, от където $ \mathcal{R}_A \in A$.\\
+Но $ \mathcal{R}_A \in A \Leftrightarrow \mathcal{R}_A \in A \land \mathcal{R}_A \notin \mathcal{R}_A \Leftrightarrow 
+\mathcal{R}_A \notin \mathcal{R}_A$. Противоречие! След. $ \lnot \exists{A} ( \mathcal{P}(A) \subseteq A)$
+\bigbreak
+
+\fbox{Опр} Казваме, че множеството z е транзитивно, ако $z \subseteq \mathcal{P}(z) $. (ще бележим с $trans(z)$)\\
+Тоест z е транзитивно $ \Leftrightarrow \forall{y} (y \in z \Rightarrow y \subseteq z) \Leftrightarrow \forall{x} \forall{y} (x \in y \land y \in z \Rightarrow x \in z)$\\
+$\cup{z} \subseteq z$
+\bigbreak
+
+\fbox{Тв} Нека x е множество. Тогава:
+\begin{enumerate}
+  \item $trans(x) \Rightarrow trans(\cup{x})$
+  \item $ \forall{y} (y \in x \Rightarrow trans(y)) \Rightarrow trans(\cup{x})$
+  \item $ \forall{y} (y \in x \Rightarrow trans(y)) \Rightarrow trans(\cap{x})$
+  \item $trans(x) \Rightarrow trans( \mathcal{P}(x) )$
+  \item $trans(x) \Rightarrow trans(x \cup \{ x\})$
+\end{enumerate}
+Заб: $S(x) = x \cup \{ x\}$ е наследник на x
+\bigbreak
+
+\underline{Док 1:} Нека x е транз. Нека $y \in \cup{x}$. Следователно $ \exists{z} (y \in z \land z \in x)$. Нека $z_0$
+е свидетел за това: $y \in z_0, z_0 \in x$.
+Но $trans(x)$, от където $y \in x$. От $y \in x$, винаги е вярно че $y \subseteq \cup{x} $.
+Тогава $y \subseteq \cup{x} $. След $ \cup{x} $ е транзитивно.
+\bigbreak
+
+\underline{Док 2:} Нека вс. ел. на x е транзитивно множество. Нека $y \in \cup{x} $. Нека $z$ е т.ч. $y \in z \land z \in x$.
+Но z е транзитивно ($z \in x$) значи $y \subseteq z$. Понеже $z \in x$, то $z \in \cup{x} $.
+Така $y \subseteq z \land z \subseteq \cup{x} $, от където $y \subseteq \cup{x} $. Т.е. $trans( \cup{x} ) $
+\bigbreak
+
+\underline{Док 3:} Нека x е множество от транзитивни множества.\\
+Заб: Трябва да внимаваме, защото $ \forall{y} (y \in \emptyset \Rightarrow trans(y) )$\\
+Ако $x = \emptyset $, то $ \cup{x} = \cup{ \emptyset } = \emptyset $\\
+Нека сега $x \neq \emptyset $. Нека $y \in \cap{x}$. Тогава $ \forall{z} (z \in x \Rightarrow y \in z)$.
+Понеже $ \forall{z} (z \in x \Rightarrow trans(z) )$, то $ \forall{z} (z \in x \Rightarrow y \subseteq z)$.
+Така $y$ съдържа елементи, които са общи за всички елементи на $x$. Тогава $y \subseteq \cap{x} $.
+Следователно $ trans( \cap{x} )$.
+\bigbreak
+
+\underline{Док 4:} Нека $trans(x)$.\\
+Можем да използваме че $ \cup{z} \subseteq z$
+и можем да докажем следното $ \cup{ \mathcal{P}(x) = x \subseteq \mathcal{P}(x) } $
+\bigbreak
+
+Друг подход:\\
+$trans(x) \implies x \subseteq \mathcal{P}(x) \implies \mathcal{P}(x) \subseteq \mathcal{P}( \mathcal{P}(x) ) \implies trans( \mathcal{P}(x) )$
+\bigbreak
+
+\underline{Док 5:} Нека $trans(x)$. Нека $y \in S(x) = x \cup \{ x\}$.
+Ако $y \in x$, то понеже $trans(x)$ имаме че $y \subseteq x$. Но $x \subseteq S(x) = x \cup \{ x\}$.
+Така $y \subseteq S(x)$. Ако $y \in \{ x\}$, то $y = x \subseteq S(x)$.\\
+$ \forall{y} (y \in S(x) \Rightarrow y \subseteq S(x))$. Така $trans(S(x))$
+\bigbreak
+
+Въвеждаме още съкратен синтаксис (синтактична захар) за $ \phi(x)$ и $A$ - множество:
+\begin{itemize}
+  \item $ (\exists{x \in A}) ( \phi(x)) \leftrightharpoons \exists{x} (x \in A \land \phi(x) )$
+  \item $ (\forall{x \in A}) ( \phi(x)) \leftrightharpoons \forall{x} (x \in A \Rightarrow \phi(x) )$
+  \item $ \exists{!x} ( \phi(x) ) \leftrightharpoons \exists{x} ( \phi(x) \land \forall{y} ( \phi(y) \Rightarrow x = y))$
+\end{itemize}
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 3}
+\end{center}
+\bigbreak
+
+\fbox{def} Декартово произведение\\
+$A \times B = \{<a,b>\ |\ a \in A \land b \in B\}$.
+Тук $ \phi(x) \leftrightharpoons \exists{a} \exists{b} ( x = <a,b> \land a \in A \land b \in B)$\\
+и $ x \in A \times B \Leftrightarrow \phi(x) $
+\bigbreak
+
+\underline{Наблюдение:} $ <a,b>, a \in A$ и $b \in B$\\
+$ \{ a\} \subseteq  A \subseteq A \cup B$, $ \{ a,b\} \subseteq A \cup B$\\
+$ \{ a\}, \{ a, b\} \in \mathcal{P}(A \cup B) $\\
+$ \{ \{ a\}, \{ a,b\}\} \subseteq \mathcal{P}(A \cup B) $ \\
+$ <a,b> \subseteq \mathcal{P}(A \cup B) $ \\
+$ <a,b> \in \mathcal{P}( \mathcal{P} (A \cup B)) $ \\
+
+\bigbreak
+\fbox{Тв} За вс. 2 мн-ва $A$ и $B$, същ. единствено мн-во $C$, такова че:\\
+$ \forall{u} (u in C \Leftrightarrow \exists{a} \exists{b} (a \in A \land b \in B \land u = <a,b>))$
+\bigbreak
+
+\underline{Док ед.:} за домашна.
+\bigbreak
+
+\underline{Док същ.:} Нека $C = \{u\ |\ u \in \mathcal{P}( \mathcal{P}(A \cup B) ) \land \phi(u)\} $\\
+Имаме че $ \forall{u} ( \phi(u) \Rightarrow u \in \mathcal{P}( \mathcal{P}(A \cup B) )$, от където
+$ \forall{u} (u \in C \Leftrightarrow \phi(u) )$\\
+Това единствено мн-во ще бележим с $A \times B$ и ще наричаме декартово произведение на A и B.
+\bigbreak
+
+\fbox{Тв} За всеки $A, B, C$ - множества, е в сила че:
+\begin{enumerate}
+  \item Ax$\emptyset = \emptyset $
+  \item $ \exists{A} \exists{B} (AxB = BxA)$, т.е. операцията не е комутативна
+  \item $(AxB)xC = Ax(BxC)$ ? Не е асоциативна!
+  \item $A \times (B \cup C) = (A \times B) \cup (A \times C)$
+  \item $A \times (B \cap C) = (A \times B) \cap (A \times C)$
+  \item $B \times (\cup A) = \cup \{ B \times x\ |\ x \in A\}$ - като за начоло се питаме синтаксиса коректен ли е?
+    Тоест това от десния край е мн-во ли е?
+\end{enumerate}
+\bigbreak
+
+\underline{Док 5:}\\
+$(\subseteq)$ Нека $x \in A \times (B \cap C )$. Нека $a \in A, b \in B \cap C$ са т.ч.
+$x = <a,b>$. Но $b \in B, b \in C$, от където $<a,b> \in A \times B$ и $<a,b> \in A \times C$.
+Така $x \in (A \times B) \cap (A \times C)$.
+\bigbreak
+
+$(\supseteq)$ Нека $x \in (A \times  B) \cap (A \times C)$. Тогава $x \in A \times B$ и $x \in A \times C$. Нека
+$a \in A, b \in B$, т.ч. $x = <a,b>$. Нека $a' \in A, c \in C$ са т.ч. $x = <a',c>$>.
+Понеже $<a,b> = x = <a',c>$, то $a = a'$ и $b = c$.
+Следователно $b \in B \cap C$, от където $x = <a,b> \in A \times (B \cap C)$.
+\bigbreak
+
+\underline{Док 6:} Първо да докажем че операцията е коректна.
+$B \times x, x \in A \implies x \subseteq \cup{A} \implies B \times x \subseteq B \times (\cup A) \implies B \times x \in \mathcal{P}(B \times (\cup A)) $. Тук $M \leftrightharpoons \mathcal{P}(B \times (\cup A))$ което ще е резултат от отделянето.
+\bigbreak
+
+\fbox{Лема} Същ. единствено мн-во $ \forall{u} (u \in C \Leftrightarrow ( \exists{x} \in A)(u = B \times x)) $
+\bigbreak
+
+\underline{Док:} Единственост по акс. за обемност. (същ.) Нека $C = \{u\ |\ u \in \mathcal{P}(B \times \cup A) \land ( \exists{x \in A})(u = B \times x) \}$ по акс. схема за отделяне. $u \in C \implies u \in \mathcal{P}(B \times  \cup{A} ) \land \phi(u) \implies \phi(u)  $. Сега от $ \phi(u) \Rightarrow u \in \mathcal{P}(B \times  \cup{A} )$ следва ...\\
+$( \subseteq)$ Нека $ u \in B \times ( \cup{A} )$ е произволно. Нека $<b,c> = u$ като $b \in B$ и $c \in \cup{A} $.
+Нека $a \in A$ е т.ч. $c \in a$. Тогава $u = <b,c> \in B \times a, a \in A$. Но $B \times a \in \{B \times x\ |\ x \in A\}$, от където $u \in \cup{ \{B \times x\ |\ x \in A\}} $
+\bigbreak
+
+$(\supseteq)$ Нека $u \in \cup{ \{B \times x\ |\ x \in A\}} $. Нека $a \in A$ е т.ч. $u \in B \times a$.
+Нека $b \in B, c \in a$ са т.ч. $u = <b,c>$. Но $a \in A \implies a \subseteq \cup{A}$, така $c \in \cup{A} $.
+Тогава $u = <b,c> \in B \times ( \cup{A} )$.
+\bigbreak
+
+\underline{Сега малко от Тинко:}\\
+Множествата са естествени числа - $\mathbb{N}$,
+т.е. един обект е множество $\Longleftrightarrow $ този обект е естествено число.
+\bigbreak
+
+Нека x и y са множества, $x = y \Leftrightarrow x = y$ като ест. числа.
+\bigbreak
+
+Сега ще дефинираме принадлежност. Нека $n>0$,\\
+тогава $n = (1 b_{k-1} ... b_1 b_0) = 1.2^k + ... + b_1.2^1 + b_0.2^0$\\
+Нека x и y са множества. Казваме че $y \in x$ ако $b_{y-1} = 1$ в двоичното представяне.
+\bigbreak
+
+Вижда че логическите аксиоми са в сила - еквивалентност на равенството и конгруентност.
+\bigbreak
+
+Какво означава аксиомата за екстенсионалност
+$ \forall{x} \forall{y} ( \forall{z} (z \in x \Leftrightarrow z \in y) \Rightarrow x = y)$?
+Ами x и y имат еднакви двоични представяния, т.е. те са равни.
+\bigbreak
+
+Нека видим аксиомата за чифта. Нека $a$ и $b$ са множества:
+\begin{enumerate}
+  \item $a = b$, тогава $x = 2^a$
+  \item $a \neq b$, тогава $x = 2^a + 2^b$
+\end{enumerate}
+\bigbreak
+
+Сега схемата за отделяне. Нека $ \phi(x) $ е ТМ св-во. Нека A е съвкупността на естествените числа x,
+за които $ \phi(x) $ е вярно. Нека B е множество, сега се чудим дали\\
+$ \exists{C} \forall{x} (x \in C \Leftrightarrow x \in B \land \phi(x) )$.
+Ами това са тези битове $b$ на B, за които е вярно свойството $ \phi(b) $. Съответно в двоичния запис на C само на съответните позиции на тези $b$-та има 1, на всички останали има 0.
+\bigbreak
+
+\fbox{Аксиома за безкрайност}\\
+\underline{Форма на Цермело:} $ \exists{A} ( \emptyset \in A \land \forall{x} (x \in A \Rightarrow \{ x\} \in A))$
+Нека $A_0$ е множество със свойството $ \emptyset \in  A_0 \land \forall{x} (x \in A_0 \Rightarrow \{ x\} \in A_0)$.
+$ \emptyset \in A_0 \Rightarrow \{ \emptyset \} \in A_0$, така $ \{ \emptyset \} \in A_0$ и т.н. показваме за произволен брой влагания на $ \emptyset $.
+\bigbreak
+
+\underline{Форма на Фон Нойман:} $ \exists{A} ( \emptyset \in A \land \forall{x} (x \in A \Rightarrow x \cup \{ x\} \in A ))$\\
+\underline{$A_0$: } $ \emptyset \in  A_0, \{ \emptyset \} \in  A_0, \{ \emptyset , \{ \emptyset \}\} \in  A_0$ и т.н.
+Ние ще ползваме тази дефиниция когато говорим за естествени числа, където $0 \leftrightharpoons \emptyset $.
+
+\fbox{Аксиома за регулярност/фундираност} Формулирана от Мириманов 1917г и от Фон Нойман 1925г.\\
+$ \forall{x} (x \neq \emptyset \Rightarrow \exists{y} (y \in x \land y \cap x = \emptyset ))$
+\bigbreak
+
+\fbox{T}
+\begin{enumerate}
+  \item $ \lnot \exists{x} (x \in x)$
+  \item $ \lnot \exists{x} \exists{y} (x \in y \land y \in x)$
+  \item $ \lnot \exists{x} \exists{y} \exists{z} (x \in y \land y \in z \land z \in x)$
+  \item Не съществува редица от мн-ва $x_0, x_1, x_2, ..., x_n, x_{n+1}, ...$, такива че$x_0 \in x_1, x_1 \in x_2, ...$
+\end{enumerate}
+\bigbreak
+
+\underline{Док 1:} Да доп., че $ \exists{x} (x \in x)$. Нека $x_0$ е свидетел за това съществуване, т.е. нека $x_0$ е
+мн-во със св-во $x_0 \in x_0$. Нека $x_1 = \{ x_0\}$, т.е. $x_0 \in x_1$. Значи $x_1 \neq \emptyset$, следователно
+$ \exists{y} (y \in x_1 \land y \cap x_1 = \emptyset)$. Нека $y_0$ е свидетел за това съществуване, т.е. $y_0 \in x_1 \land y_0 \cap x1 = \emptyset$. Така $y_0 \in x_1$, но $x_1 = \{ x_0\}$, след. $y_0 = x_0$ и така $x_0 \in x_0$. Следователно
+$x_0 \in y_0$, $x_0 \in \{ x_0\}, \{ x_0 = x_1\}$. Така $x_0 \in y_0$ и $x_0 \in x_1$. Значи $x_0 \in y_0 \cap x_1$.
+Това е абсурд, понеже $y_0 \cap x_1 = \emptyset$.
+\bigbreak
+
+\underline{Док 2:} Да доп. че $ \exists{x} \exists{y} (x \in y \land y \in x)$. Нека $x_0$ и $y_0$ са мн-ва, т.ч.
+$x_0 \in y_0 \land  y_0 \in x_0$. Нека $x_1 = \{ x_0, y_0\}$. Така $x_1 \neq \emptyset$. ?? $x_1 \neq \emptyset \implies \exists{y} (y \in x_1 \land  y \cap x_1 = \emptyset)$. Следователно $ \exists{y} (y \in x_1 \land  y \cap x_1 = \emptyset)$. Нека $y_1$ е такова мн-во, че $y_1 \in x_1 \land  y_1 \cap x_1 = \emptyset$. $y_1 \in x_1, x_1 = \{ x_0, y_0\}$. Следователно $y_1 = x_0 \lor y_1 = y_0$. Да разгледаме случаите:
+\begin{enumerate}
+  \item $y_1 = x_0$. Разглеждаме $y_0$. Знаем че $y_0 \in x_0$ и $x_0 \in y_0$. Така $y_0 \in y_1$, но $y_0 \in x_1$ защото $x_1 = \{ x_0, y_0 \} \implies y_0 \in y_1 \cap x_1 \implies$ противоречие $y_1 \cap x_1 = \emptyset$
+  \item $y_1 = y_0$. $x_0 \in y_0$, следователно $x_0 \in y_1$. Така ??
+  \item Сами! Допускаме че $x_0 \in y_0 \land  y_0 \in z_0 \land  z_0 \in x_0$ и $x_1 \leftrightharpoons \{ x_0, y_0, z_0\}$
+\end{enumerate}
+
+\fbox{Аксиомна схема за замяната} (С тази аксиома вече имаме аксиомната схема $ \mathcal{ZF} $) \\
+Имаме един детерминистичен преобразувател(функция на интуитивно ниво) $ \phi(x,y,\overline{u})$, в който можем да фиксираме $\overline{u}$ и за дадено x то ни връща y. Аксиомната схема твърди че за такова $\phi$ с дефиниционна област A има съответен образ на $\phi$. Френкел забелязва че ако разгледаме $ \mathbb{N}, \mathcal{P}( \mathbb{N}), ..., \mathcal{P}^n( \mathbb{N})  $, то не можем да гарантираме че това последното съществува.
+\bigbreak
+
+\underline{Схемата:} Нека
+$\forall{u_1}... \forall{u_n} ((\forall{x} \forall{y_1} \forall{y_2}  (\phi(x,y_1,\overline{u})\land \phi(x,y_2,\overline{u})) \Rightarrow y_1 = y_2) \Rightarrow \forall{A} \exists{B} \forall{z} (z \in B \Leftrightarrow \exists{x} (x \in A \land \phi(x,z,\overline{u}))))$
+\bigbreak
+
+Разлглеждаме: $ \mathcal{P}(\emptyset) = \{ \emptyset\}, A \leftrightharpoons \mathcal{P}(\{\emptyset\}) = \{ \emptyset, \{ \emptyset\}\} $\\
+$ \phi(x,y) \leftrightharpoons (x = \emptyset \land y = a) \lor (x = \{ \emptyset\} \land y = b) )$\\
+$ \forall{x} \forall{y_1} \forall{y_2} ( \phi(x,y_1) \land \phi(x,y_2) \Rightarrow  y_1 = y_2)$\\
+$ \exists{B} \forall{z} (z \in B \Leftrightarrow \exists{x} (x \in A \land \phi(x,z)))$\\
+\bigbreak
+
+\fbox{Аксиома за избора (AC)} Нека имам някакво разделяне на множеството A и взема по един елемент от всяка част.\\
+$ \forall{z} (z \in A \Rightarrow  z \cap$ е синглетон ($ \exists{u} (z \cap c = \{ u\})$))\\
+С аксиомата за избора се доказва че всяко множество може да бъде добре наредено (contraversial)
+$ \forall{x} (x \in A \Rightarrow \emptyset) \Rightarrow \exists{f} (Func(f))$\\
+$ Fom(f) = A \land \forall{x} (x \in A \Rightarrow f(x) \in x)$\\
+Това поражда и парадокса на Банарх Тарски: Взимаме кълбо B с $r = 1$,
+значи може да разделим $B = B_1 \cup B_2 \cup ... \cup B_17$. След което можем да вземем
+$B_1 \cup B_2 \cup B_3$ с $r = 1$ и $B_4 \cup B_5 \cup ... \cup B_17$ с $r = 1$ - абсурд!
+Аксиомата за избора не е конструктивна!
+\bigbreak
+
+\underline{Аксиомата:} Аксиома на мултипликативност (форма на Ръсел) - защото още не сме въвели понятието за функция\\
+$ \forall{A} ( \forall{x} (x \in A \Rightarrow x \neq \emptyset) \land \forall{x} \forall{y} (x \in A \land y \in A \land x \neq y \Rightarrow x \cap y = \emptyset) \Rightarrow \exists{C} \forall{x} (x \in A \Rightarrow  \exists{u} (x \cap C = \{ u\})))$
+\bigbreak
+
+\underline{Заб:} Ако $A$ е крайно - всичко е точно. Но а ако $A$ е безкрайно вече е различно
+\bigbreak
+
+$ f: A \rightarrow B, A \twoheadrightarrow B$ (сюрекция), то можем да ограничим домейна за да получим биекция.
+Тоест съществува $A_0 \subseteq A : f \upharpoonright A_0$ е биекция м-ду $A_0$ и $B$.
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 3}
+\end{center}
+\bigbreak
+
+\fbox{(Бинарни) Релации}\\
+Множества (обект от света ни) $P(x,y)$. Пр: $P_1(A,l) \leftrightharpoons$ точката A лежи на правате $l$.
+Обаче може да имаме различни своства които описват еднакви релации (множества).\\
+Като $P_2(A,l) \leftrightharpoons$ правата $l$ минава през точката $A$.\\
+$R_1 = \{<A,l>\ |\ P_1(A,l)\}$ и $R_2 = \{<A,l>\ |\ P_2(A,l)\}$ са равни.
+За нас релация е просто множество от наредени двойки $R \subseteq A \times B$
+\bigbreak
+
+\fbox{Опр} Бинарна релация е множество, чийто елементи са наредени двойки.\\
+$Rel(R) \leftrightharpoons \forall{z}(z \in R \Rightarrow \exists{x} \exists{y}(z = <x,y>))$
+\bigbreak
+
+\underline{Примери:}
+\begin{enumerate}
+  \item $ \emptyset$ - никъде недефинирана
+  \item $A$ е множество, $A \times A$ е релация (пълна релация над $A$)
+  \item $A$ е мн-во, $id_A = \{<x,x>\ |\ x \in A\}$ е идентитет на $A$.\\
+    Заб: $T = \{<x,x>\ |\ x = x\}$ не е множество (поражда парадокса на Ръсел)
+\end{enumerate}
+\bigbreak
+
+\fbox{def} Нека $R$ е релация.\\
+Дефиниционна област на $R$ наричаме: $Dom(R) \leftrightharpoons \{x\ |\ \exists{y}(<x,y> \in R)\}$\\
+Област на стойностите на $R$ наричаме: $Rng(R) \leftrightharpoons \{y\ |\ \exists{x}(<x,y> \in R)\}$
+\bigbreak
+
+\fbox{Тв} За всяка релация $R$, $Dom(R)$ и $Rng(R)$ са множества.
+\bigbreak
+\underline{Док:} $x \in Dom(R) \implies \exists{y}(<x,y> \in R) \implies \exists{y}( \{ x\} \in <x,y> \in R) \implies \{ x\} \in \cup R \implies Dom(R) \subseteq \cup \cup R, Dom(R)$ е определима съвкупност (клас). $\cup \cup R$ е множество
+$ \implies Dom(R)$ е множество.\\
+Аналогично получаваме $y \in Rng(R) \Rightarrow y \in \cup \cup R \implies Rng(R) \subseteq \cup \cup R$ - множество.
+\bigbreak
+
+\fbox{Тв} $Rel(R) \Rightarrow R \subseteq Dom(R) \times Rng(R)$
+\bigbreak
+\underline{Док:} Нека $z \in R$. Тогава $z$ е наредена двойка. Нека $x$ и $y$ а т.ч. $z = <x,y>$.
+Тогава $x \in Dom(R)$ и $y \in Rng(R)$. Следователно $z = <x,y> \in Dom(R) \times Rng(R)$
+\bigbreak
+
+\underline{Операции върху релации:} $R,S$ - релации, то $\implies R \cup S, R \cap S, R \setminus S$ са релации\\
+$R^{-1} \leftrightharpoons \{<x,y>\ |\ <y,x> \in R\}$ е съвкупност от наредени двойки. Обаче множество ли е?\\
+$R^{-1} = \{<x,y>\ |\ <y,x> \in R\} = \{u\ |\ \exists{x}\exists{y}(u = <x,y> \land <y,x> \in R)\}
+= \{u\ |\ u \in Rng(R) \times Dom(R) \land \exists{x,y}(u = <x,y> \land <y,x> \in R)\}$
+\bigbreak
+
+\begin{itemize}
+  \item $R^{-1}$
+\end{itemize}
+
+\fbox{def} Операция - композиция на релации. $(f \circ g)(x) = g(f(x))$
+\bigbreak
+
+\fbox{Опр} Композицията на релациите R и S наричаме мн-вото:\\
+$R \odot S \leftrightharpoons \{<x,y>\ |\ \exists{z}(<x,z> \in R \land <z,y> \in S)\}
+= \{u\ |\ (\exists{x,y,z})(u = <x,y> \land <x,z> \in R \land <z,y> \in S)\}
+= \{u\ |\ u \in Dom(R) \times Rng(S) \land (\exists{x,y,z})(u = <x,y> \land <x,z> \in R \land <z,y> \in S)\}$
+\bigbreak
+
+\fbox{Св} Нека $R, S_1, S_2$ са релации. Тогава:\\
+\begin{enumerate}
+  \item $R\circ (S_1\circ S_2) = (R\circ S_1)\circ S_2$ - асоциативност
+  \item $(S_1 \cup S_2)\circ R = (S_1\circ R) \cup (S_2\circ R)$\\
+    $R \circ (S_1 \cup S_2) = (R \circ S_1) \cup (R \circ S_2)$
+  \item $R \circ (S_1 \cap S_2) \subseteq (R \circ S_1) \cap (R \circ S_2)$, обратното включване не винаги е вярно.
+  \item $R \circ (S_1 \setminus S_2) \supseteq (R \circ S_1) \cap (R \circ S_2)$
+  \item $(S_1 \circ S_2)^{-1} = S_2^{-1} \circ S_2^{-1}$
+\end{enumerate}
+\bigbreak
+
+\underline{Док 3:} Нека $u \in R \circ (S_1 \cap S_2)$. Нека $x,y,z$,
+т.ч. $u = <x,y>, <x,z> \in R$ и $<z,y> \in S_1 \cap S_2$. Тогава $<z,y> \in S_1$ и $<z,y> \in S_2$.
+След. $<x,y> \in R \circ S_1$ и $<x,y> \in R \circ S_2$. Така $u = <x,y> \in (R \circ S_1) \cap (R \circ S_2)$.
+\hrule
+$R = \{ <x,z>, <x,t>\}, z \neq t$\\
+$S_1 = \{ <z,y>\}$\\
+$S_2 = \{ <t,y>\}$\\
+$S_1 \cap S_2 = \emptyset, R \circ (S_1 \cap S_2) = R \circ \emptyset = \emptyset$\\
+$R \circ S_1 = {<x,y>}$\\
+$R \circ S_2 = {<x,y>}$\\
+$\implies (R \circ S_1) \cap (R \circ S_2) = \{ <x,y>\}$
+\bigbreak
+
+\underline{Док 4:} Нека $u \in (R \circ S_1) \setminus (R \circ S_2)$. Така $u \in R \circ S_1$ и $u \notin R \circ S_2$.
+Нека $x,y,z$ са такива че $<x,z> \in R$ и $<z,y> \in S_1$. Понеже $u \notin R \circ S_2$,
+то $\forall{t}(<x,t> \in R \Rightarrow <t,y> \notin S_2)$. Но $<x,z> \in R$, след. $<z,y> \notin S_2$.
+Обаче $<z,y> \in S_1$, от където $<z,y> \in S_1 \setminus S_2$. От $<x,z> \in R$,
+следва че $u = <x,y> \in R \circ (S_1 \setminus S_2)$\\
+Обратното не е винаги вярно!
+\bigbreak
+
+\underline{Заб:} $ (\circ) $ не е комутативна!
+\bigbreak
+
+\fbox{Опр} Нека $Rel(R)$ и $A \subseteq Dom(R)$. Образ на $A$ при $R$ наричаме множеството:\\
+$R[A] = \{y\ |\ \exists{(x \in A)}(<x,y> \in R)\} \subseteq Rng(R)$
+\bigbreak
+
+\fbox{Опр} Нека $Rel(R)$ и $B \subseteq Rng(R)$. Праобраз на $B$ при $R$ наричаме множеството:\\
+$R^{-1}[B ]= \{x\ |\ \exists{(y \in B)}(<x,y> \in R)\} \subseteq Dom(R)$
+\bigbreak
+
+\fbox{Тв (за коректност)} Нека $R$ е релация и $B \subseteq Rng(R)$. Тогава $(R^{-1})[B] = R^{-1}[B] $, където
+$(R^{-1})[B]$ е образ на $B$ ри $R^{-1}$, а $R^{-1}[B]$ е праобраз на $B$ при $R$.
+\bigbreak
+
+\underline{Док:} За вс. $x$ е в сила че $x \in (R^{-1}[B]) \Longleftrightarrow \exists{y}(<y,x> \in R^{-1} \land y \in B)
+\Longleftrightarrow \exists{y}(y \in B \land  <x,y> \in (R^{-1})^{-1}) \Longleftrightarrow \exists{y}(y \in B \land <x,y> \in R) \Longleftrightarrow x \in (R)^{-1}[B]$
+\bigbreak
+
+\fbox{Тв} Нека $\forall{x}(x \in X \Rightarrow x \subseteq Dom(R))$. Тогава $R[\cup X] = \cup \{R[x]\ |\ x \in X\}$.
+Тук $Rel(R)$ и $X$ е множество.
+Това е коректно защото $(\forall{x \in X})x \subseteq Dom(R)) \implies \cup X \subseteq Dom(R)$.
+$a \in \cup X \implies \exists{x}(x \in X \land  a \in x) \implies a \in Dom(R)$.
+Сега това множество ли е? Нека $x \in X \implies x \subseteq Dom(R) \implies R[x] \subseteq R[Dom(R)]$.
+Тогава ако $A \subseteq A_1 \subseteq Dom(R) \implies R[A] \subseteq R[A_1]$ и съответно
+$B \subseteq B_1 \subseteq Rng(R) \implies R^{-1}[A] \subseteq R^{-1}[B_1]$.
+Значи това е определима съвкупност $ \{R[x]\ |\ x \in X\} \subseteq \mathcal{P}(Rng(R))$.
+Всичко е коректно, сега доказателството.
+\underline{Док:} Нека $b \in R[\cup X]$. Нека $a \in \cup X$ е т.ч. $<a,b> \in R$. Нека $x_0 \in X$ е такъв че $a \in x_0$.
+Тогава $b \in R[x_0]$. Следователно $b \in \cup \{R[x]\ |\ x \in X\}$
+\bigbreak
+Сега обратното включване. Нека $b \in \cup \{R[x]\ |\ x \in X\}$. Нека $x_0 \in X$ е т.ч. $b \in R[x_0]$.
+Но $x_0 \subseteq \cup X$. Пак от монотонността следва че $b \in R[x_0] \subseteq R[\cup X]$.
+\bigbreak
+
+\fbox{Тв} Нека $Rel(R)$ и $X$ е мн-во за което е изп. че $\forall{x}(x \in X \Rightarrow x \subseteq Dom(R))$.
+Тогава $R[\cap X] \subseteq \cap \{R[x]\ |\ x \in X\}$, като не винаги е в сила обратното включване.
+Ако допълнително $(\forall{y}Rng(R))(\exists{!x \in Dom(R))(<x,y> \in R)})$ (нещо като инективност), то тогава \\
+$R[\cap X] = \cap \{R[x]\ |\ x \in X\}$.
+\bigbreak
+\underline{Док:} Нека $b \in R[\cap X]$. Нека $a \in \cap X $ е такова че $<a,b> \in R$.
+Следователно за всяко $x \in X, a \in x$. Следователно за вскяо $x \in X, b \in R[x]$.
+Така $b$ принадлежи на всички елементи на $\{R[x]\ |\ x \in X\}$, значи $b \in \cap \{R[x]\ |\ x \in X\}$.
+\bigbreak
+\underline{Пример:} $X = \{ \{ a_1\}, {a_2}\}$ и $a_1 \neq a_2, R = \{<a_1, b_1>, <a_2, b_2> \}$\\
+$\cap X = \{a_1\} \cap \{ a_2\} = \emptyset, R[\cap X] = \emptyset$\\
+$R[ \{ a_1\} ] = \{y\ |\ (\exists{x \in \{ a_1\}})(<x,y> \in R)\} = \{y\ |\ <a_1,y> \in R\} = \{ b\}$.\\
+Значи $R[ \{ a_2\}] = \{ b\}, \{R[x]\ |\ x \in X \} = \{ \{ b\}\}$.\\
+$\cap \{ \{ b\}\} = \{ b\}$, $A = \{ a\}, a = \{ b\}$,\\
+$x \in \cap A \Leftrightarrow \forall{a \in A}(x \in a)$
+
+\bigbreak
+Нека $(\forall{y \in Rng(R)})(\exists{!x \in Dom(R))(<x,y> \in R)}$.
+Нека $b \in \cap \{R[x]\ |\ x \in X\}$. Следователно за всяко $x \in X, b \in R[x]$, т.е. за всяко $x \in X$ същ $a \in x$,
+т.ч. $<a,b> \in R$.
+\bigbreak
+\underline{$b \in Rng(R)$:} $x \neq \emptyset$. Нека $x_0 \in X$. Тогава $b \in R[x_0]$. След $b \in Rng(R)$.
+Нека $a_0 \in x_0$ е т.ч. $<a_0,b> \in R$. Нека сега $x \in X$ е произволно и $a \in x$ е т.ч. $<a,b> \in R$.
+Но $<a_0,b> \in R$, от където $a_0 = a$. В частност $a_0 \in x$, но $x$ е произволнo. Следователно $a_0 \in \cap X$.
+Но тогава $b \in R[\cap X]$, za]oto $<a_0,b> \in R$ и $a_0 \in \cap X$.
+Така $\cap \{R[x]\ |\ x \in X\} \subseteq R[\cap X]$
+\bigbreak
+
+\underline{Функции:}
+\bigbreak
+\fbox{Опр} Казваме че релацията $R$ е функция, \\
+ако $Funct(R)$, където $Funct(R) \leftrightharpoons Rel(R) \land  \forall{x}\forall{y}\forall{y'}(<x,y> \in R \land  <x,y'> \in R \Rightarrow y = y')$
+\bigbreak
+
+\begin{enumerate}
+  \item $Funct(R) \implies Rel(R)$
+  \item $Funct(R), Dom(R) = A, Rng(R) \subseteq B$, то пишем $R: A \rightarrow B$
+  \item $Funct(R), Dom(R) \subseteq A , Rng (R) \subseteq B$, то ще казваме че $R$ е частична функция от $A$ към $B$.
+    Ще пишем $R: A \rightharpoonup B$ (тук стрелкичката трябва да е $\rightarrow$ с $\circ$ посредата)
+  \item $R: A \rightarrow B$ и $Rng(R) = B$, ще казваме че $R$ е сюрекция (епиморфизъм) на $A$ върху $B$.
+    Означаваме с $R: A \twoheadrightarrow B$
+  \item $R: A \rightarrow B, R$ е инекция (мономорфизъм),
+    ако $\forall{x}\forall{x'}\forall{y}(x \neq x' \land <x,y> \in R \Rightarrow <x',y> \notin R)$.
+    Означаваме $R: A \rightarrowtail B$
+  \item $R: A \rightarrow B$ е биекция, ако $R$ е сюрекция на $A$ в-ху $B$ и $R$ е инекция.
+    Означаваме $R: A \rightbijectionarrow B$
+\end{enumerate}
+\bigbreak
+
+Понеже функциите са релации, директно се пренасят и понятията за образ и праобраз.\\
+Ще използваме $f,g,h ...$, за да означаваме че дадена релация е функция.\\
+Ако $Func(f)$, вместо $<x,y> \in f$ ще пишем $f(x) = y$
+\bigbreak
+
+\fbox{Следствие} Нека $Func(f)$ и $X,Y$ са такива мн-ва че $(\forall{x \in X})(x \subseteq Dom(f))$,
+$(\forall{y \in Y})(y \subseteq Rng(f))$. Тогава $f[\cup X ] = \cup \{f[x]\ |\ x \in X\}$
+и $f[\cap X ] \subseteq \cap \{f[x]\ |\ x \in X\}$ (равенство не винаги се достига)\\
+$f ^{-1}[\cup X] = \cup \{f ^{-1} [x]\ |\ x \in X\}$\\
+$f ^{-1}[\cap X] = \cap \{f ^{-1} [x]\ |\ x \in X\}$\\
+$\forall{y \in Rng(R)\exists{!x \in Dom(R)(<x,y> \in R)}}$\\
+
+\underline{($\Rightarrow$)} Нека $Func(f ^{-1})$. Нека $x, x',y$ са т.ч. $x \neq x'$ и $<x,y> \in f$.
+Тогава $<y,x> \in f ^{-1}$. Ако доп, че $<x',y> \in f$, то $<y,x'> \in f ^{-1}$. Понеже $f ^{-1}$ e функция, то $x = x'$.
+Но $f ^{-1}$ е функция, т.е. $x \neq x' \implies$ Противоречие! $\implies$ $<x',y> \notin f$ и значи $f$ е инективна.
+\bigbreak
+\underline{($\Leftarrow$)} Нека $f$ е инективна. Нека $x,y,y'$ са т.ч. $<x,y>, <x,y'> \in f ^{-1}$.\\
+Тогава $<y,x>, <y',x> \in f$ и понеже $f$ е инективна то $y = y'$. Следователно $Func(f ^{-1})$.
+\bigbreak
+
+\fbox{Тв} Нека $f$ и $g$ са функции.\\
+Тогава $f \circ g$ е функция с $Dom(f \circ g) = \{x\ |\ x \in Dom(f) \land f(x) \in Deom(g)\}$.\\
+За вс. $x \in Dom(f \circ g), (f \circ g)(x) = f(f(x))$
+\bigbreak
+
+\underline{Док:} $Rel(f \circ g)$. Нека $<x,y>, <x,y'> \in f \circ g$.
+Нека $z,z'$ са т.ч. $<x,z> \in f \land <z',y> \in g$ и $<x,z'> \in f \land <z',y'> \in g$\\
+$Func(f) \implies z = z' \implies <z,y>, <z,y'> \in g \implies y = y'$ (от $Func(g)$)
+\bigbreak
+
+Нека $x \in Dom(f \circ g)$. Нека $y$ е т.ч. $<x,y> \in f \circ g$. Нека $z$ е т.ч. $<x,z> \in f$ и $<z,y> \in g$.
+Тогава $x \in Dom(f)$ и $z = f(x)$. Но $z \in Dom(g)$, от където $f(x) \in Dom(g)$.\\
+Сега наобратно. Взимаме $x \in Dom(f)$ и $f(x) \in Dom(g)$. Тогава $<x,f(x)> \in f$ и $<f(x), g(f(x))> \in g$.
+Следователно $<x,g(f(x))> \in f \circ g$. В частност получаваме че $x \in Dom(f \circ g)$ и понеже $Func(f \circ g)$,
+то $(f \circ g)(x) = g(f(x))$.
+\bigbreak
+
+\fbox{Опр} Казваме, че функциите $f$ и $g$ са съвместими, ако $Func(f \cup g)$.
+\bigbreak
+
+\fbox{Опр}
+$f: A \rightarrow B, A_1 \subseteq A$\\
+Рестрикция на $f$ до $A_1$: $f \upharpoonright A_1 \leftrightharpoons f \cap (A_1 \times Rng(f))$
+\bigbreak
+
+\fbox{Тв} $f$ и $g$ са съвместими $\Longleftrightarrow f\upharpoonleft(Dom(f) \cap Dom(g)) = g \upharpoonright (Dom(f) \cap Dom(g))$\\
+
+\end{document}
+% Some commented notes
+% $\mathbb{set}$
+% \mathcal{letter} ръкописни
+% _ and ^ for upper/lower index
