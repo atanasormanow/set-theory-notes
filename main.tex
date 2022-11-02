@@ -206,10 +206,10 @@ $B' = \{x \in y_0 \land \phi(x,A\} = \{x\ |\ x\in y_0 \land \forall{y}(y \in A \
 
 \underline{Док единств.:} Нека $B_1$ и $B_2$ са такива мн-ва че ... $ x \in B_i \Leftrightarrow \forall{y}(y \in A \Rightarrow x \in y)$ за $i = 1,2$\\
 Така за всяко х, $ x\ in B_1 \Leftrightarrow \forall{y}(y \in A \Rightarrow x \in y) \Leftrightarrow x \in B_2$
-Т.е. има единствено такова множество, бележим го $\cap A$ или $\cap_{x \in A}x$
+Т.е. има единствено такова множество, бележим го $\bigcap A$ или $\bigcap_{x \in A}x$
 \bigbreak
 
-Приемаме че $\cap\emptyset \leftrightharpoons \emptyset$
+Приемаме че $\bigcap\emptyset \leftrightharpoons \emptyset$
 \bigbreak
 
 \fbox{Аксиома за чифта} За всеки 2 мн-ва a и b, съществува множество A, измежду чиито ел. са a и b.\\
@@ -297,7 +297,7 @@ $ \forall{x} \forall{y} (y \in A \land x \in y \Rightarrow x \in C)$.\\
 Понеже $y_0 \in A \land x \in y_0$, то $x \in C$. Следователно $x \in B$
 \bigbreak
 
-Значи съществува такова множество и то е единствено. Ще го бележим с $\cup A$.
+Значи съществува такова множество и то е единствено. Ще го бележим с $\bigcup A$.
 \bigbreak
 
 Заб: Означение означава че ще го използваме във формула като съкращение(syntax sugar).
@@ -310,7 +310,7 @@ $\overline A$, т.ч. $ \forall{x} (x \in \overline{A} \Leftrightarrow x \notin 
 
 \underline{Док:} Допускаме противното - нека $A$ и $\overline{A}$ са такива мн-ва, такова че за всяко x
 $x \in \overline{A} \Leftrightarrow x \notin A$.\\
-Нека $V = \cup \{ A, \overline{A}\}$ - от аксиомата за чифта и обединението. Нека x е произволно. Ако $x \in A$, то
+Нека $V = \bigcup \{ A, \overline{A}\}$ - от аксиомата за чифта и обединението. Нека x е произволно. Ако $x \in A$, то
 $ \exists{y} (y \in \{ A, \overline{A}\} \land  x \in y)$ от където $x in V$. Ако пък $x \notin A$, то $x \in \overline{A}$
 и отново $ \exists{y} (y \in \{ A, \overline{A}\} \land x \in y)$, т.е.
 $x \in V$. След $ \forall{x} (x \in V)$, противоречие!
@@ -370,43 +370,43 @@ $ \mathcal{P}(A) \subseteq A$, от където $ \mathcal{R}_A \in A$.\\
 
 \fbox{Опр} Казваме, че множеството z е транзитивно, ако $z \subseteq \mathcal{P}(z) $. (ще бележим с $trans(z)$)\\
 Тоест z е транзитивно $ \Leftrightarrow \forall{y} (y \in z \Rightarrow y \subseteq z) \Leftrightarrow \forall{x} \forall{y} (x \in y \land y \in z \Rightarrow x \in z)$\\
-$\cup{z} \subseteq z$
+$\bigcup{z} \subseteq z$
 \bigbreak
 
 \fbox{Тв} Нека x е множество. Тогава:
 \begin{enumerate}
-  \item $trans(x) \Rightarrow trans(\cup{x})$
-  \item $ \forall{y} (y \in x \Rightarrow trans(y)) \Rightarrow trans(\cup{x})$
-  \item $ \forall{y} (y \in x \Rightarrow trans(y)) \Rightarrow trans(\cap{x})$
+  \item $trans(x) \Rightarrow trans(\bigcup{x})$
+  \item $ \forall{y} (y \in x \Rightarrow trans(y)) \Rightarrow trans(\bigcup{x})$
+  \item $ \forall{y} (y \in x \Rightarrow trans(y)) \Rightarrow trans(\bigcap{x})$
   \item $trans(x) \Rightarrow trans( \mathcal{P}(x) )$
   \item $trans(x) \Rightarrow trans(x \cup \{ x\})$
 \end{enumerate}
 Заб: $S(x) = x \cup \{ x\}$ е наследник на x
 \bigbreak
 
-\underline{Док 1:} Нека x е транз. Нека $y \in \cup{x}$. Следователно $ \exists{z} (y \in z \land z \in x)$. Нека $z_0$
+\underline{Док 1:} Нека x е транз. Нека $y \in \bigcup{x}$. Следователно $ \exists{z} (y \in z \land z \in x)$. Нека $z_0$
 е свидетел за това: $y \in z_0, z_0 \in x$.
-Но $trans(x)$, от където $y \in x$. От $y \in x$, винаги е вярно че $y \subseteq \cup{x} $.
-Тогава $y \subseteq \cup{x} $. След $ \cup{x} $ е транзитивно.
+Но $trans(x)$, от където $y \in x$. От $y \in x$, винаги е вярно че $y \subseteq \bigcup{x} $.
+Тогава $y \subseteq \bigcup{x} $. След $ \bigcup{x} $ е транзитивно.
 \bigbreak
 
-\underline{Док 2:} Нека вс. ел. на x е транзитивно множество. Нека $y \in \cup{x} $. Нека $z$ е т.ч. $y \in z \land z \in x$.
-Но z е транзитивно ($z \in x$) значи $y \subseteq z$. Понеже $z \in x$, то $z \in \cup{x} $.
-Така $y \subseteq z \land z \subseteq \cup{x} $, от където $y \subseteq \cup{x} $. Т.е. $trans( \cup{x} ) $
+\underline{Док 2:} Нека вс. ел. на x е транзитивно множество. Нека $y \in \bigcup{x} $. Нека $z$ е т.ч. $y \in z \land z \in x$.
+Но z е транзитивно ($z \in x$) значи $y \subseteq z$. Понеже $z \in x$, то $z \in \bigcup{x} $.
+Така $y \subseteq z \land z \subseteq \bigcup{x} $, от където $y \subseteq \bigcup{x} $. Т.е. $trans( \bigcup{x} ) $
 \bigbreak
 
 \underline{Док 3:} Нека x е множество от транзитивни множества.\\
 Заб: Трябва да внимаваме, защото $ \forall{y} (y \in \emptyset \Rightarrow trans(y) )$\\
-Ако $x = \emptyset $, то $ \cup{x} = \cup{ \emptyset } = \emptyset $\\
-Нека сега $x \neq \emptyset $. Нека $y \in \cap{x}$. Тогава $ \forall{z} (z \in x \Rightarrow y \in z)$.
+Ако $x = \emptyset $, то $ \bigcup{x} = \bigcup{ \emptyset } = \emptyset $\\
+Нека сега $x \neq \emptyset $. Нека $y \in \bigcap{x}$. Тогава $ \forall{z} (z \in x \Rightarrow y \in z)$.
 Понеже $ \forall{z} (z \in x \Rightarrow trans(z) )$, то $ \forall{z} (z \in x \Rightarrow y \subseteq z)$.
-Така $y$ съдържа елементи, които са общи за всички елементи на $x$. Тогава $y \subseteq \cap{x} $.
-Следователно $ trans( \cap{x} )$.
+Така $y$ съдържа елементи, които са общи за всички елементи на $x$. Тогава $y \subseteq \bigcap{x} $.
+Следователно $ trans( \bigcap{x} )$.
 \bigbreak
 
 \underline{Док 4:} Нека $trans(x)$.\\
-Можем да използваме че $ \cup{z} \subseteq z$
-и можем да докажем следното $ \cup{ \mathcal{P}(x) = x \subseteq \mathcal{P}(x) } $
+Можем да използваме че $ \bigcup{z} \subseteq z$
+и можем да докажем следното $ \bigcup{ \mathcal{P}(x) = x \subseteq \mathcal{P}(x) } $
 \bigbreak
 
 Друг подход:\\
@@ -447,7 +447,7 @@ $ <a,b> \in \mathcal{P}( \mathcal{P} (A \cup B)) $ \\
 
 \bigbreak
 \fbox{Тв} За вс. 2 мн-ва $A$ и $B$, същ. единствено мн-во $C$, такова че:\\
-$ \forall{u} (u in C \Leftrightarrow \exists{a} \exists{b} (a \in A \land b \in B \land u = <a,b>))$
+$ \forall{u} (u \in C \Leftrightarrow \exists{a} \exists{b} (a \in A \land b \in B \land u = <a,b>))$
 \bigbreak
 
 \underline{Док за единственост:} за домашна.
@@ -466,7 +466,7 @@ $ \forall{u} (u \in C \Leftrightarrow \phi(u) )$.
   \item $(AxB)xC = Ax(BxC)$ ? Не е асоциативна!
   \item $A \times (B \cup C) = (A \times B) \cup (A \times C)$
   \item $A \times (B \cap C) = (A \times B) \cap (A \times C)$
-  \item $B \times (\cup A) = \cup \{ B \times x\ |\ x \in A\}$ - като за начоло се питаме синтаксиса коректен ли е?
+  \item $B \times (\bigcup A) = \bigcup \{ B \times x\ |\ x \in A\}$ - като за начоло се питаме синтаксиса коректен ли е?
     Тоест това от десния край е мн-во ли е?
 \end{enumerate}
 \bigbreak
@@ -485,8 +485,8 @@ $a \in A, b \in B$,\\
 \bigbreak
 
 \underline{Док 6:} Първо да докажем че операцията е коректна.\\
-$B \times x, x \in A \implies x \subseteq \cup{A} \implies B \times x \subseteq B \times (\cup A) \implies B \times x \in \mathcal{P}(B \times (\cup A)) $.\\
-Тук $M \leftrightharpoons \mathcal{P}(B \times (\cup A))$, което ще е резултат от отделянето.
+$B \times x, x \in A \implies x \subseteq \bigcup{A} \implies B \times x \subseteq B \times (\bigcup A) \implies B \times x \in \mathcal{P}(B \times (\bigcup A)) $.\\
+Тук $M \leftrightharpoons \mathcal{P}(B \times (\bigcup A))$, което ще е резултат от отделянето.
 \bigbreak
 
 \fbox{Лема} Съществува единствено мн-во $ \forall{u} (u \in C \Leftrightarrow ( \exists{x} \in A)(u = B \times x)) $
@@ -494,16 +494,16 @@ $B \times x, x \in A \implies x \subseteq \cup{A} \implies B \times x \subseteq 
 
 \underline{Док:} Единственост - от аксиомата за обемност.
 \bigbreak
-(съществуване): Нека $C = \{u\ |\ u \in \mathcal{P}(B \times \cup A) \land ( \exists{x \in A})(u = B \times x) \}$.\\
-$u \in C \implies u \in \mathcal{P}(B \times  \cup{A} ) \land \phi(u) \implies \phi(u)  $. Сега от $ \phi(u) \Rightarrow u \in \mathcal{P}(B \times  \cup{A} )$ следва ...
+(съществуване): Нека $C = \{u\ |\ u \in \mathcal{P}(B \times \bigcup A) \land ( \exists{x \in A})(u = B \times x) \}$.\\
+$u \in C \implies u \in \mathcal{P}(B \times  \bigcup{A} ) \land \phi(u) \implies \phi(u)  $. Сега от $ \phi(u) \Rightarrow u \in \mathcal{P}(B \times  \bigcup{A} )$ следва ...
 \bigbreak
-$( \subseteq)$ Нека $ u \in B \times ( \cup{A} )$ е произволно. Нека $<b,c> = u$ като $b \in B$ и $c \in \cup{A} $.
-Нека $a \in A$ е т.ч. $c \in a$. Тогава $u = <b,c> \in B \times a, a \in A$. Но $B \times a \in \{B \times x\ |\ x \in A\}$, от където $u \in \cup{ \{B \times x\ |\ x \in A\}} $
+$( \subseteq)$ Нека $ u \in B \times ( \bigcup{A} )$ е произволно. Нека $<b,c> = u$ като $b \in B$ и $c \in \bigcup{A} $.
+Нека $a \in A$ е т.ч. $c \in a$. Тогава $u = <b,c> \in B \times a, a \in A$. Но $B \times a \in \{B \times x\ |\ x \in A\}$, от където $u \in \bigcup{ \{B \times x\ |\ x \in A\}} $
 \bigbreak
 
-$(\supseteq)$ Нека $u \in \cup{ \{B \times x\ |\ x \in A\}} $. Нека $a \in A$ е т.ч. $u \in B \times a$.
-Нека $b \in B, c \in a$ са т.ч. $u = <b,c>$. Но $a \in A \implies a \subseteq \cup{A}$, така $c \in \cup{A} $.
-Тогава $u = <b,c> \in B \times ( \cup{A} )$.
+$(\supseteq)$ Нека $u \in \bigcup{ \{B \times x\ |\ x \in A\}} $. Нека $a \in A$ е т.ч. $u \in B \times a$.
+Нека $b \in B, c \in a$ са т.ч. $u = <b,c>$. Но $a \in A \implies a \subseteq \bigcup{A}$, така $c \in \bigcup{A} $.
+Тогава $u = <b,c> \in B \times ( \bigcup{A} )$.
 \bigbreak
 
 \hrule
@@ -603,7 +603,7 @@ $ \exists{B} \forall{z} (z \in B \Leftrightarrow \exists{x} (x \in A \land \phi(
 \bigbreak
 
 \fbox{Аксиома за избора ($ \mathcal{AC} $)} Нека имам някакво разделяне(разбиване) на множеството A и взема по един елемент от всяка част.
-$ \forall{z} (z \in A \Rightarrow  z \cap$ е синглетон ($ \exists{u} (z \cap c = \{ u\})$))
+$ \forall{z} (z \in A \Rightarrow  \bigcap z$ е синглетон ($ \exists{u} (z \cap c = \{ u\})$))
 \bigbreak
 С помощта на аксиомата за избора се доказва че всяко множество може да бъде добре наредено (contraversial).
 $ \forall{x} (x \in A \Rightarrow \emptyset) \Rightarrow \exists{f} (Func(f))$\\
@@ -659,9 +659,9 @@ $Rel(R) \leftrightharpoons \forall{z}(z \in R \Rightarrow \exists{x} \exists{y}(
 
 \fbox{Тв} За всяка релация $R$, $Dom(R)$ и $Rng(R)$ са множества.
 \bigbreak
-\underline{Док:} $x \in Dom(R) \implies \exists{y}(<x,y> \in R) \implies \exists{y}( \{ x\} \in <x,y> \in R) \implies \{ x\} \in \cup R \implies Dom(R) \subseteq \cup \cup R, Dom(R)$ е определима съвкупност (клас).\\
-$\cup \cup R$ е множество $ \implies Dom(R)$ е множество.\\
-Аналогично получаваме $y \in Rng(R) \Rightarrow y \in \cup \cup R \implies Rng(R) \subseteq \cup \cup R$ - множество.
+\underline{Док:} $x \in Dom(R) \implies \exists{y}(<x,y> \in R) \implies \exists{y}( \{ x\} \in <x,y> \in R) \implies \{ x\} \in \bigcup R \implies Dom(R) \subseteq \bigcup \bigcup R, Dom(R)$ е определима съвкупност (клас).\\
+$\bigcup \bigcup R$ е множество $ \implies Dom(R)$ е множество.\\
+Аналогично получаваме $y \in Rng(R) \Rightarrow y \in \bigcup \bigcup R \implies Rng(R) \subseteq \bigcup \bigcup R$ - множество.
 \bigbreak
 
 \fbox{Тв} $Rel(R) \Rightarrow R \subseteq Dom(R) \times Rng(R)$
@@ -738,21 +738,21 @@ $(R^{-1})[B]$ е образ на $B$ ри $R^{-1}$, а $R^{-1}[B]$ е праоб
 \Longleftrightarrow \exists{y}(y \in B \land  <x,y> \in (R^{-1})^{-1}) \Longleftrightarrow \exists{y}(y \in B \land <x,y> \in R) \Longleftrightarrow x \in (R)^{-1}[B]$
 \bigbreak
 
-\fbox{Тв} Нека $\forall{x}(x \in X \Rightarrow x \subseteq Dom(R))$. Тогава $R[\cup X] = \cup \{R[x]\ |\ x \in X\}$.
+\fbox{Тв} Нека $\forall{x}(x \in X \Rightarrow x \subseteq Dom(R))$. Тогава $R[\bigcup X] = \bigcup \{R[x]\ |\ x \in X\}$.
 Тук $Rel(R)$ и $X$ е множество.
-Това е коректно защото $(\forall{x \in X})x \subseteq Dom(R)) \implies \cup X \subseteq Dom(R)$.
-$a \in \cup X \implies \exists{x}(x \in X \land  a \in x) \implies a \in Dom(R)$. Сега това множество ли е?\\
+Това е коректно защото $(\forall{x \in X})x \subseteq Dom(R)) \implies \bigcup X \subseteq Dom(R)$.
+$a \in \bigcup X \implies \exists{x}(x \in X \land  a \in x) \implies a \in Dom(R)$. Сега това множество ли е?\\
 Нека $x \in X \implies x \subseteq Dom(R) \implies R[x] \subseteq R[Dom(R)]$.
 Тогава ако $A \subseteq A_1 \subseteq Dom(R) \implies R[A] \subseteq R[A_1]$ и съответно
 $B \subseteq B_1 \subseteq Rng(R) \implies R^{-1}[A] \subseteq R^{-1}[B_1]$.
 Значи това е определима съвкупност $ \{R[x]\ |\ x \in X\} \subseteq \mathcal{P}(Rng(R))$.
 Всичко е коректно, сега доказателството.
 \bigbreak
-\underline{Док:} Нека $b \in R[\cup X]$. Нека $a \in \cup X$ е т.ч. $<a,b> \in R$. Нека $x_0 \in X$ е такъв че $a \in x_0$.
-Тогава $b \in R[x_0]$. Следователно $b \in \cup \{R[x]\ |\ x \in X\}$
+\underline{Док:} Нека $b \in R[\bigcup X]$. Нека $a \in \bigcup X$ е т.ч. $<a,b> \in R$. Нека $x_0 \in X$ е такъв че $a \in x_0$.
+Тогава $b \in R[x_0]$. Следователно $b \in \bigcup \{R[x]\ |\ x \in X\}$
 \bigbreak
-Сега обратното включване. Нека $b \in \cup \{R[x]\ |\ x \in X\}$. Нека $x_0 \in X$ е т.ч. $b \in R[x_0]$.
-Но $x_0 \subseteq \cup X$. Пак от монотонността следва че $b \in R[x_0] \subseteq R[\cup X]$.
+Сега обратното включване. Нека $b \in \bigcup \{R[x]\ |\ x \in X\}$. Нека $x_0 \in X$ е т.ч. $b \in R[x_0]$.
+Но $x_0 \subseteq \bigcup X$. Пак от монотонността следва че $b \in R[x_0] \subseteq R[\bigcup X]$.
 \bigbreak
 
 \fbox{Тв} Нека $Rel(R)$ и $X$ е мн-во за което е изп. че $\forall{x}(x \in X \Rightarrow x \subseteq Dom(R))$.
@@ -783,7 +783,11 @@ $x \in \cap A \Leftrightarrow \forall{a \in A}(x \in a)$
 Така $\cap \{R[x]\ |\ x \in X\} \subseteq R[\cap X]$
 \bigbreak
 
-\underline{Функции:}
+\bigbreak
+\hrule
+\begin{center}
+\fbox{< Функции >}
+\end{center}
 
 \bigbreak
 \fbox{Опр} Казваме че релацията $R$ е функция, \\
@@ -812,9 +816,9 @@ $x \in \cap A \Leftrightarrow \forall{a \in A}(x \in a)$
 
 \fbox{Следствие} Нека $Func(f)$ и нека $X$ и $Y$ са такива мн-ва че:\\
 $(\forall{x \in X})(x \subseteq Dom(f))$ и $(\forall{y \in Y})(y \subseteq Rng(f))$.\\
-Тогава $f[\cup X ] = \cup \{f[x]\ |\ x \in X\}$
+Тогава $f[\bigcup X ] = \bigcup \{f[x]\ |\ x \in X\}$
 и $f[\cap X ] \subseteq \cap \{f[x]\ |\ x \in X\}$ (равенство не винаги се достига).\\
-Изпълнено е че $f ^{-1}[\cup X] = \cup \{f ^{-1} [x]\ |\ x \in X\}$
+Изпълнено е че $f ^{-1}[\bigcup X] = \bigcup \{f ^{-1} [x]\ |\ x \in X\}$
 и $f ^{-1}[\cap X] = \cap \{f ^{-1} [x]\ |\ x \in X\}$.\\
 $\forall{y \in Rng(R)\exists{!x \in Dom(R)(<x,y> \in R)}}$\\
 
@@ -853,7 +857,179 @@ $f: A \rightarrow B, A_1 \subseteq A$\\
 
 \fbox{Тв} $f$ и $g$ са съвместими $\Longleftrightarrow f\upharpoonleft(Dom(f) \cap Dom(g)) = g \upharpoonright (Dom(f) \cap Dom(g))$
 \bigbreak
-\underline{Док:} \textit{To be continued...}
+
+\underline{Док:} \textit{To be continued...}\\
+\bigbreak
+\hrule
+\bigbreak
+Да уточним някакви неща: \\
+$ f : A \rightarrow B, A_1 \subseteq A = Dom(f) $\\
+Рестрикция на $f$ до $ A_1 $: $ f \upharpoonright A_1 = f \cap (A_1 \times Rng(f)) = \{<x,f(x)>\ |\ x \in A_1\}  $
+\begin{enumerate}
+  \item $ Funct(f \upharpoonright A_1) $
+  \item $ f \upharpoonright A_1 \subseteq f \upharpoonright A$
+  \item $ A_1 \subseteq A2 \subseteq A \Rightarrow f \upharpoonright A_1 \subseteq f \upharpoonright A_2$
+\end{enumerate}
+\bigbreak
+
+\fbox{Опр} $ f $ и $ g $ са съвместими функции, ако $f \cup g$ е функция.
+\bigbreak
+
+\fbox{Тв} Функциите $f$ и $ g $ са съвместими $ \Leftrightarrow  $ $f \upharpoonright (Dom(f) \cap Dom(g)) =
+g \upharpoonright (Dom(f) \cap Dom(g))$
+\bigbreak
+
+\underline{Док:} ($ \rightarrow $) Нека $Funct(f \cup g)$. Нека $ u \in f \upharpoonright (Dom(f) \cap Dom(g))$.
+Тогава $u = <x,y>$ като $ x \in Dom(f) \cap Dom(g)$ и $ y = (f \upharpoonright (Dom(f) \cap Dom(g)))(x) = f(x) $.
+Poneve $x \in Dom(g)$, то $ <x,g(x)> \in g $. Така $<x,f(x)>, <x,g(x)> \in f \cup g$. Понеже $Funct(f \cup g)$,
+то $f(x) = y = g(x)$. След. $u = <x,y> = <x,g(x)> \in g$ и понеже $x \in Dom(f) \cap Dom(g)$,
+то $u = <x,y> \in y \upharpoonright (Dom(f) \cap Dom(g))$.
+\bigbreak
+($\Leftarrow$) Нека $f \upharpoonright (Dom(f) \cap Dom(g)) = g \upharpoonright (Dom(f) \cap Dom(g))$.
+Ясно е, че $Rel(f \cup g)$. Нека $<x,y>, <x,y'> \in f \cup g$ \\
+Възможни са 3 случея:
+\begin{enumerate}
+  \item $<x,y>, <x,y'> \in f$. Но $Funct(f)$, от където $y = y'$.
+  \item $<x,y>,<x,y'> \in g$. Подобно - получава се $y = y'$
+  \item $<x,y> \in f , <x,y'> \in g$. Тогава $x \in Dom(f), x \in Dom(g)$. След $x \in Dom(f) \cap Dom(g)$.
+    Така $y = f(x) = g(x) = y'$
+\end{enumerate}
+\bigbreak
+
+\fbox{Тв} Нека $F$ е множество от две по две съвместими функции. Тогава $ \bigcup F $ е функция като:
+$ Dom(\bigcup F) = \bigcup \{Dom(f)\ |\ f \in F\} $
+$ Rng(\bigcup F) = \bigcap \{Rng(f)\ |\ f \in F\} $
+\bigbreak
+\underline{Док:} Ясно е, че $Rel(\bigcup F)$. Нека $<x,y> \in \bigcup F$ и $<x,y'> \in \bigcup F$.
+Нека $f, f' \in F$ са такива че $<x,y> \in f$ и $<x,y'> \in f'$. Тогава $Funct(f \cup f')$,
+като $<x,y>,<x,y'> \in f \cup f'$. Следователно $y = y'$. Така получаваме $Funct(\bigcup F)$.
+\bigbreak
+\hrule
+\bigbreak
+
+Нека $x \in Dom(\bigcup F)$. Нека $y$ е т.ч. $ <x,y> \in \bigcup F $. Нека $f_0 \in F$ е такова че $<x,y> \in f_0$.
+Тогава $x \in Dom(f_0)$ и следователно $x \in \bigcup \{Dom(f)\ |\ f \in F\}$.
+Нека сега $f_0 \in F$ е т.ч. $x \in Dom(f_0)$. Но $f_0 \subseteq \bigcup F$ и $ \bigcup F$ е функция, следователно
+$Dom(f_0) \subseteq Dom(\bigcup F)$. Следователно $x \in Dom(\bigcup F)$
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 5}
+\end{center}
+\bigbreak
+
+\fbox{Опр}
+За $f : \mathcal{P}(A) \rightarrow \mathcal{P}(A)$, ще казваме че $f$ е монотонна, ако: \\
+$ (\forall{X_1 \supset A})(\forall{X_2 \subseteq A})(X_1 \subseteq X2 \rightarrow f(X_1) \subseteq f(X_2)) $
+\bigbreak
+
+\fbox{Опр}
+И за монотонна $f : B \rightarrow B$, $ x $ е неподвижнда точка на $ f $, ако $f(x) = x$
+\bigbreak
+
+\fbox{Лема} (Тарски)\\
+Нека $f: \mathcal{P}(A) \rightarrow \mathcal{P}(A)$ е монотонна функция. Тогава $f$ има неподвижнда точка.\\
+Нещо повече, $ f$ има най-малка и най-голяма неподвижнда точка:\\
+тоест съществуват $X_1,X_2 \in \mathcal{P}(A)$ т.ч.
+$f(X_1) = X_1, f(X_2) = X_2$ и за всяко $X \in \mathcal{P}(A)$ с $f(X) = X$ е изпълнено, че $X_1 \subseteq X \subseteq X_2$.
+\bigbreak
+
+\underline{Док:} Нека $\Pi = \{X\ |\ X \subseteq A \land f(X) \subseteq X\}$
+Понеже $A \in \Pi$, то $\Pi \neq \emptyset$. Нека $X_1 = \bigcap \Pi$.
+За вс. $X \in \Pi$, $X_1 = \bigcap \Pi \subseteq X$. Понеже $f$ е монотонна,
+то за вс. $X \in \Pi$, $f(X_1) \subseteq f(X) \subseteq X$. Следователно $f(X_1) \subseteq \bigcap \Pi = X_1$.
+Понеже $X_1 \subseteq A$, то $X_1 \in \Pi$. Отново от монотонността на $f$ имаме, че
+$f(f(X_1)) \subseteq f(X_1)$. Значи $f(X_1) \in \Pi$. Следователно $X_1 \subseteq f(X_1)$.
+От тук $f(X_1) = X_1$ и така $X_1$ е неподвижнда точка на $f$. Ясно се вижда че:
+$f(X) = X \implies x \in \Pi \implies X_1 = \bigcap \Pi \subseteq X \implies X_1$ е най-малката неподвижна точка на $f$\\
+\underline{За най-голяма неподвижна точка - за домашна!}
+\bigbreak
+\hrule
+\bigbreak
+
+\begin{center}
+(от Тинко)
+\end{center}
+
+\begin{center}
+\fbox{< Равномощни множества. Сравняване на множества по мощност >}
+\end{center}
+\bigbreak
+
+\fbox{def} Казваме че $A$ и $B$ са равномощни, ако съществува биекция на $A$ върху $B$,\\
+тоест $\exists{f}(f: A \rightbijectionarrow B)$.
+Означения: $|A| = |B| $ или $ \overline{\overline{A}} = \overline{\overline{B}}$\\
+Съответно $\overline{\overline{A}} \neq \overline{\overline{B}} \leftrightharpoons \lnot(\overline{\overline{A}} = \overline{\overline{B}})$
+\bigbreak
+Казваме че мощността на $A$ не надминава мощността на $B$, ако $\exists{f}(f: A \rightarrowtail B)$.\\
+Пишем $\overline{\overline{A}} \leq \overline{\overline{B}}$.
+\bigbreak
+Казваме че мощността на $A$ е строго по-малка от мощността на $B$, ако $\overline{\overline{A}} \leq \overline{\overline{B}} \land \overline{\overline{A}} \neq \overline{\overline{B}}$. Пишем $\overline{\overline{A}} < \overline{\overline{B}}$.
+
+\fbox{Св}
+\begin{enumerate}
+  \item $\overline{\overline{A}} = \overline{\overline{A}}, Id_A: A \rightbijectionarrow A$
+  \item $\overline{\overline{A}} = \overline{\overline{B}} \implies \overline{\overline{B}} = \overline{\overline{A}}$
+  \item $\overline{\overline{A}} = \overline{\overline{B}} \land \overline{\overline{B}} = \overline{\overline{C}}
+    \implies \overline{\overline{A}} = \overline{\overline{C}}$
+\end{enumerate}
+
+\underline{Док 2:} Нека $f_0: A \rightbijectionarrow B$ (свидетел за съществуващата биекция), тогава $f_0^{-1}: B \rightbijectionarrow A$.\\
+Значи $\exists{f'}(f': B \rightbijectionarrow A)$
+\bigbreak
+
+\underline{Док 3:} $\exists{f}(A \rightbijectionarrow B)$ и $ \exists{f}(B \rightbijectionarrow C)$. Нека вземем
+свидетели: $f_0: A \rightbijectionarrow B, f_1: B \rightbijectionarrow C$. \\
+Нека $h = f_0 \circ f_1$, т.е. $h(x) = f_1(f_0(x))$. Вижда се че $h: A \rightbijectionarrow C$.
+Следователно $\exists{f'}(f': A \rightbijectionarrow C)$
+\bigbreak
+\hrule
+\bigbreak
+Нека $A$ и $c$ са произволни множества. Тогава $\overline{\overline{A}} = \overline{\overline{A \times \{ c \} }}$
+и $\overline{\overline{A}} = \overline{\overline{\{ c \} \times  A}}$\\
+Дефинираме $f: f(a) = <a,c>$ за вс. $a \in A$.
+$f = \{u\ |\ \exists{a}(a \in A \land u = <a,<a,c>>)\} =$ \\
+$\{<a,c>\ |\ a \in A\}$, съответно тук отделяме $u \in A \times \{ c \}$. \textbf{idk???}
+\bigbreak
+
+\fbox{Тв} $A \neq \emptyset \Longleftrightarrow \lnot \exists{B}\forall{x}(x \in B \Leftrightarrow \overline{\overline{x}} = \overline{\overline{A}})$
+\bigbreak
+\underline{Док:} Нека $A \neq \emptyset$. $a_0 \in A$. Да доп. че $\exists{B}\forall{x}(x \in B \Leftrightarrow \overline{\overline{x}} = \overline{\overline{A}})$.
+Нека $B$ е свидетел за съществуването $\forall{x}(x \in B \Leftrightarrow \overline{\overline{x}} = \overline{\overline{A}})$. И нека вземем $B_0 \leftrightharpoons \{w\ |\ w \in B \land \exists{c}(w = A \times \{ c \})\}$.
+Значи $Rel(\bigcup B_0)$.\\
+Нека $t$ е произволнo множеството, тогава $A \times \{ t \} \in B_0$. Значи за $<a_0,t> \in \bigcup B_0$.\\
+Тогава $t \in Rng(\bigcup B_0)$. Така, $\forall{t}(t \in Rng(\bigcup B_0))$ - абсурт! (от допускането че $B_0$ съществува).
+\bigbreak
+Допускането че $A \neq \emptyset$ беше съществено.\\
+Ако $A = \emptyset$, то $\exists{B}(x \in B \Leftrightarrow \overline{\overline{x}} = \overline{\overline{A}})$.
+И единствената възможност е $B = \{ \emptyset \}$
+\bigbreak
+\fbox{Тв} $\forall{A}\forall{B}\exists{A'}\exists{B'}(\overline{\overline{A}} = \overline{\overline{A'}} \land \overline{\overline{B}} = \overline{\overline{B'}} \land A' \cap B' = \emptyset )$\\
+Ще дефинираме $\overline{\overline{A}} + \overline{\overline{B}} \leftrightharpoons \overline{\overline{A' \cup B'}}$.
+Как го постигаме?\\
+Взимаме $c_1 \neq c_2$ и тогава $A' \leftrightharpoons A \times \{ c_1c1 \}$ и
+$B' \leftrightharpoons B \times \{ c_2 \}$. А $A' \cap B' = \emptyset$
+\bigbreak
+
+\fbox{Св} Ако $\overline{\overline{A'}} = \overline{\overline{A''}} \land \overline{\overline{B'}} = \overline{\overline{B''}} \land  A' \cap B' = \emptyset \land  A'' \cap B'' = \emptyset \implies \overline{\overline{A' \cup B'}} = \overline{\overline{A'' \cup B''}}$
+\bigbreak
+\underline{Док:} Взимаме свидетели $f_1: A' \rightbijectionarrow A''$ и $ f_2: B' \rightbijectionarrow B''$, тогава
+$f_1 \cup f_2$ е функция, защото $f_1$ и $f_2$ са съвместими.
+Съответно $Dom(f_1 \cup f_2) = Dom(f_1) \cup Dom(f_2) = A' \cup B'$. Аналогично за за $Rng(f_1 \cup f_2)$
+
+\fbox{def} Бихме искали да го дефинираме така
+$\overline{\overline{A}}.\overline{\overline{B}} = \overline{\overline{A \times B}}$.\\
+Пак ще вземем равномощни на $A$ и $B$.
+$\overline{\overline{A}} = \overline{\overline{A'}} \land  \overline{\overline{B}} = \overline{\overline{B'}} \implies
+\overline{\overline{A x B}} = \overline{\overline{A' \times  B'}}$.
+\bigbreak
+
+\fbox{def} Ами степенуване - $k^n$? Ако $\overline{\overline{A}} = k$ и $\overline{\overline{B}} = n$, то това ще са всички функции от $B$ в $A$. \\
+Искаме да покажем $\overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{^B A}}$.
+Тоест $B_A = \{f\ |\ f: B \rightarrow A\}$.\\
+$\overline{\overline{A}} = \overline{\overline{A'}} \land \overline{\overline{B}} = \overline{\overline{B'}} \implies
+\overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{^{B'} A'}}$\\
+
 
 \end{document}
 % Some commented notes
