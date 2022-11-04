@@ -1029,10 +1029,27 @@ $\overline{\overline{A}} = \overline{\overline{A'}} \land  \overline{\overline{B
 Тоест $B_A = \{f\ |\ f: B \rightarrow A\}$.\\
 $\overline{\overline{A}} = \overline{\overline{A'}} \land \overline{\overline{B}} = \overline{\overline{B'}} \implies
 \overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{^{B'} A'}}$\\
+\bigbreak
+
+\fbox{Задачи}
+\begin{enumerate}
+  \item $\forall{A}\exists{A'}(\overline{\overline{A}} = \overline{\overline{A'}} \land A \cap A' = \emptyset)$
+  \item Нека $A \cap B = \emptyset$, тогава $ \overline{\overline{^{A \cup B}c}} = \overline{\overline{^A c}} \times  \overline{\overline{^B c}}$
+  \item $2 \leftrightharpoons \{ 0, 1 \}$, където $0 \leftrightharpoons \emptyset$, $1 \leftrightharpoons \{ \emptyset \}$
+  \item $\overline{\overline{A_2}} = \overline{\overline{\mathcal{P}(A)}}$
+  \item $\overline{\overline{^{A \times B} c}} = \overline{\overline{^{A} B _C}}$ (TODO: някакъв по-човешки синтаксис)
+\end{enumerate}
+
+\fbox{T} (Кантор-Шрьодер-Берщайн)
+$\overline{\overline{A}} \leq \overline{\overline{B}} \land \overline{\overline{B}} \leq \overline{\overline{A}} \implies \overline{\overline{A}} = \overline{\overline{B}}$
+\bigbreak
+
+\underline{Док:} Нека $f: A \rightarrowtail B, g: B \rightarrowtail A$. Търсим биекция $h$. Можем да дефинираме \\
+$h \leftrightharpoons (f \upharpoonright X) \cup (h^{-1} \upharpoonright (A \setminus X))$, за някое $X \subseteq A$.
+Как да вземем такова $X$? Трябва ни $A \setminus g[B \setminus f[x]] = X$ (търсим неподвижна точка?).\\
+Дефинираме $F: \mathcal{P}(A) \rightarrow \mathcal{P}(A)$, за $X \subseteq A$ полагаме
+$F(X) \leftrightharpoons A \setminus g[B \setminus f[x]]$ и твърдим че $F$ е монотонно. \textit{To be continued...} \\
 
 
 \end{document}
-% Some commented notes
-% $\mathbb{set}$
-% \mathcal{letter} ръкописни
-% _ and ^ for upper/lower index
+% NOTES:
