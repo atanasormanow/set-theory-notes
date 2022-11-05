@@ -965,10 +965,11 @@ $f(X) = X \implies x \in \Pi \implies X_1 = \bigcap \Pi \subseteq X \implies X_1
 Пишем $\overline{\overline{A}} \leq \overline{\overline{B}}$.
 \bigbreak
 Казваме че мощността на $A$ е строго по-малка от мощността на $B$, ако $\overline{\overline{A}} \leq \overline{\overline{B}} \land \overline{\overline{A}} \neq \overline{\overline{B}}$. Пишем $\overline{\overline{A}} < \overline{\overline{B}}$.
+\bigbreak
 
 \fbox{Св}
 \begin{enumerate}
-  \item $\overline{\overline{A}} = \overline{\overline{A}}, Id_A: A \rightbijectionarrow A$
+  \item $\overline{\overline{A}} = \overline{\overline{A}}, $ от $Id_A: A \rightbijectionarrow A$
   \item $\overline{\overline{A}} = \overline{\overline{B}} \implies \overline{\overline{B}} = \overline{\overline{A}}$
   \item $\overline{\overline{A}} = \overline{\overline{B}} \land \overline{\overline{B}} = \overline{\overline{C}}
     \implies \overline{\overline{A}} = \overline{\overline{C}}$
@@ -981,7 +982,7 @@ $f(X) = X \implies x \in \Pi \implies X_1 = \bigcap \Pi \subseteq X \implies X_1
 \underline{Док 3:} $\exists{f}(A \rightbijectionarrow B)$ и $ \exists{f}(B \rightbijectionarrow C)$. Нека вземем
 свидетели: $f_0: A \rightbijectionarrow B, f_1: B \rightbijectionarrow C$. \\
 Нека $h = f_0 \circ f_1$, т.е. $h(x) = f_1(f_0(x))$. Вижда се че $h: A \rightbijectionarrow C$.
-Следователно $\exists{f'}(f': A \rightbijectionarrow C)$
+Следователно $\exists{f'}(f': A \rightbijectionarrow C)$.
 \bigbreak
 \hrule
 \bigbreak
@@ -1016,19 +1017,20 @@ $B' \leftrightharpoons B \times \{ c_2 \}$. А $A' \cap B' = \emptyset$
 \underline{Док:} Взимаме свидетели $f_1: A' \rightbijectionarrow A''$ и $ f_2: B' \rightbijectionarrow B''$, тогава
 $f_1 \cup f_2$ е функция, защото $f_1$ и $f_2$ са съвместими.
 Съответно $Dom(f_1 \cup f_2) = Dom(f_1) \cup Dom(f_2) = A' \cup B'$. Аналогично за за $Rng(f_1 \cup f_2)$
+\bigbreak
 
 \fbox{def} Бихме искали да го дефинираме така
 $\overline{\overline{A}}.\overline{\overline{B}} = \overline{\overline{A \times B}}$.\\
 Пак ще вземем равномощни на $A$ и $B$.
 $\overline{\overline{A}} = \overline{\overline{A'}} \land  \overline{\overline{B}} = \overline{\overline{B'}} \implies
-\overline{\overline{A x B}} = \overline{\overline{A' \times  B'}}$.
+\overline{\overline{A \times  B}} = \overline{\overline{A' \times  B'}}$.
 \bigbreak
 
-\fbox{def} Ами степенуване - $k^n$? Ако $\overline{\overline{A}} = k$ и $\overline{\overline{B}} = n$, то това ще са всички функции от $B$ в $A$. \\
-Искаме да покажем $\overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{^B A}}$.
-Тоест $B_A = \{f\ |\ f: B \rightarrow A\}$.\\
+\fbox{def} Ами степенуване - $k^n$ ? Ако $\overline{\overline{A}} = k$ и $\overline{\overline{B}} = n$, то това ще са всички функции от $B$ в $A$.
+Искаме да покажем $\overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{B_A}}$,
+където $B_A = \{f\ |\ f: B \rightarrow A\}$.
 $\overline{\overline{A}} = \overline{\overline{A'}} \land \overline{\overline{B}} = \overline{\overline{B'}} \implies
-\overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{^{B'} A'}}$\\
+\overline{\overline{A}}^{\overline{\overline{B}}} = \overline{\overline{{B'}_{A'}}}$\\
 \bigbreak
 
 \fbox{Задачи}
@@ -1037,7 +1039,7 @@ $\overline{\overline{A}} = \overline{\overline{A'}} \land \overline{\overline{B}
   \item Нека $A \cap B = \emptyset$, тогава $ \overline{\overline{^{A \cup B}c}} = \overline{\overline{^A c}} \times  \overline{\overline{^B c}}$
   \item $2 \leftrightharpoons \{ 0, 1 \}$, където $0 \leftrightharpoons \emptyset$, $1 \leftrightharpoons \{ \emptyset \}$
   \item $\overline{\overline{A_2}} = \overline{\overline{\mathcal{P}(A)}}$
-  \item $\overline{\overline{^{A \times B} c}} = \overline{\overline{^{A} B _C}}$ (TODO: някакъв по-човешки синтаксис)
+  \item $\overline{\overline{{(A \times B)}_C}} = \overline{\overline{{A}_{B_C}}}$
 \end{enumerate}
 
 \fbox{T} (Кантор-Шрьодер-Берщайн)
@@ -1048,7 +1050,7 @@ $\overline{\overline{A}} \leq \overline{\overline{B}} \land \overline{\overline{
 $h \leftrightharpoons (f \upharpoonright X) \cup (h^{-1} \upharpoonright (A \setminus X))$, за някое $X \subseteq A$.
 Как да вземем такова $X$? Трябва ни $A \setminus g[B \setminus f[x]] = X$ (търсим неподвижна точка?).\\
 Дефинираме $F: \mathcal{P}(A) \rightarrow \mathcal{P}(A)$, за $X \subseteq A$ полагаме
-$F(X) \leftrightharpoons A \setminus g[B \setminus f[x]]$ и твърдим че $F$ е монотонно. \textit{To be continued...} \\
+$F(X) \leftrightharpoons A \setminus g[B \setminus f[x]]$ и твърдим че $F$ е монотонно. \textit{To be continued...}
 
 
 \end{document}
