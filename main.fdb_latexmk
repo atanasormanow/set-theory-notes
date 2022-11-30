@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1667998802 "main.tex" "main.pdf" "main" 1667998802
+["pdflatex"] 1669823564 "main.tex" "main.pdf" "main" 1669823564
   "/home/nakk/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/labx1200.tfm" 1664457208 3308 eee81981029f67083258db36df06e523 ""
   "/home/nakk/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm1200.tfm" 1664457203 3240 c2435f2b5cd66d4930bc29b8df87967e ""
   "/home/nakk/.texlive/texmf-var/fonts/tfm/lh/lh-t2a/larm1440.tfm" 1664457207 3256 3daaa33cf35cf3f354983aa3214ecd7f ""
@@ -31,6 +31,7 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1650183167 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1650183167 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1650183167 32722 d7379af29a190c3f453aba36302ff5a9 ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1650183167 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1650183167 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1650183167 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1650183167 32587 1788b0c1c5b39540c96f5e42ccd6dae8 ""
@@ -70,10 +71,10 @@
   "/usr/share/texmf-dist/tex/latex/graphics/keyval.sty" 1650183167 2671 4de6781a30211fe0ea4c672e4a2a8166 ""
   "/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1650183167 31644 9b75b7ffdb38fbd7bb4502cd6b086a3c ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1650183167 39911 2da6c67557ec033436fe5418a70a8a61 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1666610408 4297662 a8d5f4b65477fa04f8babdcc3c473d99 ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1666610405 2927660 85589088c2dfdcc4f6d30f33c8191b0e ""
-  "main.aux" 1667998802 133 6c4c924652f822d230bf92e60b24b0f3 "pdflatex"
-  "main.tex" 1667998801 70179 1998ac38325122fbc81cc626baab5b05 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1668456405 4297662 a8d5f4b65477fa04f8babdcc3c473d99 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1668456402 2927664 81d2525ccfdb00c7fee8326d85c12fec ""
+  "main.aux" 1669823564 133 cd3b3d34c29fc650178c8556e0326537 "pdflatex"
+  "main.tex" 1669823563 116811 e129bdfdf12fee33b86afc0997967f5e ""
   (generated)
   "main.aux"
   "main.log"

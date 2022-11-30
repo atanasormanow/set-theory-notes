@@ -11,6 +11,9 @@
   $\twoheadrightarrow$\cr\hidewidth\hbox{$\rightarrowtail\mkern 1mu$}\cr }}}
 \newcommand*\rightcircarrow{\mathrel{\ooalign{$\rightarrow$\cr\hidewidth\hbox{$\circ\mkern 5mu$}\cr}}}
 
+\newcommand\subsetsim{\mathrel{\substack{
+  \textstyle\subset\\[-0.2ex]\textstyle\sim}}}
+
 \title{Записки по Теория на Множествата \\
 \large При проф. Тинко Тинчев}
 
@@ -1127,7 +1130,6 @@ $Rng(f \upharpoonright X_0) \cap Rng(g^{-1} \upharpoonright (A \setminus X_0)) =
 \begin{center}
   \underline{\huge\normalfont Лекция 6}
 \end{center}
-\bigbreak
 
 \fbox{Т} В $\mathcal{ZF}$ следните са еквивалентни:
 \begin{itemize}
@@ -1135,6 +1137,716 @@ $Rng(f \upharpoonright X_0) \cap Rng(g^{-1} \upharpoonright (A \setminus X_0)) =
     \lor \overline{\overline{B}} \leq \overline{\overline{A}})$
   \item Аксиомата за избора
 \end{itemize}
+\bigbreak
+
+\fbox{Т за междинното множество}\\
+Нека $A \subseteq B \subseteq C$. Тогава ако $\overline{\overline{A}} = \overline{\overline{C}}$, то
+$\overline{\overline{A}} = \overline{\overline{B}}$ и $\overline{\overline{B}} = \overline{\overline{C}}$
+\bigbreak
+
+\underline{Док:} $A \subseteq B, B \subseteq C, \overline{\overline{A}} = \overline{\overline{C}}$.
+Тогава:
+$\overline{\overline{A}} \leq \overline{\overline{B}}$.
+$B \subseteq C \implies \overline{\overline{B}} \leq \overline{\overline{C}}$.
+Нека $f: B \rightarrowtail C$ и $g: C \rightbijectionarrow A$, тогава $h \leftrightharpoons f \circ g$
+и $h: B \rightarrow A $. $h(x_1) = h(x_2) \implies g(f(x_1)) = g(f(x_2))$,
+$g$ е инекция и $f(x_1) = f(x_2)$ - инекция. Тоест $x_1 = x_2$. $g: B \rightarrow A$, т.е.
+$\overline{\overline{B}} \leq \overline{\overline{A}}$. Получаваме
+$\overline{\overline{A}} = \overline{\overline{B}}$ (от Т на К.Ш.Б)
+\bigbreak
+
+\fbox{Т на Кантор за степенното множество} $\forall{A}(\overline{\overline{A}} < \overline{\overline{\mathcal{P}(A)}})$
+\bigbreak
+\underline{Док:} 1) $\overline{\overline{A}} < \overline{\overline{\mathcal{P}(A)}}$?\\
+Дефинираме $f(a) = \{ a \}$ за $a \in A$. Или по друг начин записано
+$f \leftrightharpoons \{z\ |\ z \in A \times \mathcal{P}(A)
+\land \exists{x}\exists{y}(z = <x,y> \land x \in A \land y = \{ y \})\}$\\
+2) $\lnot \exists{f}(f: A \twoheadrightarrow \mathcal{P}(A))$\\
+Да доп че $\exists{f}(f: A \twoheadrightarrow \mathcal{P}(A))$. Нека $g: A \twoheadrightarrow \mathcal{P}(A)$
+е свидетел за това съществуване. Нека $B \leftrightharpoons \{x\ |\ x \in A \land x \notin g(x)\}$,
+$B \subseteq A$, т.е. $B \in \mathcal{P}(A), \exists{x}(g(x) = B)$. Нека $x_0 \in A$ и $g(x_0) = B$\\
+1) $x_0 \in g(x_0)$. Тъй като $g(x_0) = B$, то $x_0 \in B$. Тогава $x_0 \notin g(x_0)$.
+Знаем че $x_0 \in g(x_0) \implies x_0 \notin g(x_0)$.
+Следователно $x_0 \notin g(x_0)$, но $x_0 \in A$ и от деф. на $B$ заключваме $x_0 \in B$. Тъй като $g(x_0) = B$,
+то $x_0 \in g(x_0)$. Тогава $x_0 \notin g(x_0) \implies x_0 \in g(x_0) \implies$ Противоречие!\\
+Така получаваме $x_0 \in g(x_0) \Longleftrightarrow x_0 \notin g(x_0)$, което е противоречие!
+\bigbreak
+Щом $\lnot \exists{f}(f: A \twoheadrightarrow \mathcal{P}(A))$,
+значи $\overline{\overline{A}} < \overline{\overline{\mathcal{P}(A)}}$.
+\bigbreak
+
+\bigbreak
+\hrule
+\bigbreak
+
+$\lnot \exists{V}\forall{x}(x \in V)$, да допуснем че $\exists{V}\forall{x}(x \in V)$.\\
+Нека вземем такова $V$,
+тогава от $\mathcal{P}(V) \leq V, \overline{\overline{\mathcal{P}(V)}} \leq \overline{\overline{V}}$ и
+$\overline{\overline{V}} < \overline{\overline{\mathcal{P}(V)}} \implies$ противоречие!
+Получаваме го от $\overline{\overline{V}} < \overline{\overline{\mathcal{P}(V)}}
+\implies \overline{\overline{V}} \leq \overline{\overline{\mathcal{P}(V)}}$, т.е. съществува биекция - абсурд!
+\bigbreak
+
+\fbox{Тв} $\lnot \exists{A}\forall{x}(\exists{y \in A})(\overline{\overline{x}} = \overline{\overline{y}})$
+\bigbreak
+
+\underline{Док:} Да допуснем, че
+$\exists{A}\forall{x}(\exists{y \in A})(\overline{\overline{x}} = \overline{\overline{y}})$.
+Нека $A_0$ е свидетел за съществуването, т.е. $A_0$ е такова че
+$\forall{x}(\exists{y \in A_0})(\overline{\overline{x}} = \overline{\overline{y}})$. Нека разгледаме $\bigcup A_0$.
+Нека $x$ е произволно множество, т.ч. $(\exists{y \in A_0})(\overline{\overline{x}} = \overline{\overline{y}})$.
+$y \subseteq A_0, \overline{\overline{y}} \leq \overline{\overline{\bigcup A_0}}$. От тук получаваме
+$\overline{\overline{x}} \leq \overline{\overline{A_0}}$. В частност за $x = \mathcal{P}(\bigcup A_0)$ и
+$\overline{\overline{\mathcal{P}(\bigcup A_0)}} \leq \overline{\overline{\bigcup A_0}}$ - противоречие!
+
+\clearpage
+\begin{center}
+\fbox{< Частични наредби >}
+\end{center}
+\bigbreak
+
+\fbox{Опр} Нека $R$ е бинарна релация. Казваме че:
+\begin{itemize}
+  \item $R$ е над $A$, ако $R \subseteq A \times A$
+  \item $R$ е рефлексивна в $A$, ако $\forall{x}(x \in A \Rightarrow <x,x> \in R)$
+  \item $R$ е антисиметрична, ако $\forall{x}\forall{y}(<x,y> \in R \land <y,x> \in R \Rightarrow x = y)$
+  \item $R$ е асиметрична, ако $\forall{x}\forall{y}(<x,y> \in R \Rightarrow <y,x> \notin R)$
+  \item $R$ е транзитивна, ако $\forall{x}\forall{y}\forall{z}(<x,y> \in R \land <y,z> \in R \Rightarrow <x,z> \in R)$
+  \item $R$ е ирефлексивна, ако $\forall{x}(x \in A \Rightarrow <x,x> \notin R)$
+\end{itemize}
+\bigbreak
+
+\fbox{Тв} Нека $R$ е бинарна релация над $A$. Тогава:
+\begin{itemize}
+  \item $R$ е рефлексивна в $A \Longleftrightarrow id_A \subseteq R$ 
+  \item $R$ е транзитивна $\Longleftrightarrow R \circ R \subseteq R$
+  \item $R$ е антисиметрична $\Longleftrightarrow R \cap R^{-1} \subseteq id_A$
+  \item $R$ е асиметрична $\Longleftrightarrow R \cap R^{-1} = \emptyset$
+  \item $R$ е ирефлексивна $\Longleftrightarrow R \cap id_A = \emptyset$
+\end{itemize}
+
+\fbox{Опр} $R$ е частична наредба в $A$, ако $R$ е над $A$, ако $R$ е рефлексивна, антисиметрична и транзитивна в $A$.
+Тогава наредената двойка $<A,R>$ ще наричаме частично наредено множество.
+
+\bigbreak
+\hrule
+\bigbreak
+
+Вярно ли е че $\forall{A}\exists{R}(<A,R> - $ч.н.м.$)$? Да - ${id_A}^{-1} = id_A$
+\bigbreak
+
+\fbox{Опр} Ако $<A,R>$ е частично наредено множество, $x,y \in A$. Казваме че $x$ и $y$ са $R$-сравними, ако
+$<x,y> \in R \lor <y,x> \in R$.
+\bigbreak
+
+\underline{Заб:} "$<A,R>$ е ч.н.м." е определимо свойство - $\phi(A,R)$.
+
+Ако $<A,R>$ - ч.н.м$, A_1 \subseteq A \implies <A_1, R \cap (A_1 \times A_1)>$ - тази наредба се нарича индуцирана наредба в $A_1$
+\bigbreak
+
+\fbox{Опр} $R$ е строга частична наредба в $A$ ако $R$ е над $A$, $R$ е антисиметрична и транзитивна. (+ ирефлексивност).
+Тогава $<A,R>$ - строго частично наредено множество.
+\bigbreak
+
+\fbox{Тв} Нека $R$ е релация над $A$, която е асиметрична. Тогава $R$ е ирефлексивна.
+\bigbreak
+
+\underline{Док:} Нека $R \subseteq A \times A$ е асиметрична, но не е ирефлексивна.
+Тоест $\exists{x}(x \in A \land <x,x> \in R)$. Нека $a$ е свидетел за това, т.е. $a \in A \land <a,a> \in R$.
+Тогава по асиметричността на $R$ получаваме, че $<a,a> \notin R$. Противоречие! $\implies R$ е ирефлексивна.
+
+\bigbreak
+\hrule
+\bigbreak
+
+Вярно ли е че $\forall{A}\exists{R}(R $ - строга ч.н. в $A)$? Да това е $\emptyset$
+\bigbreak
+
+\fbox{Тв} Нека $R$ е ралация над $A$. Ако $R$ е частична наредба в $A$, то $R \setminus id_A$ е строга частична наредба
+в $A$. Ако $R$ е с.ч.н. в $A$, то $R \cup id_A$ е ч.н. в $A$.
+\bigbreak
+
+\underline{Док:} 1) Нека $R$ е ч.н. в $A$.
+Тогава $(R \setminus id_A) \cap (R \setminus id_A)^{-1} = (R \setminus id_A) \cap (R^{-1} \setminus {id_A}^{-1})
+= (R \setminus id_A) \cap (R^{-1} \setminus id_A) = (R \cap R^{-1}) \setminus id_A \subseteq id_A \setminus id_A
+= \emptyset$, защото $R$ е антисиметрична, т.е. $R \cap R^{-1} \subseteq id_A$.
+Следователно $R \setminus id_A$ е асиметрична.\\
+Сега док че тя е транзитивна. Нека $<x,y>, <y,z> \in R \setminus id_A$. Но тогава $<x,y>, <y,z> \in R$ и от
+транзитивността на $R$ имаме, че $<x,z> \in R$. Да допуснем, че $<x,z> \in id_A$, тогава $x = z$.
+Така $<x,y>, <y,x> \in R$. От където $y = x$, т.е. $<x,y> \in id_A$.
+Но $<x,y> \in R \setminus id_A \implies$ Противоречие! Следователно $<x,z> \notin R \setminus id_A$.
+Тогава $R \setminus id_A$ е транзитивна. И така получаваме че е с.ч.н в $A$.
+\bigbreak
+2) Нека $R$ e с.ч.н. в $A$. Тогава $id_A \subseteq R \cup id_A$, от където $R \cup id_A$ е рефлексивна в $A$.
+Понеже $R$ е асиметрична, то $R \cap R^{-1} = \emptyset$.
+Тогава $(R \cup id_A) \cap (R \cup id_A)^{-1} = (R \cup id_A) \cap (R^{-1} \cup {id_A}^{-1})
+= (R \cup id_A) \cap (R^{-1} \cup id_A) = (R \cup R^{-1}) \cup id_A = \emptyset \cup id_A = id_A$.
+В частност $R \cup id_A$ е антисиметрична. Накрая имаме,
+че $(R \cup id_A) \circ (R \cup id_A) = R \circ R \cup R \circ id_A \circ R \cup id_A \circ id_A
+= R \circ R \cup R \cup R \cup id_A \subseteq R \cup id_A$,
+защото $R$ е транзитивна $\implies R \cup id_A$ е транзитивна. Така получаваме че $R \cup id_A$ е ч.н.
+\bigbreak
+Ако $R$ е ч.н. в $A$, то $R = (R \setminus id_A) \cup id_A$, като $R \setminus id_A$ е строга ч.н. в $A$.
+$R$ - ч.н. в $A$ $\Longleftrightarrow $ съществува $S$ - с.ч.н. в $A$, т.ч. $R = S \cup id_A$.\\
+Подобно, ако $S$ е с.ч.н. в $A$, то $S = (S \cup id_A) \setminus id_A$, като $S \cup id_A$ е ч.н. в $A$.
+$S$ - с.ч.н. в $А \Longleftrightarrow $  съществува $R$ - ч.н. в $A$, т.ч. $S = R \setminus id_A$.
+\bigbreak
+
+\fbox{Тв} Ако $<A,R>$ е (с.)ч.н. $\Longleftrightarrow <A,R^{-1}>$ - (с.)ч.н. множество.
+$<A,R^{-1}>$ наричаме обратна наредба на $R$.
+\bigbreak
+
+\underline{Док:} $R$ е рефлексивна в
+$A$ $\Longleftrightarrow id_A \subseteq R \Longleftrightarrow {id_A}^{-1} \subseteq R^{-1}
+\Longleftrightarrow id_A \subseteq R^{-1} \Longleftrightarrow R^{-1}$ е рефлексивна в $A$.\\
+$R$ е асиметрична $\Longleftrightarrow R \cap R^{-1} = \emptyset \Longleftrightarrow  R^{-1} \cap R = \emptyset
+\Longleftrightarrow R^{-1} \cap (R^{-1})^{-1} = \emptyset \Longleftrightarrow R^{-1}$ е асиметрична\\
+$R$ е антисиметрична $\Longleftrightarrow R \cap R^{-1} \subseteq id_A \Longleftrightarrow  R^{-1} \cap (R^{-1})^{-1}
+\Longleftrightarrow R^{-1}$ е антисиметрична\\
+$R$ е транзитивна $\Longleftrightarrow R \circ R \subseteq R \Longleftrightarrow  (R \circ R)^{-1} \subseteq R^{-1}
+\Longleftrightarrow R^{-1} \circ R^{-1} \subseteq R^{-1}$ е транзитивна
+\bigbreak
+
+\fbox{Опр} Нека $<A,R>$ - ч.н.м., B $\subseteq A$ и $a \in A$. Казваме че:
+\begin{itemize}
+  \item $a$ е горна граница за $B$ в $<A,R>$, ако $\forall{x}(x \in B \Rightarrow <x,a> \in R)$
+  \item $a$ е най-голям елемент на $B$, ако $a \in B$ и $a$ е горна граница за $B$
+  \item $a$ е долна граница за $B$ в $<A,R>$, ако $a$ е горна граница за $B$ в $<A,R^{-1}>$
+  \item $a$ е най-малък елемент на $B$ в $<A,R>$, ако $a$ е най-голям елемент на $B$ в $<A,R^{-1}>$
+  \item $a$ е точна горна граница за $B$ в $<A,R>$, ако $a$ е горна граница за $B$ в $<A,R>$ и $a$ е най-малкия елемент
+    на множеството от горни граници за $B$ в $<A,R>$ в $<A,R>$. Означава се $a = sup(B)<A,R>$.
+    (Тук ч.н.м. го записа на долния ред ??)
+  \item $a$ е точна долна граница за $B$ в $<A,R>$, ако $a$ е точна горна граница за $B$ в $<A,R^{-1}>$.
+    Означава се $a = inf(B)<A,R> = sup(B)<A,R^{-1}>$
+  \item $a$ е максимален елемент на $B$ в $<A,R>$, ако $\forall{x}(x \in B \land <a,x> \in R \Rightarrow x = a)$
+  \item $a$ е минимален елемент на $B$ в $<A,R>$, ако е максимален е $<A,R^{-1}>$
+\end{itemize}
+
+
+\bigbreak
+\hrule
+\bigbreak
+Нова лекция!\\
+Предния път разглеждахме наредени множества.
+\bigbreak
+
+$<A, \subseteq_A>$ - ч.н.м. (правим ограничение до елементите на A)\\
+$x \subseteq_A y \leftrightharpoons x,y \in A \land x \subseteq y$, ако $B \subseteq A$, то не е задължително $B$
+да има точна горна граница.
+\bigbreak
+Пример: $A = \{ \{ 0 \}, \{ 1 \} \}$ и $B = A$. $B$ дори няма горна граница.\\
+Тоест $\lnot \exists{x}(x \in A \land \forall{y} \in B (y \subseteq_A x))$
+\bigbreak
+
+Това не е така при $<\mathcal{P}(A), \subseteq_{\mathcal{P}(A)>, B \subseteq \mathcal{P}(A)}$.
+Тогава $\bigcup B$ е такова множество, че:
+\begin{enumerate}
+  \item $\forall{x \in B}(x \subseteq \bigcup B)$
+  \item ако $C$ е т.ч. $\forall{x \in B}(x \subseteq C)$, то $\bigcup B \subseteq C$\\
+    $a \in \bigcup B \implies$ има $x \in B$ т.ч. $a \in x \implies a \in x \subseteq C$
+  \item $\bigcup B \in \mathcal{P}(A)$,
+    $(\forall{x \in B})(x \in \mathcal{P}(A))  \implies (\forall{x \in B})(x \subseteq A)
+    \implies \bigcup B \subseteq A \implies \bigcup B \in \mathcal{P}(A)
+    \implies (\forall{x \in B})(x \subseteq_{\mathcal{P}(A)} \bigcup B)$ и $\bigcup B$ е най-малкото с това св-во
+    по отношение на $\subseteq_{\mathcal{P}(A)}$. $\bigcup B$ е т.г.гр. за $B$
+    в $<\mathcal{P}(A), \subseteq_{\mathcal{P}(A)>)}$
+\end{enumerate}
+\bigbreak
+
+\fbox{Опр} Нека $<A,R>$ е ч.н.м., $B \subseteq A$.
+Казваме, че $B$ е верига в $<A,R>$, ако всеки два елемента са $R$-сравними.
+Тоест $(\forall{x \in B})(\forall{y \in B})(<x,y> \in R \lor <y,x> \in R)$\\
+$B$  верига, ако $<B,R \cap (B \times  B)>$ е линейно наредено множество.\\
+Пример: $\emptyset$ е верига във всяко ч.н.м.\\
+$A_B = (A \rightarrow B) = \{f\ |\ f: A \rightarrow B\}$\\
+Кои са непразните вериги в $(A_B, \subseteq_{A_B})$?
+Тв? Никоя една верига няма повече от 1 елемент. Тоест всички вериги имат вида $\{ f \}, f: A \rightarrow B$
+\bigbreak
+\hrule
+\bigbreak
+
+$(A \rightcircarrow B) = \{f\ |\ f: A \rightcircarrow B\}, Dom(f) \subseteq A, Rng(f) \subseteq B$\\
+Всяка верига в $<(A \rightcircarrow B), \subseteq_{(A \rightcircarrow B)}>$ има точна горна граница.
+\bigbreak
+\underline{Док:} Нека $\Lambda \subseteq (A \rightcircarrow B)$ е верига. Тогава:
+\begin{enumerate}
+  \item $(\forall{f \in \Lambda})(f \subseteq \bigcup \Lambda)$
+  \item За всяко $C$, за което $(\forall{f \in \Lambda})(f \subseteq C)$ е в сила че $\bigcup \Lambda \subseteq C$
+  \item $\bigcup \Lambda \in (A \rightcircarrow B)$. Знаем, че $\Lambda$ е верига
+    $\implies \forall{f,g \in \Lambda}(f \subseteq g \lor g \subseteq f)$
+    $\implies (\forall{f,g \in \Lambda})(Funct(f \cup g)) \implies \Lambda$ е мн-во от съвместими функции
+    $\implies Funct(\bigcup \Lambda) \land Dom(\bigcup \Lambda) = \bigcup \{Dom(f)\ |\ f \in \Lambda\}$
+    $\land Rng(\bigcup \Lambda) = \bigcup \{Rng(f)\ |\ f \in \Lambda\})$
+    $\implies Funct(\bigcup \Lambda) \land Dom(\bigcup \Lambda) \subseteq A \land Rng(\bigcup \Lambda) \subseteq B$
+    $\implies \bigcup \Lambda \in (A \rightcircarrow B)$
+\end{enumerate}
+\bigbreak
+
+\fbox{Тв} Нека $<A,R>$ е ч.н.м. Нека $\mathcal{c} = \{B\ |\ B $ е верига в $ <A,R>\} $. Тогава всяка верига в
+$<\mathcal{C}, \subseteq_{\mathcal{C}}>$ има точна горна граница.
+
+\underline{Док:} Нека $\Lambda$ е верига в $<\mathcal{C}, \subseteq_{\mathcal{C}}>$
+
+\begin{enumerate}
+  \item $(\forall{B \in \Lambda})(B \subseteq \bigcup \Lambda)$
+  \item $\forall{X}((\forall{B \in \Lambda})(B \subseteq X) \Rightarrow \bigcup \Lambda \subseteq X)$
+  \item $\bigcup \Lambda$ е верига в $<A,R>$, т.е. $\bigcup \Lambda \in \mathcal{C}$
+\end{enumerate}
+\bigbreak
+3) $(\forall{B \in \Lambda})(B \subseteq A) \implies \bigcup \Lambda \subseteq A$.\\
+Нека $x,y \in \bigcup \Lambda$. Нека $B_1, B_2 \in \Lambda$ са т.ч. $x \in B_1$ и $y \in B_2$. Но $\Lambda$ е верига:
+така без ограничение можем да считаме, че $B_1 \subseteq B_2$ тогава $x,y \in B_2$; Но $B_2$ е верига в $<A,R>$,
+където $x$ и $y$ са $R$-сравними. Следователно $\bigcup \Lambda$ е верига в $<A,R>$
+\bigbreak
+
+\fbox{Опр} Казваме че ч.н.м. $<A_1, R_1>$ и $<A_2, R_2>$ са изоморфни, ако същ. биекция $f: A_1 \rightarrow A_2$, т.ч.
+$(\forall{x \in A_1})(\forall{y \in A_1})(<x,y> \in R_1 \Leftrightarrow <f(x), f(y)> \in R_2)$, $<A_1,R_1> \eqsim <A_2,R_2> $
+
+...
+\bigbreak
+\hrule
+\bigbreak
+
+Ще казваме, че $<A_1, R_1>$ е изоморфно вложима в $ <A_2, R_2> $, ако съществува инекция $ f: A_1 \rightarrow A_2 $,
+която запазва наредбата: $ (\forall{x \in A_1})(\forall{y \in A_1})(<x,y> \in R_1 \Rightarrow <f(x), f(y)> \in R_2 )$\\
+$ <A_1,R_1> \subsetsim <A_2, R_2>$
+\bigbreak
+
+\fbox{Тв} Нека $ <A,R> $ е ч.н.м. Тогава $ <A,R> \subsetsim <\mathcal{P}(A), \subseteq_{\mathcal{P}(A)}>$.
+\bigbreak
+
+\underline{Док:} TODO!
+\bigbreak
+
+
+\bigbreak
+\hrule
+\begin{center}
+\fbox{< Добре наредени множества >}
+\end{center}
+
+\fbox{Опр} Казваме, че ч.н.м. $ <W, \leq> $ е добре наредено множество, ако всяко непразно подмножество на $ W $ има
+най-малък относно\\
+$ \leq $. $ \forall{B} (B \neq \emptyset \land B \subseteq W
+\Rightarrow \exists{y}(y \in B \land (\forall{x \in B})(y \leq x)))$
+\bigbreak
+\underline{Заб:} ще използваме $ \leq, < $ за да отбелязваме релация за наредба.
+\bigbreak
+\hrule
+\bigbreak
+
+\underline{Еквивалентно:} $ <W,\leq> $ е д.н.м. в което всяко непразно множество има минимален елемент.
+
+\bigbreak
+\hrule
+\bigbreak
+
+\underline{Примери за д.н.м:} 
+\begin{enumerate}
+  \item $ <\omega,\leq>$, където $\omega = \{x\ |\ x $ е естествено число $\}$
+  \item $ n <_1 k \leftrightharpoons (2 / n \land \lnot (2 / k)) \lor (2 / (k - n) \land n < k) $
+  \item  Всяко крайно л.н.м. 
+  \item $ <W,\leq> $ е д.н.м. то при $ B \subseteq W  \implies <B, \leq \cap (B \times B)>$ - д.н.м.
+\end{enumerate}
+
+\bigbreak
+\fbox{Опр} Казваме че $ x \in W $ е граничен, ако $ x \neq 0_W $ и нев е наследник на никой в $ W $.\\
+$ Limit(x) \leftrightharpoons x \neq 0_W \land \lnot \exists{y \in W}(x = S(y)) $
+\bigbreak
+
+\fbox{Опр} Нека $ x \in W $. Начален сегмент на $ x $ е мн-вото
+$ seg(x) \leftrightharpoons \{y\ |\ y < x\}$
+\bigbreak
+
+\fbox{Опр} $ I $ е начален елемент на $ <W, \leq> $, ако $ I \leq W $ и е затворено надолу отн. $ \leq $:\\
+$ (\forall{x \in I})\forall{y}(y \leq x \Rightarrow y \in I) $
+\bigbreak
+
+\underline{От Тинко:}
+\bigbreak
+
+$ A $ е безкрайно $ \implies $ същ. $ A_0, A_0 \subseteq A, A_0$ е изброимо\\
+$ a_0 \in A, A \setminus \{ a_0 \} $ не е крайно, поради което то е безкр. Можем да продължим да повтаряме този процес.
+(използваме аксиомата за избора в някаква слаба форма)
+
+\bigbreak
+\hrule
+\bigbreak
+
+\begin{itemize}
+  \item $ \mathbb{Z} $ - изброимо много
+  \item $ \mathbb{Q} $ - изброимо много
+\end{itemize}
+
+\bigbreak
+\hrule
+\bigbreak
+
+Можем да представим рационалните числа $ \mathbb{Q} $ като пълно двоично дърво, свърхове съответно:
+\begin{itemize}
+  \item $ Root \leftrightharpoons 1/1$
+  \item $ Left = p / p + q, where Root \leftrightharpoons p / q $
+  \item $ Right = p + q / q, where Root \leftrightharpoons p / q $
+\end{itemize}
+
+Те са изброимо много (доказваме с индукция по $ p + q $), защото върховете са изброимо много.\\
+Всички пътища в пълното двоично дърво от дръга страна - са неизброимо много (доказваме с диагонален метод).
+\bigbreak
+
+\fbox{Тв}  Реалните числа са неизброимо много.
+\bigbreak
+\underline{Док:} Всяко реално число $ r \in (0, 1] $ има десетично представяне $ r = 0. r_1 r_2 ... r_n $,\\
+където $ r_n \in \{ 0, 1, ... , 9 \}  $.
+\bigbreak
+Проблем! $ 1/2 $ има два записа:
+\begin{itemize}
+  \item $ 1/2 = 0,50000... $
+  \item $ 1/2 = 0,49999... $
+\end{itemize}
+Забраняваме записите от вида $ 0, r_1 r_2 ... r_n 0000000... $ .
+Така се отърваваме от нулите, които могат да са произволно много.
+...
+\bigbreak
+\hrule
+\bigbreak
+
+\fbox{Тв} $ \overline{\overline{\mathbb{R}}} = \overline{\overline{\mathcal{P}(\mathbb{N})}} $
+\bigbreak
+
+\fbox{Лема за горното Тв} Нека $ A $ е множество, $ A_0 \subseteq A $ и $ A_0 $ е изброимо.
+Ако $ B $ е изброимо и $ B \cap A = \emptyset $,
+то $ \overline{\overline{A}} = \overline{\overline{A \cup B}}  $
+\bigbreak
+
+\fbox{Тв} $ \overline{\overline{\mathbb{R \times R}}} = \overline{\overline{\mathbb{R}}} $
+\bigbreak
+
+
+\begin{center}
+  \underline{\huge\normalfont Лекция 7}
+\end{center}
+\bigbreak
+
+\underline{Заб!} $ \mathcal{AL}_0 $ вместо първата буква от иврид - алеф??
+\bigbreak
+
+Ще докажем че $ \overline{\overline{(0,1] \times (0,1]}} = \overline{\overline{(0,1]}} $. Ще забраним представяния, чийто
+запис се стабилизират на 0. Тоест $ \lnot \exists{k}\forall{n > k}(x_n = 0) $. Тогава $ 0.x_0 y_0 x_1 y_1 $ също няма
+да се стабилизира на 0, но ще загубим свойството за сюрекция.
+\bigbreak
+
+$ \mathcal{AL}_0^n = \mathcal{AL}_0 $
+Нека въведем $ \mathbb{N}_n \leftrightharpoons \mathbb{N}_{n-1} \times \mathbb{N} $. Тогава крайните редици
+$ \mathbb{N} \cup \mathbb{N}_2 \cup ... $ ?? $ \mathcal{AL}_0 $ и са изброими.
+\bigbreak
+Нека означим множеството на онези редици $ \{a_n\}_{n=0}^\infty $ естествени числа,
+т.ч. съществува $ \lim_{n \to \infty} a_n $, т.е. $ A $ е множество от сходящи редици от естествени числа.
+\bigbreak
+$ \{a_n\}_{n=0}^\infty $ от ествествени числа е сходяща $ \Longleftrightarrow  $
+същ. $ k : \forall{m} (a_k = a_{k + m})$
+\bigbreak
+
+Правим съпоставката $ \{a_n\}_{n=0}^\infty $ е сходяща $ \rightarrow (a_0, a_1, ..., a_k)$ , $ a_{k+1} \neq a_k $
+\bigbreak
+
+Да разгледаме множеството на полиномите с цели коеф. (с 1 неизвестно) - $\mathcal{P}$.
+Това са редиците от цели числа съответстващи на коефициенти. Тоест $ \overline{\overline{\mathcal{P}}} = \mathcal{AL}_0 $.
+Тоест те са изброимо много. Следователно онези реални числа, които са корени на полином със цели коеф. и степен $ \geq 1 $
+са изброимо много. Тоест алгебричните числа ($ Alg  $) са изброимо много.
+$ \mathbb{R} \setminus Alg $ са трансцендентните числа. Те са колкото реалните.
+
+\bigbreak
+\hrule
+\bigbreak
+
+Колко са множествата от всички редици $ \{a_n\}_{n=0}^\infty $ от реални числа? Това е броя на всички функции
+$ \mathbb{N}_\mathbb{R}$
+
+\bigbreak
+
+\fbox{Континиум хипотеза (Кантор)}
+Няма множество $ A \subseteq \mathbb{R} : \mathcal{AL}_0 < \overline{\overline{A}} < c$ 
+\bigbreak
+
+\underline{1939, К. Гьодел}  Ако $\mathcal{ZF}$ е непротиворечива, то и $ \mathcal{ZF} + \mathcal{CH}$
+също е непротиворечива.
+
+\underline{1963} 
+
+\bigbreak
+\underline{Хипотеза на Линденбаум и Тарски} $ \mathcal{CH} \Rightarrow \mathcal{AC} $
+(доказана от В. Серпински през 1947)
+
+\underline{Обобщена $\mathcal{CH}$:} Ако $A$ е безкрайно, то няма мн-во $B$, т.ч.
+$\overline{\overline{A}} < \overline{\overline{B}} < \overline{\overline{\mathcal{P}(A)}}$
+
+\bigbreak
+\hrule
+\bigbreak
+
+\fbox{def} Индексирана фамилия от множества $I \neq \emptyset$, $f$ - функция с $Dom(f) = I$.
+Казваме че имаме индекси $\{ f(i) \}_{i \in I}$, $\{ A_i \}_{i \in I}$.
+$ \bigcup_{i \in I} f(i) \leftrightharpoons \bigcup Rng(f) $.
+\bigbreak
+$ \forall{x}(x \in \bigcup_{i \in I} f(i) \Leftrightarrow (\exists{i \in I})(x \in f(i))) $
+$\bigcap_{i \in I} f(i) \leftrightharpoons \bigcap Rng(f)$
+$\forall{x}(x \in \bigcap_{i \in I} f(i) \Leftrightarrow (\forall{i \in I})(x \in f(i)))$
+
+\bigbreak
+\fbox{Задача} Нека $ J $ е безкрайно множество и $ \{ A_j \}_{j \in J} $ е индексирана фамилия от множества от естествени числа.
+$ A_j \subseteq \mathbb{N} $. Докажете че съществува най-много изброимо $ I \subseteq J $, такова че \\
+$ \bigcup_{i \in I} A_i = \bigcup_{j \in J} A_j$ и $ \bigcap_{i \in I} A_i = \bigcap_{j \in J} A_j$
+\bigbreak
+
+\hrule
+\begin{center}
+\fbox{< Добре наредени множества >}
+\end{center}
+
+$ <W, \leq> $ - д.н.м. , ако $ \leq $ е ч.н. в $ W $ и всяко непразно подмножество на $ W $ има най-малък елемент
+относно $ \leq $. Този елемент означаваме с $ 0_w = min_{\leq}(W)$. $ S(x) = min \{y\ |\ x < y\} $
+е наследник на $ x $, ако такъв има.
+\bigbreak
+
+$ x $ е граничен: $ Limit(x) \leftrightharpoons x \neq 0_w \land \forall{y \in W} (x \neq S(y))$
+\bigbreak
+
+Начален сегмент на $ x \in W $ е $ seg(x) \leftrightharpoons \{y\ |\ y \in W \land y < x\} $
+
+\begin{itemize}
+  \item $ seg(0_w) = \emptyset $
+  \item $ seg(S(x)) = seg(x) \cup \{ x \} $
+  \item $ Limit(x) \Rightarrow seg(x) = \bigcup \{ seg(y)\ |\ y \in seg(x) \} $
+\end{itemize}
+
+\bigbreak
+\hrule
+\bigbreak
+
+$ I \subseteq W $ е начален сегмент, ако е затворено над $ W $ относно $ \leq $:
+$ (\forall{x \in I})(\forall{y \leq x}) (y \in I) $
+\bigbreak
+
+\fbox{Тв} Нека $ <W,\leq> $ е д.н.м. и $ I \subseteq W $ е начален сегмент. Тогава $ I = W $ или $ I = seg(x) $
+за някое $ x \in W $.
+\bigbreak
+
+\underline{Док:} Нека $ I \neq W $ е начален елемент.
+Тогава $ W \setminus I \neq \emptyset $ и нека $ x = min_{\leq} (W \setminus I)$. Нека $ y \in I $.
+Да предположим че $ y \notin seg(x) $, т.е. $ \lnot (y < x) $. Тогава $ x \leq y $, защото $ W $ е добре наредено.
+Но $ I $ е начален елемент и $ y \in I $ - следователно $ x \in I $. Противоречие! Следователно $ y \in seg(x) $
+и $ I \subseteq seg(x) $.
+\bigbreak
+Нека $ y \in seg(x) $. Тогава $ y < x $, от където $ y \notin W \setminus I $. Следователно $ y \in I $.
+Значи $ seg(x) \subseteq I $.
+\bigbreak
+Така $ I = seg(x) $.
+\bigbreak
+\fbox{Опр} Нека $ <W,\leq> $ е д.н.м. . Казваме, че $ B \subseteq W $ е $ \leq $-индуктивно, ако:\\
+$ \forall{x}(\forall{y}(y < x \Rightarrow y \in B) \Rightarrow x \in B) $ или еквивалентното - 
+$ \forall{x}(seg(x) \subseteq B \Rightarrow x \in B) $
+
+\fbox{Тв} Нека $ <W,\leq> $ е д.н.м. . Тогава $ W $ е единственото $ \leq $-индуктивно множество.
+\bigbreak
+\underline{Док:} Нека $ B \subseteq W $ е $ \leq $-индуктивно и да допуснем, че $ B \neq W $.
+Тогава $ W \setminus B \neq \emptyset $ и нека $ x = min_{\leq} (W \setminus B)$. Тогава за всяко $ y < x $ имаме, че
+$ y \notin W \setminus B $ и така $ y \in B $. Тоест $ seg(x) \subseteq B $.
+Но $ B $ e $ \leq $-индуктивно, значи $ x \in B $. Противоречие! Защото $ x \in W \setminus B $.
+Следователно $ B = W $.
+\bigbreak
+
+\fbox{Тв} Нека $ <W, \leq> $ е линейно наредено мн-во и единственото $ \leq $-индуктивно подмножество на $ W $ е $ W $.
+Тогава $ <W, \leq> $ е д.н.м.
+\bigbreak
+
+\underline{Док:}  Нека $ B \subseteq W $. Нека $ C $ е множество от строгите долни граници на $ B $:\\
+$ C = \{t \in W\ |\ (\forall{x \in B}) (t < x)\} $\\
+Тогава $ B \cap C = \emptyset $. Възможни са 2 случея:
+\begin{enumerate}
+  \item $ C $ е $ \leq $-индуктивно. Следователно $ C = W $ и значи $ B = \emptyset $
+  \item $ C $ не е $ \leq $-индуктивно. Значи $ \exists{x}(seg(x) \subseteq C \land x \notin C) $.
+    Нека $ t \in W $ е такъв че $ t \notin C $ и $ seg(t) \in C $. Значи $ \exists{x}(x \in B \land \lnot (t < x)) $.
+    Нека $ x_0 $ е представител. Но $ <W,\leq> $ е л.н.м. и така $ x \leq t $.
+    Но ако $ x < t $, то $ x \in seg(t) \subseteq C $ и значи $ x \notin B $, защото $ B \cap C = \emptyset $.
+    Понеже $ x \in B $, то $ x = t \in B$. Но всичко, което е по-малко от $ x = t $ е в $ seg(t) \subseteq C $
+    и така е извън $ B $, т.е. $ \forall{y}(y < t \Rightarrow y \notin B) $. \\
+    Еквивалентно: $ \forall{y}(y \in B \Rightarrow \lnot(y < t)) $, т.е. $ \forall{y}(y \in B \Rightarrow t \leq y) $
+    и понеже $ t \in B $, то $ t $ е най-малкият елемент на $ B $.
+\end{enumerate}
+\bigbreak
+
+\fbox{Опр} Нека $ \pi : A \rightarrow A $ и $ <A, \leq> $ е ч.н.м. Казваме, че $ \pi $ е разширяваща, ако за вс.
+$ x \in A $ е изп. $ x \leq \pi(x) $
+\bigbreak
+
+\fbox{Тв} Нека $ <W, \leq> $ е д.н.м. и функцията $ \pi : W \rightarrow W $ е инективна и запазваща наредбата. Тогава
+$ \pi $ е разширяваща. Интективност: $ \forall{x,y \in W}(x \neq y \Rightarrow \pi(x) \neq \pi(y))$.
+Запазване на наредбата: $ \forall{x,y \in W }(x \leq y \Rightarrow \pi(x) \leq \pi(y)) $.
+\bigbreak
+
+\underline{Док:} Да допуснем, че $\pi$ не е разширяваща. Тогава множеството $\{x \in W\ |\ \pi(x) > \pi(y)\}$
+е непразно. Нека $ x^* = min_{\leq} \{x \in W\ |\ \pi(x) < x\}$. В частност, $ \pi(x^*) < x^* $.\\
+Тогава $ \pi(\pi(x^*)) < \pi(x^*) $. Следователно $ \pi(x^*) \in \{x \in W\ |\ \pi(x) < x\} $.
+Но $ x^* $ е най-малкият елемент на това множество и така $ x^* \leq \pi(x^*) $. Противоречие! Следователно $ \pi $
+е разширяващо.
+\bigbreak
+
+\fbox{Тв} Никое добре наредено множество не е изоморфно на на свой собствен начален сегмент.
+\bigbreak
+
+\underline{Док:} Нека $ <W,\leq> $ е д.н.м. и $ I \subseteq W $, $ I \neq W $ и $ I $ е начален сегмент т.ч.\\
+$ <W, \leq> \eqsim <I, \leq \cap (I \times  I) > $.
+Нека $ \pi : W \rightarrow I $ е изоморфнизъм. В частност $ \pi $ е инекция и запазва наредбата. Следователно $ \pi $
+е разширяващо. Понеже $ I $ е начален сегмент и $ I \neq W $, то $ I = seg(x) $ за някое $ x \in W $. Тогава
+$ \pi(x) \in I = seg(x) $, т.е. $ \pi(x) < x $. Но $ \pi $ е разширяваща $ \implies $ противоречие! Следователно
+$ W $ не е изоморфно на $ I $
+\bigbreak
+
+\fbox{Тв} Между всеки две добре наредени множества има най-много един изоморфнизъм.
+\bigbreak
+
+\underline{Док:} Нека $ <W, \leq> \eqsim <I, \leq> $ са добре наредени множества и $ \pi, \psi : W_1 \rightarrow W_2 $
+са изоморфизми. $ \pi \neq \psi $, $ \{x \in W_1\ |\ \pi(x) \neq \psi(x)\} \neq \emptyset $.
+Нека $ x^* = min_{\leq_1} \{x \in W_q\ |\ \pi(x) \neq \psi(x)\}$. $ \pi(x^*) \neq \psi(x^*) $.
+БОО, $ \pi(x^*) <_2 \psi(x^*) \implies \pi(x^*) \in W_2, \psi$ - сюрекция в-ху $ W_2 $. Нека $ y \in W_1  $,
+е т.ч. $ \psi(y) <_2 \psi(x^*) $ и следователно $ y <_1 x^* $, т.е. $ y \notin \{x \in W_1\ |\ \pi(x) \neq \psi(x)\} $
+и така $ \pi(y) = \psi(y) = \pi(x^*) $, от където $ y = x^* $. Но $ y < x^* \implies$  Противоречие!
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 7}
+\end{center}
+\bigbreak
+$\mathbb{Q}$ са изброимо много.\\
+$\mathbb{R}$ са неизброимо много.\\
+$\mathbb{Q}$ са гъсти в $\mathbb{R}$ : $\forall{a \in \mathbb{R}}\forall{b \in \mathbb{R}}(a < b \Rightarrow 
+(\exists{c \in \mathbb{Q}})(a < c \land c < b))(\exists{c \in \mathbb{R \setminus Q}})$\\
+$\mathbb{R \setminus Q}$ са също гъсти в $\mathbb{R}$
+\bigbreak
+А в равнината? Нека $ A $ е множество от отворени подмножества на Евклидовата равнина и всеки два разл. елем. на $ A $
+са непресичащи се. Тогава $ \overline{\overline{A}} \leq \overline{\overline{\mathcal{AL}_0}} $
+
+\bigbreak
+\fbox{def}
+$ A $ е отворено множество, ако за
+$ (\forall{x \in A}) \exists{D}("D$ е отворен кръг с център  $x" \land D \subseteq A) $
+\bigbreak
+
+\underline{Зад:} Нека $ A $ е отворено множество в Евклидовата равнина. Тогава съществува най-много изброимо множество
+$ B $, такво че $ \alpha \in B \Rightarrow \alpha  $ е отворен кръг с център рационални координати и рационален радиус.
+Освен това $ \bigcup B = A $.
+\bigbreak
+\underline{Зад:} Нека $ l $ е фиксирана права в Евклидовата равнина. Нека $ A $ е множество от окръжности в равнината,
+такова че $ (\forall{p \in l})(\exists{C \in A})("C$ се допира до $"l) $. Да се докаже, че в $ A $ има поне 2 пресичащи
+се окръжности.
+\bigbreak
+Нека за всяка точка $ P \in l $ фиксираме една окръжност $ C_p $, т.ч. $ C_p \in A \land C \cap l = \{ p \} $.
+Тогава множеството $ A_l = \{C_p\ |\ p \in l\} $ е неизброимо. Във всяка окръжност $ C \in A_l$ да фиксираме точка
+$ P_c $, която има рационални координати (във вътрешността на окръжността $ C $). Нека $ B = \{P_c\ |\ c \in A_l\} $.
+$ B \subseteq \mathbb{Q} \times \mathbb{Q} $ и е изброимо. Значи имаме $ \overline{\overline{B}} = \mathcal{AL}_0 $ и
+$ \overline{\overline{A_l}} = 2^{\mathcal{AL}_0} $. Дефинирахме $ f : A_l \rightarrow B $, където $ f(c) = P_c $.
+Вижда се че $ f $ не е инекция, т.е. има $ c_1,c_2 \in A_l, c_1 \neq c_2 , f(c_1) = f(c_2)$. Това означава че има
+две окръжности с обща вътрешна точка. Разглеждаме случаите за това и единствената възможност е те да са различни
+окръжности
+\bigbreak
+
+\fbox{def} Регулярно каберче вравнината - като T, перпендикулярни отсечки,
+с дължина 1 и пресечната точка е среда на горната.
+\bigbreak
+\fbox{def} каберче в равнината  - като регулярно каберче, но само перпендикулярно с $ > 0 $ дължини на компонентите.
+\bigbreak
+
+\underline{Зад:} в равнината са разхвърляни регулярни каберчета, никои две от които не се наслагват
+(най-много се допират). Док., че каберчетата са $ \leq \mathcal{AL}_0 $.
+\bigbreak
+Взимаме окръжности с център лежащ на основата на каберчето и радиус $ \leq 1/4 $. Можем да ги нареждаме едно до друго и се вижда, че защото в равнината можем да
+насложим изброимо много отворени множества, то и каберчетата ще са изброимо много.\\
+Но при нормалните каберчета, не е толкова просто. Нека $ K_n = \{ min(|\alpha|, |\beta|, |\gamma|) \geq 1/n\} $,
+ще докажем че $ K_n $ е изброимо.
+\bigbreak
+
+\fbox{Тв} Нека $ f : \mathbb{R} \rightarrow \mathbb{R} $ и $ f $ е монотонна. Нека $ D_f $ е множеството от всички точки
+на прекъсване на $ f $. Тогава $ D_f \leq \mathcal{AL}_0$
+\bigbreak
+\underline{Док:} БОО: $ f $ е монотонно растяща $ x < y \Rightarrow f(x) \leq f(y) $,
+$ x \in D_f \Rightarrow \lim_{x \to x_0} f(x) < \lim_{x \to x_0} f(x)$...
+
+\bigbreak
+\hrule
+\bigbreak
+
+\fbox{Аксиома за мултипликативност} За фамилия $ X_i $ от непресичащи се непразни множества, съществува множество $ Y $,
+такова че $ Y \cap X_i = \{ x \}$ за някое $ x $. Тоест:\\
+$ \forall{A}((\forall{x \in A})(x \neq \emptyset) \land (\forall{x \in A})(\forall{y \in A})(x \neq y \Rightarrow 
+x \cap y = \emptyset) \Rightarrow \exists{B}(\forall{x \in A})\exists{u} (B \cap x = \{ u \})) $
+\bigbreak
+От $ \mathcal{AM} \Rightarrow \forall{A}((\forall{x \in A})(x \neq \emptyset) \land 
+(\forall{x \in A})(\forall{y \in A})(x \neq y \Rightarrow x \cap y = \emptyset) \Rightarrow \exists{B})(B \subseteq \bigcup A \land (\forall{x \in A})\exists{u}(B \cap x = \{ u \})) $. Наистина, нека $ A $ удовл. пред. и тогава от
+$ \mathcal{AM} $ моем да вземем конкретно мн-во $ B : (\forall{x \in A})\exists{u}(B \cap x = \{ u \}) $.
+Нека $ B_1 \leftrightharpoons B \cap (\bigcup A) $. Тогава $ B_1 \subseteq (\bigcup A) $ и за произв. $ x \in A $
+$ x \cap B_1 = (x \cap B) \cap (x \cap (\bigcup A)) = (x \cap B) \cap x = B \cap x \neq \emptyset$,
+защото от $ x \in A \implies x \subseteq (\bigcup A) \implies x \cap (\bigcup A) $. \\
+Това ни напомня за класове на еквивалентност, може да си мислим че $ \mathcal{AM} $ твърди - ако имаме класове на
+еквивалентност, то има множество от представители на тези класове.
+\bigbreak
+
+\fbox{Аксиома за избора} $ \forall{A}((\forall{x \in A})(x \neq \emptyset) \Rightarrow \exists{f}(Func(f) \land Dom(f) = A \land (\forall{x \in A})(f(x) \in x))) $
+\bigbreak
+
+\fbox{Тв} В $\mathcal{ZF}$ е изпълнено $ \mathcal{AM} \Longleftrightarrow \mathcal{AC}$
+\bigbreak
+\underline{Док:} Нека $ \mathcal{AC} $ е в сила. Нека $ A $ е множество, за което предиката на $ \mathcal{AM} $
+е в сила.\\
+Нека $ f $ е функция на избора за $ A $, т.е. $ Func(f) \land Dom(f) = A \land (\forall{x \in A})(f(x) = x) $.\\
+Нека $ B \leftrightharpoons Rng(f) $, сега ще докажем че $ B $ има желаното свойство. Нека $ x \in A $. Тогава
+$ f(x) \in x $ и е дефинирана, но $ f(x) \in Rng(f) $.
+Значи $ f(x) \in B \cap x $, т.е. $ \{ f(x) \} \subseteq B \cap x $.
+Нека $ a \in B \cap x $. Но $ a \in Rng(f) $ и $ a = f(y) $ за някое $ y \in A $.
+Нека разгледаме една точка $ y \in A $, такава че $ a = f(y) $. $ f(y) \in y $\\
+...\\
+$ x = y $
+$ \forall{a}(a \in B \cap x \Rightarrow a = f(x)) $, тоест $ B \cap x \subseteq \{ f(x) \} $. Така $ u = f(x) $.
+\bigbreak
+
+Сега ще докажем че $ \mathcal{AM} \Rightarrow \mathcal{AC} $. Нека $ A $ е множество и
+$ (\forall{x \in A})(x \neq \emptyset) $. Искаме да сме сигурни че работим с непресичащи се множества, затова решаваме
+да оцветим множествата (например $ x $ оцветяваме с $ \{ x \} $). Дефинираме $ A_1 $, такова че
+$ A_1 = \{z\ |\ z \in A \times (\bigcup A) \land (\exists{x \in A})(z = \{ x \} \times  x)\} $.
+Нека $ x \in A $ и $ z = \{ x \} \times  x $, значи $ z \in A x (\bigcup A) $.
+Така елементите на $ A $ са $ \neq \emptyset $. Нека вземем свидетел - $ x \in A $ и $ z = \{ x \} \times  x $.
+$  x \in A \implies x \neq \emptyset $.
+Нека $ a \in x $ и така $ <x,a> \in z $, т.е. $ z \neq \emptyset $. Нека $ z_1, z_2 \in A $ и $ z_1 \neq z_2 $.
+Значи $ z_1 = \{ x_1 \} \times x_1 $, $z_2 = \{ x_2 \} \times x_2 $, където $ x_1, x_2 \in A $.
+Да допуснем, че $ z_1 \cap z_2 \neq \emptyset $. Нека $ u \in z_1 \cap z_2 $,\\
+$ u \in z_1 \implies u = <x_1, a_1>, a_1 \in x_1 $\\
+$ u \in z_2 \implies u = <x_2, a_2>, a_2 \in x_2 $\\
+$ <x_1, a_1> = <x_2, a_2> $, $ x_1 = x_2 $ и $ a_1 = a_2 $. Така $ \{ x_1 \} \times  x_1 = \{ x_2 \} \times  x_2 $
+и $ z_1 = z_2 \implies $ Противоречие! Следователно $ z_1 \cap z_2 = \emptyset $. Ето защо $ \mathcal{AM} $ е приложима
+към $ A_1 $. Нека $ B \subseteq \bigcup A_1 \land (\forall{z \in A_1})\exists{u}(B \cap z = \{ u \}) $.\\
+Нека $ v \in B $. Тогава $ v \in \bigcup A_1 $, значи има елемент $ z \in A_1 $, т.ч. $ v \in z $.
+Следователно $ v = <x,a> $, където $ x \in A $ и $ a \in x $. Така $ Rel(B) $. Нека $ <x,y>,<x,y'> \in B $.
+Значи $ <x,y>, <x,y'>  \in \{ x \}\times x$, още $ y \in x $ и $ y' \in x $.
+$ <x,y>,<x,y'> \in (\{ x \} \times  x) \cap B$, но $ (\{ x \} \times  x) \cap B = \{ w \} $ за някое $ w $.
+$ <x,y>, <x,y'> \in \{ w \} \implies <x,y> = <x,y'> \implies y = y' $. Следователно $ Func(B) $.\\
+Сега твърдим че тази функция е функция на избора. Нека $ w \in Dom(B) $. Тогава за някой елемент $ z \in A_1 $
+$ <w,v> \in z $, където $ <w,v> \in B $. Значи $ z = \{ x \} \times  x $, за някое $ x \in A $.
+Следователно $ w = x $. Така $ Dom(B) \subseteq A $. Обратно - нека $ x \in A $, тогава $ \{ x \} \times x \in A_1$.
+Значи $ \{ x \} \times x \cap B = \{ u \} $, за някое $ u $. Тоест $ u = <x,a> $, където $ a \in x $.
+Следователно $ x \in Dom(B) $. Поради което $ A = Dom(B) $. Освен това $ <x,a> \in B $ за някое $ a \in x $.
+Но $ Func(B) $ и $ <x,a> \in B \Leftrightarrow  a = B(x); B(x) \in x$. И така $ B $ е функция на избора.
+
+\bigbreak
+\hrule
+\bigbreak
+
+\fbox{def} Нека $ I \neq \emptyset $, $ I $ е индексирана фамилия.
+$ \{ A_i \}_{i \in I} $ наричаме функция $ A $ с $ Dom(I) $ и вместо $ A(i) $ пишем $ A_i $.
+\bigbreak
+$ \prod_{i \in I} A_i = \{f\ |\ Func(f) \land Dom(f) = I \land (\forall{i \in I})(f(i) \in A_i)\}  $
+\bigbreak
+
+\fbox{Тв} В $ \mathcal{ZF} + \mathcal{AC} $ твърдим че декартовото произведение на индексирана фамилия от непразни
+множества е непразно множество:
+$ \forall{I}((\forall{i \in I})(A_i \neq \emptyset) \Rightarrow \prod_{i \in I} A_i \neq \emptyset  ) $
 
 \end{document}
-% NOTES:
