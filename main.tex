@@ -631,7 +631,7 @@ x \in A \land \phi(x,z,\overline{u})
 )))$
 \bigbreak
 
-Разлглеждаме: $ \mathcal{P}(\emptyset) = \{ \emptyset\}, A \leftrightharpoons \mathcal{P}(
+Разглеждаме: $ \mathcal{P}(\emptyset) = \{ \emptyset\}, A \leftrightharpoons \mathcal{P}(
 \{\emptyset\}
 ) = \{ \emptyset, \{ \emptyset\}\} $\\
 $ \phi(x,y) \leftrightharpoons (x = \emptyset \land y = a) \lor (x = \{ \emptyset\} \land y = b) )$\\
@@ -1848,5 +1848,16 @@ $ \prod_{i \in I} A_i = \{f\ |\ Func(f) \land Dom(f) = I \land (\forall{i \in I}
 \fbox{Тв} В $ \mathcal{ZF} + \mathcal{AC} $ твърдим че декартовото произведение на индексирана фамилия от непразни
 множества е непразно множество:
 $ \forall{I}((\forall{i \in I})(A_i \neq \emptyset) \Rightarrow \prod_{i \in I} A_i \neq \emptyset  ) $
+\bigbreak
+\underline{Док:} 1) Нека $ \mathcal{AC} $ е в сила. $ I \neq \emptyset, (\forall{i \in I})(A_i \neq \emptyset) $.
+$ A_i = \{\{ i \} \times  A_i\ |\ i \in I\} $. Значи $ (\forall{z \in A_1})(z \neq \emptyset) $ и
+$ (\forall{z_1 \in A_1})(\forall{z_2 \in A_1})(z_1 \neq z_2 \Rightarrow z_1 \cap z_2 = \emptyset) $.\\
+Тогава от $ \mathcal{AM} \implies \exists{B}(B \subseteq A_1 \land (\forall{z \in A_1})\exists{u}(B \cap z = \{ u \}))$.
+Така $ B \in \prod_{i \in I} A_i $ (от тук идва името на аксиомата).\\
+2) Нека $  \forall{I}((\forall{i \in I})(A_i \neq \emptyset) \Rightarrow \prod_{i \in I} A_i \neq \emptyset  )  $.
+Нека $ A $ е множество от непразни множества, т.е. $ (\forall{x \in A})(x \neq \emptyset) $.
+Разглеждаме $ A $ фамилия с индексно множество $ A $ (??). $ \{ x \}_{x \in A} $, $ Id_A $ - индекс. ф-я.\\
+$ \prod_{x \in A} x \neq \emptyset   $. Нека $ f \in \prod_{x \in A} x $. Тогава $ Func(f) $, $ Dom(f) = A $ и
+$ (\forall{x \in A})(f(x) \in x) $. След $ f $ е функция на избора за $ \{ x \}_{x \in A} $
 
 \end{document}
