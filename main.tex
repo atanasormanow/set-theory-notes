@@ -1860,4 +1860,255 @@ $ (\forall{z_1 \in A_1})(\forall{z_2 \in A_1})(z_1 \neq z_2 \Rightarrow z_1 \cap
 $ \prod_{x \in A} x \neq \emptyset   $. Нека $ f \in \prod_{x \in A} x $. Тогава $ Func(f) $, $ Dom(f) = A $ и
 $ (\forall{x \in A})(f(x) \in x) $. След $ f $ е функция на избора за $ \{ x \}_{x \in A} $
 
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 7}
+\end{center}
+\bigbreak
+
+\fbox{Some definitions and properties}
+\bigbreak
+
+$ <W,\leq> $ е д.н.м., ако е ч.н.м. и всяко непразно подмножество на $ W $ има най-малък елемент относно $ \leq $.
+\bigbreak
+\hrule
+\bigbreak
+
+$ I \subseteq W $ е начален сегмент в $ <W, \leq> $ - $ (\forall{x \in I})\forall{y}(y \leq x \Rightarrow y \in I) $
+
+\bigbreak
+\hrule
+\bigbreak
+
+$ x \in W, seg(x) = \{y \in W\ |\ y < x\} $
+
+\bigbreak
+\hrule
+\bigbreak
+
+$ I \neq W $ е начален сегмент, то $ I = seg(t) $ за някое $ t \in W $
+
+\bigbreak
+\hrule
+\bigbreak
+
+Между всеки две добре наредени множества има най-много един изоморфизъм.
+
+\bigbreak
+\hrule
+\bigbreak
+
+Никое добре наредено множество не е изоморфно на свой собствен начален сегмент.
+
+\bigbreak
+\hrule
+\bigbreak
+
+За всяко добре наредено множество съществува единствен автоморфизъм:\\
+$ (\forall{x,y \in W})(x \leq y \Leftrightarrow f(x) \leq f(y)) $, където $ f : W \rightarrow W $ е биекция
+
+\bigbreak
+\hrule
+\bigbreak
+
+\fbox{Т} Нека $ <W_1, \leq_1> $ и $ <W_2, \leq_2> $ са д.н.м. Тогава е в сила точно едно от:
+\begin{enumerate}
+  \item $ <W_1, \leq_1> \eqsim <W_2, \leq_2> $
+  \item $ <W_1, \leq_1> $ е изоморфно на собствен начален сегмент на $ <W_2, \leq_2> $
+  \item $ <W_2, \leq_2> $ е изоморфно на собствен начален сегмент на $ <W_1, \leq_1> $
+\end{enumerate}
+Освен това, този изоморфизъм е единствен.\\
+Няма как повече от едно от изброените може да е вярно.
+\bigbreak
+\underline{Означение:} $ a \in W_1, W_1(a) \leftrightharpoons <seg(a), \leq_1 \cap (seg(a) \times seg(a)) $,\\
+аналогично $ b \in W_2, W_2(b) \leftrightharpoons <seg(b), \leq_2 \cap (seg(b) \times seg(b)) $\\
+Нека $ f = \{<a,b>\ |\ a \in W_1 \land b \in W_2 \land W_1(a) \eqsim W_2(b)\} $
+\bigbreak
+
+\underline{Док:}
+\begin{enumerate}
+  \item $ Funct(f): $ Нека $ <a, b_1>, <a, b_2> \in f $ и $ b_1 \neq b_2, a \in W_1; b_1,b_2 \in W_2 $.
+    БО, $ b_1 <_2 b_2 $. Тогава $ W_2(b_1) \eqsim W_1(a) \eqsim W_2(b_2) \implies W_2(b_1) \eqsim W_2(b_2)$.
+    Значи $ W_2(b_1) $ е собствен начален сегмент на $ W_2(b_2) \implies $ Противоречие!
+    $ \implies b_1 = b_2 \implies Funct(f)$
+  \item $ f $ е инекция: Нека $ <a_1, b>, <a_2, b> \in f $, съответно $ a_1,a_2 \in W_1; b \in W_2, a_1 \neq a_2 $.
+    БО $ a_1 <_1 a_2 $. Значи $ W_1(a_1) \eqsim W_2(b) \eqsim W_1(a_2) $. Но $ W_1(a_1) $ е собствен начален сегмент на
+    $ W_1(a_2) $ и те са изоморфни $ \implies $ Противоречие! $ \implies a_1 = a_2 $, тоест $ f $ е инекция.
+  \item $ f $ запазва наредбата: Тоест $ (\forall{a_1,a_2 \in Dom(f)})(a_1 <_1 a_2 \Rightarrow f(a_1) <_2 f(a_2)) $.\\
+    Нека $ a_1, a_2 \in Dom(f) $, и $ a_1 <_1 a_2 $. Тогава $ W_1(a_2) \eqsim W_2(f(a_2))$ и $ h $ е единственият
+    изоморфизъм между двете. Но така $ W_1(a_1) \eqsim W_2(h(a_1)) $ посредством $ h \upharpoonright seg(a_1)$.
+    Тогава $ W_1(a_1) \eqsim W_2(f(a_1)) $, следователно $ f(a_1) = h (a_1) <_2 f(a_2) $. Значи $ f $ запазва наредбата.
+\end{enumerate}
+
+\fbox{Св. 4} $ Dom(f) $ е начален сегмент на $ <W_1, \leq_1> $. Нека $ a \in Dom(f) $ и $ c <_1 a, c \in W_1 $.
+Тогава $ W_1(a) \eqsim W_2(f(a)) $. Нека $ h $ е изоморфизъм между двете. Тогава $ h \upharpoonright seg(c) $
+е изоморфизъм между $ W_1(c) $ и $ W_2(h(c)) $. Следователно $ <c,h(c)> \in f $ и така $ c \in Dom(f) $.
+
+\bigbreak
+\underline{Упражнение:} Покажете че $ Rng(f) $ е начален сегмент на $ <W_2, \leq_2> $ (напълно подобно)
+\bigbreak
+
+$ f $ е изоморфизъм между $ Dom(f) $ и $ Rng(f) $. Да допуснем, че $ Dom(f) \neq W_1 $ и $ Rng(f) \neq W_2 $.
+Следователно $ Dom(f) $ и $ Rng(f) $ са собствени начални сегменти съответно на $ <W_1, \leq_1> $ и $ <W_2, \leq_2> $.
+Нека $ a \in W_1 $ и $ b \in W_2 $ са такива че $ Dom(f) = seg(a) $ и $ Rng(f) = seg(b) $.
+Понеже $ <Dom(f), \leq_1> $ и $ <Rng(f), \leq_2 $ са изоморфни, то $ <a,b> \in f $
+и така $ a \in Dom(f) = seg(a) \implies $ Противоречие!
+\bigbreak
+
+Така виждаме че е изпълнен точно в един от случаите:
+\begin{enumerate}
+  \item $ Dom(f) = W_1, Rng(f) = W_2 \implies 1) $
+  \item $ Dom(f) = W_1, Rng(f) \neq W_2 \implies 2) $
+  \item $ Dom(f) \neq W_1, Rng(f) = W_2 \implies 3) $
+\end{enumerate}
+
+\fbox{Опр} $ x $ е транзитивно множество, ако $ \forall{y} \forall{z} (y \in x \land z \in y \Rightarrow z \in x) $
+$ \implies \forall{y}(y \in x \Rightarrow y \subseteq x)  \implies \forall{y}(y \in x \Rightarrow y \in \mathcal{P}(x)) $
+$ \implies x \subseteq \mathcal{P}(x) $
+
+\bigbreak
+\hrule
+\bigbreak
+
+$ trans(x) \Rightarrow trans(s(x)), s(x) = x \cup \{ x \}  $\\
+$ \forall{y}(y \in x \Rightarrow trans(y)) \Rightarrow trans(\bigcup x) \land trans(\bigcap x) $
+\bigbreak
+
+\fbox{Опр} $ x $ е $ \varepsilon $-добре наредено, ако:
+$ \forall{y}\forall{z}(y \in x \land z \in x \Rightarrow (y \in z \lor y = z \lor z \in y)) \land $\\
+$ \forall{u}(u \neq \emptyset \land u \subseteq x \Rightarrow \exists{y}(y \in u \land y \cap u = \emptyset)) $\\
+Пишем $ EWO(x) $
+\bigbreak
+
+\fbox{Опр} Множеството $ x $ е ординал, ако е транзитивно и $ \varepsilon $-д.н.:
+$ ord(x) \leftrightharpoons trans(x) \land EWO(x) $
+\bigbreak
+\underline{Заб:} Тази дефиниция не използва акс. за регулярност, акс. за замяната и акс. за избора.
+\bigbreak
+
+\underline{Наблюдение:} Ако $ EWO(x) $ и
+$ \emptyset \neq u \subseteq x \implies \exists{!y}(y \in u \land y \cap u = \emptyset)$
+\bigbreak
+
+\underline{Означение:} Ординалите означаваме с малки гръцки букво - $ \alpha, \beta, \gamma ... $
+\bigbreak
+\underline{Означение:} $ \alpha < \beta \leftrightharpoons \alpha \in \beta $ и съответно
+ $ \alpha \leq \beta \leftrightharpoons \alpha \in \beta \lor \alpha = \beta$
+\bigbreak
+
+\fbox{Свойства}
+\begin{enumerate}
+  \item $ \alpha \notin \alpha $; $ \lnot \exists{x}(x \in \alpha \land \alpha \in x) $
+    и т.н. за вериги с произвлна дължина
+  \item $ \alpha < \beta \land \beta < \gamma \Rightarrow \alpha < \gamma $ (директно от транзитивността на $ \gamma $)
+  \item $ \alpha < \beta \Rightarrow \lnot(\beta < \alpha) $
+  \item $ ord(S(\alpha)) $, $ \lnot \exists{\beta}(\alpha < \beta \land \beta < S(\alpha)) $
+\end{enumerate}
+
+\bigbreak
+\hrule
+\bigbreak
+
+\underline{Още свойства (общо около 10) ->}
+\bigbreak
+\fbox{Св. 5} $ x \in \alpha \Rightarrow ord(x) $
+\bigbreak
+\underline{Док a:} Ще покажем че $ trans(x) $. Нека $ y \in x \land z \in y $. Понеже $ y \in x, x \in \alpha $ и
+$ trans(\alpha) $, то $ y \in \alpha $. Но $ z \in y  $ и отново по транзитивността на $ \alpha $, получаваме че
+$ z \in \alpha $. Но $ EWO(\alpha) $, от където $ x \in z \lor x = z \lor z \in x$ (защото $ x,z \in \alpha $).
+\begin{itemize}
+  \item Ако $ x = z $, то $ y \in x $ и $ x \in y $ като $ x,y \in \alpha $ (невъзможно).
+    Тогава $ \emptyset \neq \{ x,y \} \subseteq \alpha $ и
+    $ \exists{t}(t \in \{ x,y \} \land t \cap \{ x,y \} = \emptyset) $. Ако $ t = x $, то $ y \in x $ и
+    $ y \in \{ x,y \} $. Значи $ y \in t \cap \{ x,y \} $ - противоречие! От друга страна ако $ t = y $, то
+    $ x \in y $ и $ x \in \{ x,y \} $, от където $ x \in t \cap \{ x,y \} = \emptyset $ - противоречие!
+    $ \implies x \neq z$
+  \item Ако $ x \in z $, то $ y \in x $ и $ x \in z $ и $ z \in y $, като $ x,y,z \in \alpha $ (също невъзможно).
+    Тогава $ \emptyset \neq \{ x,y, \} \subseteq \alpha $ и
+    $ \exists{t}(t \in \{ x,y,z \} \land t \cap \{ x,y,z \} = \emptyset) $. Пак разглеждаме случаи (3) и аналогично
+    всики са противоречиви. Така $ x \notin z $.
+\end{itemize}
+
+Следователно $ z \in x $ и така $ trans(x) $.
+\bigbreak
+\underline{Док б:} Нека $ y,z \in x $, но $ x \in \alpha $ и $ trans(\alpha) \implies y,z, \in \alpha$. Но $ EWO(\alpha) $
+$ \implies y \in z \lor y = z \lor z \in y $
+\bigbreak
+\hrule
+\bigbreak
+
+Сега ще покажем че всяко непразно множество на $ x $ има най-малък елемент. Нека $ \emptyset \neq u \subseteq x $.
+Понеже $ trans(\alpha) $, то $ u \subseteq \alpha $. $ (y \in u \Rightarrow y \in x \implies y \in \alpha) $
+(от $ x \in \alpha $ и $ trans(\alpha) $). Тъй като $ EWO(\alpha) $, то $ \exists{y \in u}(y \cap u = \emptyset) $.
+От (а) и (б) - $ ord(x) $
+\bigbreak
+
+\fbox{Св. 6} $ x \subseteq \alpha \land trans(x) \Rightarrow x \in \alpha \lor x = \alpha $
+\bigbreak
+\underline{Док:} Нека $ x \neq \alpha $. Тогава, ако $ u = \alpha \setminus x $, то $ \emptyset \neq u \subseteq \alpha $.
+Идея - ще покажем че $ x $ е най-малкият елемент на $ \alpha $, който е по-голям от всеки един елемент на $ x $.
+Нека $ y \in u $ е такова че $ y \cap u = \emptyset $ (такова има защото $ EWO(\alpha) $).
+Нека $ z \in y $. Понеже $ y \cap u = \emptyset $, то $ z \notin u $. Обаче $ y \in u \subseteq \alpha $
+и от $ trans(\alpha) \implies z \in \alpha $. Но $ u = \alpha \setminus x $, следователно $ z \in x $.
+Така $ y \subseteq x $.\\
+Сега нека $ z \in x $. Но $ y \in u \subseteq \alpha $ и $ z \in x \subseteq \alpha $, следователно $ y,z, \in \alpha $.
+Понеже $ EWO(\alpha) $, то $ y \in z \lor y = z \lor z \in y $.\\
+Ако $ y \in z $, то понеже $ z \in x $ и $ trans(x) $,
+имаме, че $ y \in x $. Обаче $ y \in u = \alpha \setminus x $ - противоречие! Следователно $ y \notin z $\\
+От друга страна ако $ y = z $, то $ y = z \in x $ и $ y \in u = \alpha \setminus x  $ - противоречие!
+Следователно $ y \neq z $.\\
+Така $ z \in y $. Така $ x \subseteq y $. Следователно $ x = y \in u \subseteq \alpha $, т.е. $ x \in \alpha $
+\bigbreak
+
+\fbox{Св. 7} $ \alpha \leq \beta \Leftrightarrow \alpha \subseteq \beta $
+\bigbreak
+\underline{Док($ \Rightarrow $):} Нека $ \alpha \leq \beta $. Тогава $ \alpha \in \beta $ или $ \alpha = \beta $.
+Понеже $ trans(\beta)$, то $ \alpha \subseteq \beta $ или $ \alpha = \beta $, т.е. $ \alpha \subseteq \beta $
+\bigbreak
+
+\underline{Док($ \Leftarrow $):} Нека $ \alpha \subseteq \beta $. Понеже $ trans(\alpha) $,
+по (св. 6) $ \alpha \in \beta \lor \alpha = \beta$, т.е. $ \alpha \leq \beta $.
+\bigbreak
+
+\fbox{Св. 8} (Закон за трихотомия на ординалите) $ \alpha < \beta \lor \alpha = \beta \lor \beta < \alpha$
+\bigbreak
+
+\underline{Док:} Нека $ x = \alpha \cap \beta $, тогава $ trans(x) $, като сечение на транзитивни множества.
+Но $ x \subseteq \alpha $ и $ x \subseteq \beta $, от където (от св. 6) $ (x \in \alpha \lor x = \alpha) $ и
+$ (x \in \beta \lor x = \beta) $. Има 4 възможности:
+
+\begin{enumerate}
+  \item $ x \in \alpha $ и $ x \in \beta \implies x \in \alpha \cap \beta$, но така $x \in x$ и $ ord(x) $ - противоречие!
+  \item $ x \in \alpha $ и $ x = \beta $. Следователно $ \beta < \alpha $
+  \item $ x = \alpha $ и $ x \in \beta $. Следователно $ \alpha < \beta $
+  \item $ x = \alpha $ и $ x = \beta $. Следователно $ \alpha = \beta $
+\end{enumerate}
+
+\fbox{Св. 9} $ \alpha < \beta \Leftrightarrow S(\alpha) \leq \beta$
+\bigbreak
+\underline{Док($ \Rightarrow $):} Нека $ \alpha < \beta$ и да допуснем че $ \lnot (S(\alpha) \leq \beta) $. По (св. 8)
+следва, че $ \beta < S(\alpha) $ - противоречие със (св. 4). Следователно $ S( \alpha \leq \beta) $
+\bigbreak
+
+\underline{Док($ \Leftarrow $):} Нека $ S(\alpha \leq \beta) $ и да допуснем че $ \lnot (\alpha < \beta) $.
+Следователно $ \beta \leq \alpha $. Тогава $ S(\alpha) \leq \alpha $, т.е. $ \lnot (\alpha < S(\alpha)) $ - противоречие
+със (св. 4).
+
+\bigbreak
+
+\fbox{Св. 10} $ \forall{y \in x}(ord(y)) \Rightarrow EWO(x) \land ord(\bigcup x)$
+\bigbreak
+\underline{Док а:} Ще док. че $ EWO(x) $. Нека $ y,z \in x $. Следователно $ ord(y) $ и $ ord(z) $ и по (св.8):
+$ y < z \lor y = z \lor z < y $, т.е. $ y \in z \lor y = z \lor z \in y $.
+\bigbreak
+
+\underline{Док б:} Нека $ \emptyset \neq u \subseteq x $. Нека $ \alpha \in u $ (търсим най-малкия).
+Ако $ \alpha \cap u = \emptyset $, то $ \alpha $ е най-малкият елемент на $ u $. Нека $ u' = u \cap \alpha $.
+Тогава $ \emptyset \neq u' \subseteq \alpha $ и понеже $ EWO(\alpha) $ - нека $ y $ е най-малкият елемент на $ u' $.
+Тоест $ y \in u' $ и $ y \cap u' = \emptyset $. $ y \in u' = u \cap \alpha \subseteq u $ и $ y \in \alpha $.
+Да допуснем, че $ y \cap u \neq \emptyset $. Нека $ z \in y \cap u $. Така $ z \in y $ и $ z \in u $. Но $ y \in \alpha $
+и $ trans(\alpha)$, от където $ z \in \alpha $. Тъй като $ z \in u $, то $ z \in u \cap \alpha = u' $.
+Следователно $ z \in y \cap u' = \emptyset $ - противоречие! Следователно $ y \cap u = \emptyset $ и $ y \in u $
+
 \end{document}
