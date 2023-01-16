@@ -451,12 +451,14 @@ $A \times B = \{<a,b>\ |\ a \in A \land b \in B\}$.
 и $ x \in A \times B \Leftrightarrow \phi(x) $
 \bigbreak
 
-\underline{Наблюдение:} $ <a,b>, a \in A$ и $b \in B$\\
-$ \{ a\} \subseteq  A \subseteq A \cup B$, $ \{ a,b\} \subseteq A \cup B$\\
-$ \{ a\}, \{ a, b\} \in \mathcal{P}(A \cup B) $\\
-$ \{ \{ a\}, \{ a,b\}\} \subseteq \mathcal{P}(A \cup B) $ \\
-$ <a,b> \subseteq \mathcal{P}(A \cup B) $ \\
-$ <a,b> \in \mathcal{P}( \mathcal{P} (A \cup B)) $ \\
+\underline{Наблюдение:} Ако $ <a,b>, a \in A$ и $b \in B$
+\begin{itemize}
+  \item $ \{ a\} \subseteq  A \subseteq A \cup B$, $ \{ a,b\} \subseteq A \cup B$
+  \item $ \{ a\}, \{ a, b\} \in \mathcal{P}(A \cup B) $
+  \item $ \{ \{ a\}, \{ a,b\}\} \subseteq \mathcal{P}(A \cup B) $
+  \item $ <a,b> \subseteq \mathcal{P}(A \cup B) $
+  \item $ <a,b> \in \mathcal{P}( \mathcal{P} (A \cup B)) $
+\end{itemize}
 
 \bigbreak
 \fbox{Тв} За вс. 2 мн-ва $A$ и $B$, същ. единствено мн-во $C$, такова че:\\
@@ -524,7 +526,9 @@ $(\supseteq)$ Нека $u \in \bigcup{ \{B \times x\ |\ x \in A\}} $. Нека $
 
 \hrule
 \bigbreak
-\underline{Сега от Тинко:}\\
+\begin{center}
+(от Тинко)
+\end{center}
 Множествата са естествени числа - $\mathbb{N}$,\\
 т.е. един обект е множество $\Longleftrightarrow $ този обект е естествено число.
 \bigbreak
@@ -632,36 +636,36 @@ x \in A \land \phi(x,z,\overline{u})
 \bigbreak
 
 Разглеждаме: $ \mathcal{P}(\emptyset) = \{ \emptyset\}, A \leftrightharpoons \mathcal{P}(
-\{\emptyset\}
-) = \{ \emptyset, \{ \emptyset\}\} $\\
+\{\emptyset\}) = \{ \emptyset, \{ \emptyset\}\} $\\
 $ \phi(x,y) \leftrightharpoons (x = \emptyset \land y = a) \lor (x = \{ \emptyset\} \land y = b) )$\\
 $ \forall{x} \forall{y_1} \forall{y_2} ( \phi(x,y_1) \land \phi(x,y_2) \Rightarrow  y_1 = y_2)$\\
 $ \exists{B} \forall{z} (z \in B \Leftrightarrow \exists{x} (x \in A \land \phi(x,z)))$\\
-\bigbreak
+\clearpage
 
-\fbox{Аксиома за избора ($ \mathcal{AC} $)} Нека имам някакво разделяне(разбиване) на множеството A
-и взема по един елемент от всяка част.
+\fbox{Аксиома за избора ($ \mathcal{AC} $)} Нека имаме някакво разделяне(разбиване) на множеството A
+и вземем по един елемент от всяка част. Тоест
 $ \forall{z} (z \in A \Rightarrow  \bigcap z$ е синглетон ($ \exists{u} (z \cap c = \{ u\})$))
 \bigbreak
-С помощта на аксиомата за избора се доказва че всяко множество може да бъде добре наредено (contraversial).
+С помощта на аксиомата за избора се доказва че всяко множество може да бъде добре наредено.
 $ \forall{x} (x \in A \Rightarrow \emptyset) \Rightarrow \exists{f} (Func(f))$\\
-$ Fom(f) = A \land \forall{x} (x \in A \Rightarrow f(x) \in x)$\\
-Това поражда и парадокса на Банарх Тарски: Взимаме кълбо B с $r = 1$,
-значи може да разделим $B = B_1 \cup B_2 \cup ... \cup B_7$. След което можем да вземем
-$B_1 \cup B_2 \cup B_3$ с $r = 1$ и $B_4 \cup B_5 \cup ... \cup B_17$ с $r = 1$ - абсурд!
+$ Fom(f) = A \land \forall{x} (x \in A \Rightarrow f(x) \in x)$
+\bigbreak
+Това поражда и парадокса на Банарх Тарски:\\
+Взимаме кълбо B с $r = 1$, значи може да разделим $B = B_1 \cup B_2 \cup ... \cup B_7$. След което можем да вземем
+$B_1 \cup B_2 \cup B_3$ с $r = 1$ и $B_4 \cup B_5 \cup ... \cup B_17$ с $r = 1$ - абсурд!\\
 Аксиомата за избора не е конструктивна!
 \bigbreak
 
-\underline{Аксиомата:} Аксиома на мултипликативност - форма на Ръсел, защото още не сме въвели понятието за функция\\
+\underline{Аксиомата:} Аксиома на мултипликативност - форма на Ръсел (защото още не сме въвели понятието за функция):\\
 $ \forall{A} ( \forall{x} (x \in A \Rightarrow x \neq \emptyset) \land \forall{x} \forall{y} (
 x \in A \land y \in A \land x \neq y \Rightarrow x \cap y = \emptyset)
 \Rightarrow \exists{C} \forall{x} (x \in A \Rightarrow  \exists{u} (x \cap C = \{ u\})))$
 \bigbreak
 
-\underline{Заб:} Ако $A$ е крайно - всичко е точно. Но ако $A$ е безкрайно вече е различно.
+\underline{Заб:} Ако $A$ е крайно - всичко е наред, но ако $A$ е безкрайно вече е различно.
 \bigbreak
 
-$ f: A \rightarrow B, A \twoheadrightarrow B$ (сюрекция), то можем да ограничим домейна за да получим биекция.
+$ f: A \rightarrow B, A \twoheadrightarrow B$ (сюрекция), то можем да ограничим домейна, за да получим биекция.
 Тоест съществува $A_0 \subseteq A : f \upharpoonright A_0$ е биекция м-ду $A_0$ и $B$.
 
 \clearpage
@@ -824,10 +828,8 @@ $x \in \cap A \Leftrightarrow \forall{a \in A}(x \in a)$
 Но $<a_0,b> \in R$, от където $a_0 = a$. В частност $a_0 \in x$, но $x$ е произволнo. Следователно $a_0 \in \cap X$.
 Но тогава $b \in R[\cap X]$, защото $<a_0,b> \in R$ и $a_0 \in \cap X$.
 Така $\cap \{R[x]\ |\ x \in X\} \subseteq R[\cap X]$
-\bigbreak
+\clearpage
 
-\bigbreak
-\hrule
 \begin{center}
 \fbox{< Функции >}
 \end{center}
@@ -847,7 +849,7 @@ $x \in \cap A \Leftrightarrow \forall{a \in A}(x \in a)$
   \item $R: A \rightarrow B, R$ е инекция (мономорфизъм),
     ако $\forall{x}\forall{x'}\forall{y}(x \neq x' \land <x,y> \in R \Rightarrow <x',y> \notin R)$.
     Означаваме $R: A \rightarrowtail B$
-  \item $R: A \rightarrow B$ е биекция, ако $R$ е сюрекция на $A$ в-ху $B$ и $R$ е инекция.
+  \item $R: A \rightarrow B$ е биекция, ако $R$ е сюрекция на $A$ в-ху $B$ и $R$ е инекция.\\
     Означаваме $R: A \rightbijectionarrow B$
 \end{enumerate}
 \bigbreak
@@ -858,7 +860,8 @@ $x \in \cap A \Leftrightarrow \forall{a \in A}(x \in a)$
 \bigbreak
 
 \fbox{Следствие} Нека $Func(f)$ и нека $X$ и $Y$ са такива мн-ва че:\\
-$(\forall{x \in X})(x \subseteq Dom(f))$ и $(\forall{y \in Y})(y \subseteq Rng(f))$.\\
+$(\forall{x \in X})(x \subseteq Dom(f))$ и $(\forall{y \in Y})(y \subseteq Rng(f))$
+\bigbreak
 Тогава $f[\bigcup X ] = \bigcup \{f[x]\ |\ x \in X\}$
 и $f[\cap X ] \subseteq \cap \{f[x]\ |\ x \in X\}$ (равенство не винаги се достига).\\
 Изпълнено е че $f ^{-1}[\bigcup X] = \bigcup \{f ^{-1} [x]\ |\ x \in X\}$
@@ -898,20 +901,16 @@ $f: A \rightarrow B, A_1 \subseteq A$\\
 Рестрикция на $f$ до $A_1$: $f \upharpoonright A_1 \leftrightharpoons f \cap (A_1 \times Rng(f))$
 \bigbreak
 
-\fbox{Тв} $f$ и $g$ са съвместими $\Longleftrightarrow f\upharpoonleft(Dom(f) \cap Dom(g)) = g \upharpoonright (Dom(f) \cap Dom(g))$
-\bigbreak
-
-\underline{Док:} \textit{To be continued...}\\
 \bigbreak
 \hrule
 \bigbreak
-Да уточним някакви неща: \\
+\underline{Да уточним някои неща:} \\
 $ f : A \rightarrow B, A_1 \subseteq A = Dom(f) $\\
 Рестрикция на $f$ до $ A_1 $: $ f \upharpoonright A_1 = f \cap (A_1 \times Rng(f)) = \{<x,f(x)>\ |\ x \in A_1\}  $
 \begin{enumerate}
-  \item $ Funct(f \upharpoonright A_1) $
+  \item $ Func(f \upharpoonright A_1) $
   \item $ f \upharpoonright A_1 \subseteq f \upharpoonright A$
-  \item $ A_1 \subseteq A2 \subseteq A \Rightarrow f \upharpoonright A_1 \subseteq f \upharpoonright A_2$
+  \item $ A_1 \subseteq A_2 \subseteq A \Rightarrow f \upharpoonright A_1 \subseteq f \upharpoonright A_2$
 \end{enumerate}
 \bigbreak
 
@@ -922,13 +921,14 @@ $ f : A \rightarrow B, A_1 \subseteq A = Dom(f) $\\
 g \upharpoonright (Dom(f) \cap Dom(g))$
 \bigbreak
 
-\underline{Док:} ($ \rightarrow $) Нека $Funct(f \cup g)$. Нека $ u \in f \upharpoonright (Dom(f) \cap Dom(g))$.
-Тогава $u = <x,y>$ като $ x \in Dom(f) \cap Dom(g)$ и $ y = (f \upharpoonright (Dom(f) \cap Dom(g)))(x) = f(x) $.
-Poneve $x \in Dom(g)$, то $ <x,g(x)> \in g $. Така $<x,f(x)>, <x,g(x)> \in f \cup g$. Понеже $Funct(f \cup g)$,
-то $f(x) = y = g(x)$. След. $u = <x,y> = <x,g(x)> \in g$ и понеже $x \in Dom(f) \cap Dom(g)$,
-то $u = <x,y> \in y \upharpoonright (Dom(f) \cap Dom(g))$.
+\underline{($ \Rightarrow $)} Нека $Funct(f \cup g)$. Нека $ u \in f \upharpoonright (Dom(f) \cap Dom(g))$.
+Тогава $u = <x,y>$ като $ x \in Dom(f) \cap Dom(g)$ и $ y = (f \upharpoonright (Dom(f) \cap Dom(g)))(x) = f(x) $.\\
+Понеже $x \in Dom(g)$, то $ <x,g(x)> \in g $. Така $<x,f(x)>, <x,g(x)> \in f \cup g$.\\
+Понеже $Funct(f \cup g)$,
+то $f(x) = y = g(x)$. Следователно $u = <x,y> = <x,g(x)> \in g$\\
+и понеже $x \in Dom(f) \cap Dom(g)$, то $u = <x,y> \in y \upharpoonright (Dom(f) \cap Dom(g))$.
 \bigbreak
-($\Leftarrow$) Нека $f \upharpoonright (Dom(f) \cap Dom(g)) = g \upharpoonright (Dom(f) \cap Dom(g))$.
+\underline{($\Leftarrow$)} Нека $f \upharpoonright (Dom(f) \cap Dom(g)) = g \upharpoonright (Dom(f) \cap Dom(g))$.
 Ясно е, че $Rel(f \cup g)$. Нека $<x,y>, <x,y'> \in f \cup g$ \\
 Възможни са 3 случея:
 \begin{enumerate}
@@ -955,7 +955,6 @@ $ Rng(\bigcup F) = \bigcap \{Rng(f)\ |\ f \in F\} $
 Нека сега $f_0 \in F$ е т.ч. $x \in Dom(f_0)$. Но $f_0 \subseteq \bigcup F$ и $ \bigcup F$ е функция, следователно
 $Dom(f_0) \subseteq Dom(\bigcup F)$. Следователно $x \in Dom(\bigcup F)$
 
-\clearpage
 \begin{center}
   \underline{\huge\normalfont Лекция 5}
 \end{center}
@@ -963,27 +962,28 @@ $Dom(f_0) \subseteq Dom(\bigcup F)$. Следователно $x \in Dom(\bigcup
 
 \fbox{Опр}
 За $f : \mathcal{P}(A) \rightarrow \mathcal{P}(A)$, ще казваме че $f$ е монотонна, ако: \\
-$ (\forall{X_1 \supset A})(\forall{X_2 \subseteq A})(X_1 \subseteq X2 \rightarrow f(X_1) \subseteq f(X_2)) $
+$ (\forall{X_1 \supset A})(\forall{X_2 \subseteq A})(X_1 \subseteq X_2 \rightarrow f(X_1) \subseteq f(X_2)) $
 \bigbreak
 
 \fbox{Опр}
-И за монотонна $f : B \rightarrow B$, $ x $ е неподвижнда точка на $ f $, ако $f(x) = x$
+За монотонна $f : B \rightarrow B$, $ x $ е неподвижнда точка на $ f $, ако $f(x) = x$
 \bigbreak
 
 \fbox{Лема} (Тарски)\\
 Нека $f: \mathcal{P}(A) \rightarrow \mathcal{P}(A)$ е монотонна функция. Тогава $f$ има неподвижнда точка.\\
 Нещо повече, $ f$ има най-малка и най-голяма неподвижнда точка:\\
 тоест съществуват $X_1,X_2 \in \mathcal{P}(A)$ т.ч.
-$f(X_1) = X_1, f(X_2) = X_2$ и за всяко $X \in \mathcal{P}(A)$ с $f(X) = X$ е изпълнено, че $X_1 \subseteq X \subseteq X_2$.
+$f(X_1) = X_1, f(X_2) = X_2$ и за всяко $X \in \mathcal{P}(A)$\\
+с $f(X) = X$ е изпълнено, че $X_1 \subseteq X \subseteq X_2$.
 \bigbreak
 
 \underline{Док:} Нека $\Pi = \{X\ |\ X \subseteq A \land f(X) \subseteq X\}$
-Понеже $A \in \Pi$, то $\Pi \neq \emptyset$. Нека $X_1 = \bigcap \Pi$.
-За вс. $X \in \Pi$, $X_1 = \bigcap \Pi \subseteq X$. Понеже $f$ е монотонна,
+Понеже $A \in \Pi$, то $\Pi \neq \emptyset$. Нека $X_1 = \bigcap \Pi$.\\
+За всяко $X \in \Pi$, $X_1 = \bigcap \Pi \subseteq X$. Понеже $f$ е монотонна,
 то за вс. $X \in \Pi$, $f(X_1) \subseteq f(X) \subseteq X$. Следователно $f(X_1) \subseteq \bigcap \Pi = X_1$.
 Понеже $X_1 \subseteq A$, то $X_1 \in \Pi$. Отново от монотонността на $f$ имаме, че
-$f(f(X_1)) \subseteq f(X_1)$. Значи $f(X_1) \in \Pi$. Следователно $X_1 \subseteq f(X_1)$.
-От тук $f(X_1) = X_1$ и така $X_1$ е неподвижнда точка на $f$. Ясно се вижда че:
+$f(f(X_1)) \subseteq f(X_1)$. Значи $f(X_1) \in \Pi$. Следователно $X_1 \subseteq f(X_1)$.\\
+От тук $f(X_1) = X_1$ и така $X_1$ е неподвижнда точка на $f$. Ясно се вижда че:\\
 $f(X) = X \implies x \in \Pi \implies X_1 = \bigcap \Pi \subseteq X \implies X_1$ е най-малката неподвижна точка на $f$\\
 \underline{За най-голяма неподвижна точка - за домашна!}
 \bigbreak
@@ -1232,7 +1232,7 @@ $\overline{\overline{\mathcal{P}(\bigcup A_0)}} \leq \overline{\overline{\bigcup
 \hrule
 \bigbreak
 
-Вярно ли е че $\forall{A}\exists{R}(<A,R> - $ч.н.м.$)$? Да - ${id_A}^{-1} = id_A$
+Вярно ли е че $\forall{A}\exists{R}(<A,R> - $ч.н.м.$)$? Да: ${id_A}^{-1} = id_A$
 \bigbreak
 
 \fbox{Опр} Ако $<A,R>$ е частично наредено множество, $x,y \in A$. Казваме че $x$ и $y$ са $R$-сравними, ако
@@ -1266,7 +1266,9 @@ $<x,y> \in R \lor <y,x> \in R$.
 в $A$. Ако $R$ е с.ч.н. в $A$, то $R \cup id_A$ е ч.н. в $A$.
 \bigbreak
 
-\underline{Док:} 1) Нека $R$ е ч.н. в $A$.
+\underline{Док:}
+\bigbreak
+1) Нека $R$ е ч.н. в $A$.
 Тогава $(R \setminus id_A) \cap (R \setminus id_A)^{-1} = (R \setminus id_A) \cap (R^{-1} \setminus {id_A}^{-1})
 = (R \setminus id_A) \cap (R^{-1} \setminus id_A) = (R \cap R^{-1}) \setminus id_A \subseteq id_A \setminus id_A
 = \emptyset$, защото $R$ е антисиметрична, т.е. $R \cap R^{-1} \subseteq id_A$.
@@ -1462,7 +1464,13 @@ $ seg(x) \leftrightharpoons \{y\ |\ y < x\}$
 $ (\forall{x \in I})\forall{y}(y \leq x \Rightarrow y \in I) $
 \bigbreak
 
-\underline{От Тинко:}
+\bigbreak
+\hrule
+\bigbreak
+
+\begin{center}
+(от Тинко)
+\end{center}
 \bigbreak
 
 $ A $ е безкрайно $ \implies $ същ. $ A_0, A_0 \subseteq A, A_0$ е изброимо\\
@@ -2110,5 +2118,75 @@ $ y < z \lor y = z \lor z < y $, т.е. $ y \in z \lor y = z \lor z \in y $.
 Да допуснем, че $ y \cap u \neq \emptyset $. Нека $ z \in y \cap u $. Така $ z \in y $ и $ z \in u $. Но $ y \in \alpha $
 и $ trans(\alpha)$, от където $ z \in \alpha $. Тъй като $ z \in u $, то $ z \in u \cap \alpha = u' $.
 Следователно $ z \in y \cap u' = \emptyset $ - противоречие! Следователно $ y \cap u = \emptyset $ и $ y \in u $
+
+\clearpage
+\begin{center}
+  \underline{\huge\normalfont Лекция 7}
+\end{center}
+\bigbreak
+
+Да си припомним някои дефиниции:
+\bigbreak
+$ trans(x) \leftrightharpoons \forall{y}\forall{x}(y \in x \land z \in y \Rightarrow z \in x) $\\
+$ EWO(x) \leftrightharpoons \forall{y}\forall{z}(y \in x \land z \in x \Rightarrow y \in z \lor y = z \lor z \in y )
+\land \forall{u}(\emptyset \neq u \land u \subseteq x \Rightarrow \exists{y} (y \in u \land y \cap u = \emptyset))$
+(трябва да е $ \epsilon WO $)\\
+$ ord(x) \leftrightharpoons trans(x) \land EWO(x) $\\
+10) $ \forall{y} (y \in x \Rightarrow ord(y)) \Rightarrow EWO(x) \land ord(\bigcup x)$
+
+\bigbreak
+\hrule
+\bigbreak
+
+Остава да покажем, че $ EWO(\bigcup x) $, за което е достатъчно да покажем, че $ \bigcup x $ е множество от ординали
+и да използваме първата част на (10)\\
+Нека $ z \in \bigcup x $. Нека $ y $ е свидетел за това $ y \in x $ и $ z \in y $. Така $ ord(y) $ и значи $ z $ е елемент
+на ординал. Следователно $ z $ е ординал. По (Св. 5) $ \Rightarrow EWO(\bigcup x) $
+\bigbreak
+
+11) $ \forall{y}(y \in x \Rightarrow ord(y)) \Rightarrow <x,\epsilon_x>$ - с.д.н.м.,
+където (припомняме) $ \epsilon_x = \{<y,z>\ |\ y,z \in x \land y \in z\} $
+\bigbreak
+$ \lnot ( \alpha \in \alpha), \alpha < \beta \land \beta < \gamma \Rightarrow \alpha < \gamma $\\
+$ \alpha < \beta \Rightarrow \lnot ( \beta < \alpha) $. Следователно $ <x, \epsilon_x> $ - с.ч.н.м.\\
+Нека $ \emptyset \neq u \subseteq x $ (нещо е забравене, to be continued later)
+\bigbreak
+
+12) $ \forall{y}(y \in x \Rightarrow ord(y)) \Rightarrow (\bigcup x \leq \beta
+\Leftrightarrow (\forall{ \alpha \in x})( \alpha \leq \beta))$\\
+т.е. $ \bigcup x $ е най-малкият ординал, който е над всеки един елемент на $ x $
+\bigbreak
+
+\underline{($ \Rightarrow $)} Нека $ \bigcup x \leq \beta $ и $ \alpha \in x  $ е произволен.
+Тогава $ \alpha \subseteq \bigcup x $. Но $ trans( \alpha) $ и по (Св. 6) $ \alpha \leq \bigcup x $,
+от където $ \alpha \leq \beta$
+\bigbreak
+
+\underline{($ \Leftarrow $):} Нека $ (\forall{ \alpha \in x})( \alpha \leq \beta) $. Нека $ z \in \bigcup x $ и $ \alpha $
+е свидетел за това, т.е. $ \alpha \in x $ и $ z \in \alpha $. Тогава $ ord(z), z < \alpha $ и $ \alpha \leq \beta $,
+т.е. $ z < \beta $ и така $ z \in \beta $. Тогава $ \bigcup x \subseteq \beta $
+и от $ trans(\bigcup x), \bigcup x \leq \beta $.
+\bigbreak
+
+13) $ \forall{y}(y \in x \Rightarrow ord(y)) \Rightarrow \exists{ \beta } \forall{ \alpha \in x}( \alpha < \beta)$.\\
+От $ \forall{ \alpha \in x}( \alpha \leq \bigcup x) \implies \forall{ \alpha \in x}( \alpha < S(\bigcup x))$
+\bigbreak
+
+14) (Парадокс на Бурали-Форти) $ \lnot \exists{A} \forall{x}(ord(x) \Rightarrow x \in A) $
+\bigbreak
+
+\underline{Док:} Допускаме противното. Нека $ A $ е такова множество, че $ \forall{x}(ord(x) \Rightarrow x \in A) $\\
+Нека $ B = \{x\ |\ x \in A \land ord(x)\} $. Щом $ A $ е множество, то по аксиомната схема за отделянето -
+$ B $ е множество. Ако $ ord(x) $, то $ x \in A $ и значи $ x \in A \land ord(x) $, т.е. $ x \in B $.
+Ако $ x \in B $, то $ x \in A $ и $ ord(x) $; в частност $ ord(x) $. Така $ \forall{x}(x \in B \Leftrightarrow ord(x)) $.
+В частност, $ B $ е множество от ординали. По (Св. 13) - има ординал т.ч. $ \forall{ \alpha \in B} ( \alpha < \beta) $
+и $ \beta \geq S(\bigcup B) $. Следователно $ \beta \notin B $, защото е строго по-голям от всеки негов елемент.
+Противоречие! Защото $ B $ съдържа всички ординали. Значи няма такова множество.
+\bigbreak
+
+15) $ x \neq \emptyset \land \forall{y \in x}(ord(y)) \implies \exists{ \alpha \in x}\forall{y \in x}( \alpha \leq y)$
+
+
+
 
 \end{document}
