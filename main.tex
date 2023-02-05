@@ -81,8 +81,7 @@ ZFC - ZF заедно с аксиомата за избора
   \item $\exists{x}(x = x)$  - Има поне един обект в света
   \item $\forall{x}\forall{y}(\forall{z}(z \in x \Leftrightarrow z \in y) \Rightarrow x = y))$
 - Обемност / екстенсионалност. Ако 2 множества имат едни и същи елементи, то те са равни.
-  \item $\exists{x}(x = x)$ - принцип за ограничената абстракция / схема \\
-    за отделянето.
+  \item $\forall{A}\forall{u_1}\forall{u_2}...\forall{u_n}\exists{B}\forall{z}(z \in B \Leftrightarrow \phi(z, \overline{u}) \land z \in A)$ - принцип за ограничената абстракция / схема за отделянето.
 \end{enumerate}
 \underline{Док 2.2:} $\forall{y}\forall{z}(y = z \Rightarrow \forall{x}(x \in y \Leftrightarrow x \in z))$ \\
 Нека предположим че $y = z$, нека x е произволно множество. Използваме логическа аксиома 4 за да докажем.
@@ -962,7 +961,7 @@ $Dom(f_0) \subseteq Dom(\bigcup F)$. Следователно $x \in Dom(\bigcup
 
 \fbox{Опр}
 За $f : \mathcal{P}(A) \rightarrow \mathcal{P}(A)$, ще казваме че $f$ е монотонна, ако: \\
-$ (\forall{X_1 \supset A})(\forall{X_2 \subseteq A})(X_1 \subseteq X_2 \rightarrow f(X_1) \subseteq f(X_2)) $
+$ (\forall{X_1 \subseteq A})(\forall{X_2 \subseteq A})(X_1 \subseteq X_2 \rightarrow f(X_1) \subseteq f(X_2)) $
 \bigbreak
 
 \fbox{Опр}
